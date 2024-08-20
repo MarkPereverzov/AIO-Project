@@ -3,9 +3,12 @@
   <head>
     <meta charset="UTF-8" />
     <title>AIO</title>
-    <link rel="stylesheet" href="index.css" />
+    <link rel="stylesheet" href="index.css"/>
   </head>
+
   <body>
+
+    <div class="side-menu"></div>
 
     <penis class="penis">
     <div class="card">
@@ -58,21 +61,15 @@
     </div>
   </penis>
 
-  
-
     <div class="gradient-bg">
-      <svg viewBox="0 0 100vw 100vw" xmlns='http://www.w3.org/2000/svg' class="noiseBg"
-           >
+      <svg viewBox="0 0 100vw 100vw" xmlns='http://www.w3.org/2000/svg' class="noiseBg">
         <filter id='noiseFilterBg'>
           <feTurbulence type='fractalNoise' baseFrequency='0.6' stitchTiles='stitch' />
         </filter>
     
-        <rect
-              width='100%'
-              height='100%'
-              preserveAspectRatio="xMidYMid meet"
-              filter='url(#noiseFilterBg)' />
+        <rect width='100%' height='100%' preserveAspectRatio="xMidYMid meet" filter='url(#noiseFilterBg)' />
       </svg>
+
       <svg xmlns="http://www.w3.org/2000/svg" class="svgBlur">
         <defs>
           <filter id="goo">
@@ -82,14 +79,16 @@
           </filter>
         </defs>
       </svg>
+
       <div class="gradients-container">
-        <div class="g1"></div>
-        <div class="g2"></div>
-        <div class="g3"></div>
-        <div class="g4"></div>
-        <div class="g5"></div>
+        <div class="color-1"></div>
+        <div class="color-2"></div>
+        <div class="color-3"></div>
+        <div class="color-4"></div>
+        <div class="color-5"></div>
         <div class="interactive"></div>
       </div>
+
     </div>
   </body>
 </html>
