@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>AIO</title>
+    <link rel="stylesheet" href="index.css" />
+  </head>
+  <body>
+
+    <penis class="penis">
+    <div class="card">
+      <svg viewBox="0 0 100% 100%" xmlns='http://www.w3.org/2000/svg' class="noise">
+        <filter id='noiseFilter'>
+          <feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='6' stitchTiles='stitch'/>
+        </filter>
+        <rect width='100%' height='100%' preserveAspectRatio="xMidYMid meet" filter='url(#noiseFilter)'/>
+      </svg>
+      
+      <div class="content">
+        <h1>Сколько я держусь без курения?</h1>
+        <p>Давай проверим твою выдержку и подсчитаем, сколько денег ты сумел сэкономить.</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="content">
+        <h1>Что с моим сном?</h1>
+        <p>Настало время узнать, насколько крепко ты спишь.</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="content">
+        <h1>На что уходит мой бюджет?</h1>
+        <p>Считается некрасивым заглядывать в чужой кошелек, но с твоего разрешения мы это все-таки сделаем.</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="content">
+        <h1>Чем же я питаюсь?</h1>
+        <p>Пришло время обратить внимание на питание, и мы поможем тебе в этом.</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="content">
+        <h1>Мне пора на работу?</h1>
+        <p>Теперь тебе не нужно беспокоиться о том, что опоздаешь на работу — мы напомним тебе вовремя.</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="content">
+        <h1>Сколько я воздерживаюсь?</h1>
+        <p>Воздержание — личное дело каждого, и мы обещаем сохранить это в тайне.</p>
+      </div>
+    </div>
+  </penis>
+
+  
+
+    <div class="gradient-bg">
+      <svg viewBox="0 0 100vw 100vw" xmlns='http://www.w3.org/2000/svg' class="noiseBg"
+           >
+        <filter id='noiseFilterBg'>
+          <feTurbulence type='fractalNoise' baseFrequency='0.6' stitchTiles='stitch' />
+        </filter>
+    
+        <rect
+              width='100%'
+              height='100%'
+              preserveAspectRatio="xMidYMid meet"
+              filter='url(#noiseFilterBg)' />
+      </svg>
+      <svg xmlns="http://www.w3.org/2000/svg" class="svgBlur">
+        <defs>
+          <filter id="goo">
+            <feGaussianBlur in="SourceGraphic" stdDeviation="10" result="blur" />
+            <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 18 -8" result="goo" />
+            <feBlend in="SourceGraphic" in2="goo" />
+          </filter>
+        </defs>
+      </svg>
+      <div class="gradients-container">
+        <div class="g1"></div>
+        <div class="g2"></div>
+        <div class="g3"></div>
+        <div class="g4"></div>
+        <div class="g5"></div>
+        <div class="interactive"></div>
+      </div>
+    </div>
+  </body>
+</html>
+
+
