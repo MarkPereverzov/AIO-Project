@@ -39,7 +39,7 @@ function Main() {
         <Card address="Budget" image="budget" title="На что уходит мой бюджет?" text="Считается некрасивым заглядывать в чужой кошелек, но с твоего разрешения мы это все-таки сделаем."></Card>
         <Card address="Nutrion" image="food" title="Чем же я питаюсь?" text="Пришло время обратить внимание на питание, и мы поможем тебе в этом."></Card>
         <Card address="Job" image="job" title="Мне пора на работу?" text="Теперь тебе не нужно беспокоиться о том, что опоздаешь на работу — мы напомним тебе вовремя."></Card>
-        <AddCard address="NoSmoking" image="plus" title="Добавить?"></AddCard>
+        <AddCard image="plus" title="Добавить"></AddCard>
       </div>
     </>
   );
@@ -48,10 +48,9 @@ function Main() {
 function NoSmoking() {
   return (
     <div>
-      <Header></Header>
+      <Header title="Сколько я держусь без курения?"></Header>
       <penis class="CardBoard">
-        <h1>NoSmoking</h1>
-        <NavLink to='/'>Go to Main</NavLink>
+        <NavLink to='/'><h1>Вернуться назад</h1></NavLink>
       </penis>
     </div>
   );
@@ -60,9 +59,9 @@ function NoSmoking() {
 function Dream() {
   return (
     <div>
+      <Header title="Что с моим сном?"></Header>
       <penis class="CardBoard">
-        <h1>Dream</h1>
-        <NavLink to='/'>Go to Main</NavLink>
+        <NavLink to='/'><h1>Вернуться назад</h1></NavLink>
       </penis>
     </div>
   );
@@ -71,9 +70,9 @@ function Dream() {
 function Budget() {
   return (
     <div>
+      <Header title="На что уходит мой бюджет?"></Header>
       <penis class="CardBoard">
-        <h1>Budget</h1>
-        <NavLink to='/'>Go to Main</NavLink>
+        <NavLink to='/'><h1>Вернуться назад</h1></NavLink>
       </penis>
     </div>
   );
@@ -82,9 +81,9 @@ function Budget() {
 function Nutrion() {
   return (
     <div>
+      <Header title="Чем же я питаюсь?"></Header>
       <penis class="CardBoard">
-        <h1>Nutrion</h1>
-        <NavLink to='/'>Go to Main</NavLink>
+        <NavLink to='/'><h1>Вернуться назад</h1></NavLink>
       </penis>
     </div>
   );
@@ -93,17 +92,16 @@ function Nutrion() {
 function Job() {
   return (
     <div>
+      <Header title="Мне пора на работу?"></Header>
       <penis class="CardBoard">
-        <h1>Job</h1>
-        <NavLink to='/'>Go to Main</NavLink>
+        <NavLink to='/'><h1>Вернуться назад</h1></NavLink>
       </penis>
     </div>
   );
 }
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
+      <header className="Main-container">
         <HashRouter>
           <Routes>
             <Route path='/' element={<Main />}></Route>
@@ -115,7 +113,6 @@ function App() {
           </Routes>
         </HashRouter>
       </header>
-    </div>
   );
 }
 
