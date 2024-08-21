@@ -6,7 +6,7 @@ export default function NoSmoking() {
       <>
         <Header title="Сколько я держусь без курения?"></Header>
         <div className='page-container'>
-            <NavLink to='/'>Вернуться назад</NavLink>
+          <NavLink to='/'><h1>Вернуться назад</h1></NavLink>
         </div>
       </>
     );

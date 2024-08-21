@@ -8,7 +8,7 @@ export default function CardBoard() {
             <Card address="Budget" image="budget" title="На что уходит мой бюджет?" text="Считается некрасивым заглядывать в чужой кошелек, но с твоего разрешения мы это все-таки сделаем."></Card>
             <Card address="Nutrion" image="food" title="Чем же я питаюсь?" text="Пришло время обратить внимание на питание, и мы поможем тебе в этом."></Card>
             <Card address="Job" image="job" title="Мне пора на работу?" text="Теперь тебе не нужно беспокоиться о том, что опоздаешь на работу — мы напомним тебе вовремя."></Card>
-            <AddCard image="plus" title="Добавить?"></AddCard>
+            <AddCard image="plus" title="Добавить"></AddCard>
         </div>
     );
 }

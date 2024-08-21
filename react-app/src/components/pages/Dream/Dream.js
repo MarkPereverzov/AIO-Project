@@ -6,7 +6,7 @@ export default function Dream() {
       <>
         <Header title="Что с моим сном?"></Header>
         <div className='page-container'>
-            <NavLink to='/'>Вернуться назад</NavLink>
+            <NavLink to='/'><h1>Вернуться назад</h1></NavLink>
         </div>
       </>
     );
