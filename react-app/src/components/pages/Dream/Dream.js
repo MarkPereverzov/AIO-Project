@@ -1,12 +1,13 @@
 import { NavLink } from 'react-router-dom';
+import {Header}  from '../../widgets'
 
 export default function Dream() {
     return (
-      <div>
-        <penis class="CardBoard">
-          <h1>Dream</h1>
-          <NavLink to='/'>Go to Main</NavLink>
-        </penis>
-      </div>
+      <>
+        <Header title="Что с моим сном?"></Header>
+        <div className='page-container'>
+            <NavLink to='/'>Вернуться назад</NavLink>
+        </div>
+      </>
     );
 }

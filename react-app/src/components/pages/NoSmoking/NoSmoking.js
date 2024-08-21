@@ -3,12 +3,11 @@ import { Header } from '../../widgets'
 
 export default function NoSmoking() {
     return (
-      <div>
-        <Header></Header>
-        <penis class="CardBoard">
-          <h1>NoSmoking</h1>
-          <NavLink to='/'>Go to Main</NavLink>
-        </penis>
-      </div>
+      <>
+        <Header title="Сколько я держусь без курения?"></Header>
+        <div className='page-container'>
+            <NavLink to='/'>Вернуться назад</NavLink>
+        </div>
+      </>
     );
 }
