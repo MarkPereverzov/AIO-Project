@@ -1,6 +1,13 @@
 import {NavLink} from 'react-router-dom';
 
-export default function Card(props){
+interface Props {
+  title: string,
+  text: string,
+  address: string,
+  image: string
+}
+
+export default function Card(props: Props){
     return (
       <NavLink to={`/${props.address}`}>
         <div className="card">

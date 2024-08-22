@@ -4,7 +4,7 @@ import "./MainPage.css"
 export default function MainPage() {
     return (
       <div className="main-container">
-        <Header></Header>
+        <Header title=""></Header>
         <CardBoard></CardBoard>
       </div>
     );

@@ -1,6 +1,10 @@
 import {HashRouter, Routes, Route, NavLink} from 'react-router-dom';
 
-export default function Header(props){
+interface Props {
+    title: string
+}
+
+export default function Header(props: Props){
     return (
         <div className="header">
             <div className="header-content">

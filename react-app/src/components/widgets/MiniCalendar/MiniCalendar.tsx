@@ -1,4 +1,4 @@
-export default MiniCalendar() 
+export default function MiniCalendar() 
 {
     //TODO
     return (
