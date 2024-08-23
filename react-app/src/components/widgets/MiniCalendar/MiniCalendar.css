@@ -1,7 +1,14 @@
 .minicalendar-container{
-    width: 80%;
     display: grid;
-    grid-template-columns: 15%;
-    column-gap: 15px;
-    row-gap: 15px;
+    grid-template-columns: 7;
+    row-gap: 2%;
+    column-gap: 2%;
+    margin-left: 500px;
+    width: 22%;
+}
+.smoke{
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    row-gap: 50px;
 }
