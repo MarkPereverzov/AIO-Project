@@ -1,0 +1,7 @@
+.minicalendar-container{
+    width: 80%;
+    display: grid;
+    grid-template-columns: 15%;
+    column-gap: 15px;
+    row-gap: 15px;
+}
