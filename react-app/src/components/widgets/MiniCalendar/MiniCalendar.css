@@ -3,7 +3,16 @@
     grid-template-columns: 7;
     row-gap: 2%;
     column-gap: 2%;
-    width: 22%;
+    padding-top: 10px;
+}
+.minicalendar-legend{
+    display: grid;
+    grid-template-columns: 7;
+    column-gap: 2%;
+}
+.minicalendar-legend h1 {
+    width: 40px;
+    text-align: center;
 }
 .smoke{
     display: flex;
