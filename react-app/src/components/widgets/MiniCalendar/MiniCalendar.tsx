@@ -12,14 +12,13 @@ interface MiniCalendarState {
 
 export default function MiniCalendar(props: Props) 
 {
-    const [state, setState] = useState<MiniCalendarState>({date:new Date("2024-02-01")});
-
-    console.log(findlastDay(state.date));
+    const [state, setState] = useState<MiniCalendarState>({date:new Date()});
 
     let MC_days = [];
+    const shift = findShift(state.date);
     for(let i = 1;i <= findlastDay(state.date);i++)
     {
-        MC_days.push(<MiniCalendarDay day={i} color="#ffffff" shift={findShift(state.date)}/>);
+        MC_days.push(<MiniCalendarDay key={i} day={i} color="#ffffff" shift={shift} />);
     }
 
     //TODO
@@ -42,11 +41,9 @@ export default function MiniCalendar(props: Props)
 }
 
 function findlastDay(date: Date) {
-    console.log(date.getMonth());
-    //date.setDate(0);
-    return(date.getDate());
+    return(new Date(date.getFullYear(),date.getMonth()+1,0).getDate());
 }
 
 function findShift(date: Date) {
-    return(new Date(date.getFullYear(), date.getMonth(), 1).getDay()-1);
+    return(new Date(date.getFullYear(), date.getMonth(), 1).getDay());
 }
