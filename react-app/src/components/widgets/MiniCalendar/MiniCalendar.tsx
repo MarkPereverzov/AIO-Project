@@ -23,7 +23,10 @@ export default function MiniCalendar(props: Props)
 
     //TODO
     return (
-        <div className="minicalendar">
+        <div className="minicalendar" style={{width:"320px"}}>
+            <div className="minicalendar-date">
+                <h1 style={{textAlign:"center"}}>{state.date.toLocaleString('default',{month: 'long',year: "numeric", timeZone:'UTC'})}</h1>
+            </div>
             <div className="minicalendar-legend">
                 <h1 style={{gridColumnStart:1}}>ПН</h1>
                 <h1 style={{gridColumnStart:2}}>ВТ</h1>
