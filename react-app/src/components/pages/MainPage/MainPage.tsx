@@ -5,7 +5,6 @@ export default function MainPage() {
     return (
       <div className="main-container">
         <Header title=""></Header>
-        <SideMenu></SideMenu>
         <CardBoardMain></CardBoardMain>
       </div>
     );

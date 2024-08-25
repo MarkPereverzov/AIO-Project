@@ -7,7 +7,6 @@ export default function NoSmoking() {
       <div className="main-container">
         <Header title=" Какие у меня зависимости?"></Header>
         <CardBoardBadHabits></CardBoardBadHabits>
-        <SideMenu></SideMenu>
       </div>
     );
 }
