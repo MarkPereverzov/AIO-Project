@@ -22,3 +22,14 @@
     width: 100%;
     row-gap: 25px;
 }
+.minicalendar-date{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.minicalendar-date svg{
+    font-size: 28px;
+}
+.minicalendar-date svg :hover{
+    cursor: pointer;
+}
