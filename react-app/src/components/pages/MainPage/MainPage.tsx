@@ -1,4 +1,4 @@
-import {Header, CardBoard, SideMenu} from "../../widgets";
+import {Header, CardBoardMain, SideMenu} from "../../widgets";
 import "./MainPage.css"
 
 export default function MainPage() {
@@ -6,7 +6,7 @@ export default function MainPage() {
       <div className="main-container">
         <Header title=""></Header>
         <SideMenu></SideMenu>
-        <CardBoard></CardBoard>
+        <CardBoardMain></CardBoardMain>
       </div>
     );
 }
