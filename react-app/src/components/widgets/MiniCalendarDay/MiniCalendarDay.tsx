@@ -8,7 +8,6 @@ interface Props {
 }
 
 export default function MiniCalendarDay(props: Props) {
-    console.log(props.shift);
     let shift = props.shift;
     if(props.shift == 0) shift = 7;
     return (

@@ -30,20 +30,6 @@ body {
   border:none;
 }
 
-.header{
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 100%; height: 60px;
-  position: relative;
-  z-index: 2;
-}
-
-.header-content > img{
-  width: 32px; height: 32px;
-  margin: 20px;
-}
-
 .main-container{
   width: 100%;
   height: 100%;

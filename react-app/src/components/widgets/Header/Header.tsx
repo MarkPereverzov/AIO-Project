@@ -1,6 +1,7 @@
 import {HashRouter, Routes, Route, NavLink} from 'react-router-dom';
 import { useState } from 'react';
 import { SideMenu } from '../';
+import './Header.css'
 
 interface HeaderState {
     collapsed?: boolean;
