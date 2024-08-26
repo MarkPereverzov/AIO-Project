@@ -25,7 +25,7 @@ export default function Header(props: HeaderProps){
                     collapsed={state.collapsed}
                     open={()=>setState({collapsed: false})}
                     close={()=>setState({collapsed: true})}
-                />
+                /> 
             </div>
 
             <div className="header-content">
