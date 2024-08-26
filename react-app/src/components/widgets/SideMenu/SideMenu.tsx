@@ -18,7 +18,7 @@ export default function SideMenu(props: SideMenuProps) {
         <div id="mySidenav" className="sidenav" style={{width:props.collapsed ? "0px" : "250px"}}>
             <a href="javascript:void(0)" className="closebtn" onClick={()=>props.close()}>&times;</a>
             <NavElement address="" title="Главная" image="menu"></NavElement>
-            <NavElement address="NoSmoking" title="Зависимости" image="bad-habits"></NavElement>
+            <NavElement address="BadHabits" title="Зависимости" image="bad-habits"></NavElement>
             <NavElement address="Dream" title="Сон" image="dream"></NavElement>
             <NavElement address="Budget" title="Бюджет" image="budget"></NavElement>
             <NavElement address="Nutrion" title="Питание" image="food"></NavElement>
