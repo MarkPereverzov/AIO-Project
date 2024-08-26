@@ -3,33 +3,43 @@
     grid-template-columns: 7;
     row-gap: 2%;
     column-gap: 2%;
-    padding-top: 10px;
 }
+
 .minicalendar-legend{
     display: grid;
     grid-template-columns: 7;
     column-gap: 2%;
 }
+
 .minicalendar-legend h1 {
     width: 40px;
     text-align: center;
 }
-.smoke{
-    display: flex;
-    flex-direction: column;
-    align-content: center;
-    flex-wrap: wrap;
-    width: 100%;
-    row-gap: 25px;
-}
+
 .minicalendar-date{
     display: flex;
     align-items: center;
     justify-content: space-between;
 }
+
 .minicalendar-date svg{
     font-size: 28px;
 }
+
 .minicalendar-date svg :hover{
     cursor: pointer;
 }
+
+.calendar-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 5px;
+    border-radius: 25px;
+    border-color: #000000;
+    user-select: none;
+    width: 375px;
+    height: 375px;
+    box-shadow: 0 4px 90px rgba(0,0,0,0.4);
+    overflow: hidden;
+}  

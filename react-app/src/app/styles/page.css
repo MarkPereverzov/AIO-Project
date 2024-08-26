@@ -1,10 +1,12 @@
 .page-container {
     display: flex;
     flex-wrap: wrap;
-    flex-direction: column;
+    flex-direction: row;
     justify-content: center;
     align-content: center;
     position: relative;
     z-index: 2;
+    position: relative;
+    margin: auto;
   }
   

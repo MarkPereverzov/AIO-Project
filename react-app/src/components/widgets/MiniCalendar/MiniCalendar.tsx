@@ -26,23 +26,25 @@ export default function MiniCalendar(props: Props)
 
     //TODO
     return (
-        <div className="minicalendar" style={{width:"320px"}}>
-            <div className="minicalendar-date">
-                <FontAwesomeIcon onClick={()=>changeDate('decrease',state,setState)} icon={faCaretLeft} />
-                <h1 style={{textAlign:"center"}}>{state.date.toLocaleString('default',{month: 'long',year: "numeric", timeZone:'UTC'})}</h1>
-                <FontAwesomeIcon onClick={()=>changeDate('increase',state,setState)} icon={faCaretRight} />
-            </div>
-            <div className="minicalendar-legend">
-                <h1 style={{gridColumnStart:1}}>ПН</h1>
-                <h1 style={{gridColumnStart:2}}>ВТ</h1>
-                <h1 style={{gridColumnStart:3}}>СР</h1>
-                <h1 style={{gridColumnStart:4}}>ЧТ</h1>
-                <h1 style={{gridColumnStart:5}}>ПТ</h1>
-                <h1 style={{gridColumnStart:6}}>СБ</h1>
-                <h1 style={{gridColumnStart:7}}>НД</h1>
-            </div>
-            <div className="minicalendar-container">
-                {MC_days}
+        <div className="calendar-container">
+            <div className="minicalendar" style={{width:"320px"}}>
+                <div className="minicalendar-date">
+                    <FontAwesomeIcon onClick={()=>changeDate('decrease',state,setState)} icon={faCaretLeft} />
+                    <h1 style={{textAlign:"center"}}>{state.date.toLocaleString('default',{month: 'long',year: "numeric", timeZone:'UTC'})}</h1>
+                    <FontAwesomeIcon onClick={()=>changeDate('increase',state,setState)} icon={faCaretRight} />
+                </div>
+                <div className="minicalendar-legend">
+                    <h1 style={{gridColumnStart:1}}>ПН</h1>
+                    <h1 style={{gridColumnStart:2}}>ВТ</h1>
+                    <h1 style={{gridColumnStart:3}}>СР</h1>
+                    <h1 style={{gridColumnStart:4}}>ЧТ</h1>
+                    <h1 style={{gridColumnStart:5}}>ПТ</h1>
+                    <h1 style={{gridColumnStart:6}}>СБ</h1>
+                    <h1 style={{gridColumnStart:7}}>НД</h1>
+                </div>
+                <div className="minicalendar-container">
+                    {MC_days}
+                </div>
             </div>
         </div>
     );

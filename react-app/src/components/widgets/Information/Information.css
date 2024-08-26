@@ -1,0 +1,14 @@
+.information-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 5px 10px 15px 10px;
+    border-radius: 25px;
+    border-color: #000000;
+    user-select: none;
+    width: 400px;
+    height: 115px;
+    padding: 50px;
+    box-shadow: 0 4px 90px rgba(0,0,0,0.4);
+    overflow: hidden;
+}  

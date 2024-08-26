@@ -1,5 +1,5 @@
 import { NavLink } from 'react-router-dom';
-import { Header, MiniCalendar } from '../../widgets'
+import { Header, Information, MiniCalendar } from '../../widgets'
 
 export default function Smoking() {
     return (
@@ -9,7 +9,16 @@ export default function Smoking() {
           <div className="smoke">
             <MiniCalendar shift={1}></MiniCalendar>
           </div>
-          <NavLink to='/'><h1>Вернуться назад</h1></NavLink>
+
+          <div>
+            <Information title="Когда я бросил курить?" count="Не курю с  00:00:0000 00:00"></Information>
+            <Information title="Сигарет не выкурено" count="0 шт"></Information>
+            <Information title="Не употреблено" count="0 смол"></Information>
+          </div>
+
+          <div>
+            
+          </div>
         </div>
       </>
     );

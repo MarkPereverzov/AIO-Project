@@ -16,7 +16,7 @@ export default function Header(props: HeaderProps){
 
     return (
         <div className="header">
-            <div className="header-content">
+            <div className="header-content left">
                 <img 
                     style={{cursor:"pointer"}}
                     src='./img/menu.png'
