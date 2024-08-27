@@ -7,9 +7,8 @@ export default function Smoking() {
     const periods = usePeriods(new Date());
     console.log(periods);
 
-    const day = hmUsed(periods);
-    const count = day*12;
-    const badSubstance = count * 26;
+    const days = hmUsed(periods);
+    const count = days*12;
 
     return (
       <>
@@ -21,8 +20,8 @@ export default function Smoking() {
 
           <div>
             <Information title="Я не курю с" count={`${new Date(periods.start).toLocaleString('default',{day: 'numeric',month: 'long',year: "numeric", timeZone:'UTC'})}`}></Information>
-            <Information title="Не курю уже" count={`${count} дней`}></Information>
-            <Information title="Мой рекорд" count={`${badSubstance} дней без курения`}></Information>
+            <Information title="Не курю уже" count={`${days} дней`}></Information>
+            <Information title="Мой рекорд" count={`${days} дней без курения`}></Information>
           </div>
 
           <button style={{zIndex:2,marginTop:'30px', alignSelf:'center',fontSize:'26px',borderRadius:'15px', border:'0.5px solid black',backgroundColor:'#f5163b',width:'150px',height:'50px',color:'#f5edef'}}>
