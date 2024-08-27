@@ -3,10 +3,12 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCaretRight } from '@fortawesome/free-solid-svg-icons'
 import { faCaretLeft } from '@fortawesome/free-solid-svg-icons'
 import { ReactEventHandler, useState } from 'react';
+import { FetchPeriods } from "../../pages/Smoking/model/types";
 import "./MiniCalendar.css"
 
 interface Props {
     shift: number,
+    period?: FetchPeriods,
 }
 
 interface MiniCalendarState {
@@ -21,7 +23,11 @@ export default function MiniCalendar(props: Props)
     const shift = findShift(state.date);
     for(let i = 1;i <= findlastDay(state.date);i++)
     {
-        MC_days.push(<MiniCalendarDay key={i} day={i} color="#ffffff" shift={shift} />);
+        const date = state.date;
+        date.setDate(i);
+        let color = "#ffffff";
+        if(props.period && inPeriod(props.period,date)) color = "#ff0000";
+        MC_days.push(<MiniCalendarDay key={i} day={i} color={color} shift={shift} />);
     }
 
     //TODO
@@ -67,3 +73,10 @@ function findlastDay(date: Date) {
 function findShift(date: Date) {
     return(new Date(date.getFullYear(), date.getMonth(), 1).getDay());
 }
+
+function inPeriod(period: FetchPeriods,date: Date): boolean {
+    const start = new Date(period.start).getTime();
+    const end = new Date(period.end).getTime();
+  
+    return start <= date.getTime() && end >= date.getTime();
+} 

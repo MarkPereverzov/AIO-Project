@@ -2,7 +2,7 @@ import './MiniCalendarDay.css';
 
 interface Props {
     day: number,
-    color: `#${string}`,// allow only hex colors
+    color: string,// allow only hex colors
     shift: number;
     //TODO: Create day type instead of color prop
 }

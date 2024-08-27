@@ -8,14 +8,13 @@ export default function Smoking() {
     console.log(periods);
 
     const days = hmUsed(periods);
-    const count = days*12;
 
     return (
       <>
         <Header title="Сколько я держусь без курения?"></Header>
         <div className='page-container'>
           <div className="smoke">
-            <MiniCalendar shift={1}></MiniCalendar>
+            <MiniCalendar period={periods} shift={1} ></MiniCalendar>
           </div>
 
           <div>
