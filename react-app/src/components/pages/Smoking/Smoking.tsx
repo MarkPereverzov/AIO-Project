@@ -11,9 +11,9 @@ export default function Smoking() {
           </div>
 
           <div>
-            <Information title="Когда я бросил курить?" count="Не курю с  00:00:0000 00:00"></Information>
-            <Information title="Сигарет не выкурено" count="0 шт"></Information>
-            <Information title="Не употреблено" count="0 смол"></Information>
+            <Information title="Я не курю с" count="00:00:0000 00:00"></Information>
+            <Information title="Не курю уже" count="0 дней"></Information>
+            <Information title="Мой рекорд" count="0 дней без курения"></Information>
           </div>
 
           <div>
