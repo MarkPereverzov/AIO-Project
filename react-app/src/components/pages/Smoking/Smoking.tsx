@@ -20,9 +20,9 @@ export default function Smoking() {
           </div>
 
           <div>
-            <Information title="Когда я бросил курить?" count={`Не курю с ${new Date(periods.start).toLocaleString('default',{day: 'numeric',month: 'long',year: "numeric", timeZone:'UTC'})}`}></Information>
-            <Information title="Сигарет не выкурено" count={`${count} шт`}></Information>
-            <Information title="Не употреблено" count={`${badSubstance} миллиграм смолы`}></Information>
+            <Information title="Я не курю с" count={`${new Date(periods.start).toLocaleString('default',{day: 'numeric',month: 'long',year: "numeric", timeZone:'UTC'})}`}></Information>
+            <Information title="Не курю уже" count={`${count} дней`}></Information>
+            <Information title="Мой рекорд" count={`${badSubstance} дней без курения`}></Information>
           </div>
 
           <button style={{zIndex:2,marginTop:'30px', alignSelf:'center',fontSize:'26px',borderRadius:'15px', border:'0.5px solid black',backgroundColor:'#f5163b',width:'150px',height:'50px',color:'#f5edef'}}>
