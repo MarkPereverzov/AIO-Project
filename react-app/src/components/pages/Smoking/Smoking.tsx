@@ -24,6 +24,8 @@ export default function Smoking() {
             <Information title="Мой рекорд" count={`${days} дней без курения`}></Information>
           </div>
 
+          <AchivementsBar></AchivementsBar>
+
           <button>
             ЗАКУРИЛ
           </button>
