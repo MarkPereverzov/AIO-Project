@@ -1,0 +1,142 @@
+@charset "UTF-8";
+@import url(https://fonts.googleapis.com/css?family=Fira+Sans:200,400,500);
+a {
+	color: #50585f;
+	text-decoration: none;
+}
+a:hover {
+	color: #383e44;
+}
+div.container {
+	display: flex;
+	flex: auto;
+	flex-direction: column;
+	align-items: flex-start;
+	max-height: 100%;
+}
+.achivements-container {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin: 5px 10px 15px 10px;
+	border-radius: 25px;
+	border-color: #000000;
+	user-select: none;
+	width: 785px;
+	height: 375px;
+	padding: 10px;
+	box-shadow: 0 4px 90px rgba(0, 0, 0, 0.4);
+	position: relative;
+	z-index: 2;
+}
+div.item {
+	display: flex;
+	flex: auto;
+	overflow-y: auto;
+	padding: 0rem 1rem 0rem 1rem;
+}
+.item::-webkit-scrollbar {
+	height: 10px;
+}
+.item::-webkit-scrollbar-track {
+	background: #0f111b;
+	border-radius:20px;
+}
+.item::-webkit-scrollbar-thumb {
+	background: white;
+	border-radius:20px;
+
+}
+#timeline {
+	position: relative;
+	display: table;
+	height: 100%;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 3rem;
+}
+#timeline div:after {
+	content: '';
+	width: 2px;
+	position: absolute;
+	top: 0.5rem;
+	bottom: 0rem;
+	left: 60px;
+	z-index: 1;
+	background: #C5C5C5;
+}
+#timeline h3 {
+	position: -webkit-sticky;
+	position: sticky;
+	top: 5rem;
+	color: #888;
+	margin: 0;
+	font-size: 1em;
+	font-weight: 400;
+}
+@media (min-width: 62em) {
+	#timeline h3 {
+	font-size: 1.1em;
+	}
+}
+#timeline section.year {
+  	position: relative;
+}
+#timeline section.year:first-child section {
+	margin-top: -1em;
+	padding-bottom: 0px;
+}
+#timeline section.year section {
+	position: relative;
+	padding-bottom: 2em;
+	margin-bottom: 1em;
+}
+#timeline section.year ul {
+	list-style-type: none;
+	padding: 0 0 0 75px;
+	margin: 0 0 2em;
+	max-width: 32rem;
+	font-size: 1em;
+}
+@media (min-width: 62em) {
+  	#timeline section.year ul {
+    font-size: 1.1em;
+    padding: 0 0 0 80px;
+  }
+}
+#timeline section.year ul:last-child {
+  	margin-bottom: 0;
+}
+#timeline section.year ul:first-of-type:after {
+	content: '';
+	width: 10px;
+	height: 10px;
+	background: #C5C5C5;
+	border: 2px solid #FFFFFF;
+	-webkit-border-radius: 50%;
+	-moz-border-radius: 50%;
+	-ms-border-radius: 50%;
+	border-radius: 50%;
+	position: absolute;
+	left: 54px;
+	top: 3px;
+	z-index: 2;
+}
+#timeline section.year ul li {
+  	margin-left: 0.5rem;
+}
+#timeline section.year ul li:before {
+	content: '·';
+	margin-left: -0.5rem;
+	padding-right: 0.3rem;
+}
+#timeline section.year ul li:not(:first-child) {
+  	margin-top: 1rem;
+}
+#timeline section.year ul li span.price {
+	color: mediumturquoise;
+	font-weight: 500;
+}
+.usd {
+  	display: inline;
+}

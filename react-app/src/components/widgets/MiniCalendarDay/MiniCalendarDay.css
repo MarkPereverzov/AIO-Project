@@ -8,14 +8,6 @@
     display: flex;
     justify-content: center;
 }
-
 .minicalendar-day-number {
     align-self: center;
-}
-
-h1 {
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 700;
-    font-size: 1.3rem;
-    color: white;
 }

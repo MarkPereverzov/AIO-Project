@@ -31,7 +31,7 @@ export default function MiniCalendar(props: Props)
         dateDay.setDate(i);
         let color = "#ffffff";
         periods?.forEach((period) => {
-            if(period && inPeriod(period, dateDay)) color = "#ff0000";
+            if(period && inPeriod(period, dateDay)) color = "#adff2f";
         });
         
         MC_days.push(<MiniCalendarDay key={i} day={i} color={color} shift={shift} />);

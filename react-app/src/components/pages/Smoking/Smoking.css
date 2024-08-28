@@ -1,10 +1,17 @@
-.badhabit-statistic h1 {
-    margin: 4px 0;
+.block{
+    width: 100%;
+    display: flex;
+    justify-content: center;
 }
-.badhabit-statistic-title {
-    font-size: 1.8rem;
-}
-.badhabit-statistic {
-    margin-top: 50px;
+button{
+    z-index:2;
+    margin-top: 30px;
     align-self: center;
+    font-size: 26px;
+    border-radius: 15px;
+    border: 0.5px solid black;
+    background-color: #f5163b;
+    width: 150px;
+    height: 50px;
+    color: #f5edef;
 }
