@@ -5,28 +5,35 @@ import { faCaretLeft } from '@fortawesome/free-solid-svg-icons'
 import { ReactEventHandler, useState } from 'react';
 import { FetchPeriods } from "../../pages/Smoking/model/types";
 import "./MiniCalendar.css"
+import { usePeriods } from "../../pages/Smoking/model/hooks";
+import { stat } from "fs";
 
 interface Props {
     shift: number,
-    period?: FetchPeriods,
-}
-
+};
 interface MiniCalendarState {
 	date: Date,
 };
 //5.5.4
 export default function MiniCalendar(props: Props) 
 {
-    const [state, setState] = useState<MiniCalendarState>({date:new Date()});
+    const [date, setDate] = useState<Date>(new Date());
+    const periods = usePeriods(date);
+    
+    console.log(date);
+    console.log(periods);
 
     let MC_days = [];
-    const shift = findShift(state.date);
-    for(let i = 1;i <= findlastDay(state.date);i++)
+    const shift = findShift(date);
+    for(let i = 1;i <= findlastDay(date);i++)
     {
-        const date = state.date;
-        date.setDate(i);
+        const dateDay = date;
+        dateDay.setDate(i);
         let color = "#ffffff";
-        if(props.period && inPeriod(props.period,date)) color = "#ff0000";
+        periods?.forEach((period) => {
+            if(period && inPeriod(period, dateDay)) color = "#ff0000";
+        });
+        
         MC_days.push(<MiniCalendarDay key={i} day={i} color={color} shift={shift} />);
     }
 
@@ -35,9 +42,9 @@ export default function MiniCalendar(props: Props)
         <div className="calendar-container">
             <div className="minicalendar" style={{width:"320px"}}>
                 <div className="minicalendar-date">
-                    <FontAwesomeIcon onClick={()=>changeDate('decrease',state,setState)} icon={faCaretLeft} />
-                    <h1 style={{textAlign:"center"}}>{state.date.toLocaleString('default',{month: 'long',year: "numeric", timeZone:'UTC'})}</h1>
-                    <FontAwesomeIcon onClick={()=>changeDate('increase',state,setState)} icon={faCaretRight} />
+                    <FontAwesomeIcon onClick={()=>changeDate('decrease',date,setDate)} icon={faCaretLeft} />
+                    <h1 style={{textAlign:"center"}}>{date.toLocaleString('default',{month: 'long',year: "numeric", timeZone:'UTC'})}</h1>
+                    <FontAwesomeIcon onClick={()=>changeDate('increase',date,setDate)} icon={faCaretRight} />
                 </div>
                 <div className="minicalendar-legend">
                     <h1 style={{gridColumnStart:1}}>ПН</h1>
@@ -56,14 +63,15 @@ export default function MiniCalendar(props: Props)
     );
 }
 
-function changeDate(direction: string, state: MiniCalendarState ,setState: (state: MiniCalendarState) => void) {
-    let date = new Date(state.date);
+function changeDate(direction: string, date: Date ,setDate: (date: Date) => void) {
+    let newDate = new Date(date);
+    newDate.setDate(1);
     switch (direction) {
-        case "decrease": date.setMonth(state.date.getMonth()-1); break;
-        case "increase": date.setMonth(state.date.getMonth()+1); break;
+        case "decrease": newDate.setMonth(date.getMonth()-1); break;
+        case "increase": newDate.setMonth(date.getMonth()+1); break;
         default: break;
     }
-    setState({date: date})
+    setDate(newDate);
 }
 
 function findlastDay(date: Date) {
