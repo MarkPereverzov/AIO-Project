@@ -41,6 +41,7 @@ html, body {
 h1, h2, h3 {
   font-family: 'Montserrat', sans-serif;
   font-weight: 700;
+  font-size: 1.3rem;
 }
 .CardBoard, .CardBoard-BadHabits{
   display: flex;
@@ -63,9 +64,6 @@ h1, h2, h3 {
 }
 .content > img{
   width: 48px; height: 48px;
-}
-h1 {
-  font-size: 1.3rem;
 }
 p {
   font-family: 'Montserrat', sans-serif;

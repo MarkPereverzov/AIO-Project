@@ -1,6 +1,6 @@
 import {HashRouter, Routes, Route, NavLink} from 'react-router-dom';
 import { useState } from 'react';
-import { SideMenu } from '../';
+import { Menu } from '../';
 import './Header.css'
 
 interface HeaderState {
@@ -22,7 +22,7 @@ export default function Header(props: HeaderProps){
                     src='./img/menu.png'
                     onClick={()=>setState({collapsed: false})}
                 />
-                <SideMenu 
+                <Menu 
                     collapsed={state.collapsed}
                     open={()=>setState({collapsed: false})}
                     close={()=>setState({collapsed: true})}

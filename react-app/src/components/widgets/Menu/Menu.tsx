@@ -1,5 +1,5 @@
 import {NavLink} from 'react-router-dom';
-import './SideMenu.css';
+import './Menu.css';
 
 interface SideMenuProps {
     collapsed?: boolean;

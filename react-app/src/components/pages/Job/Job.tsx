@@ -1,5 +1,5 @@
 import { NavLink } from 'react-router-dom';
-import {Header, SideMenu} from '../../widgets'
+import {Header} from '../../widgets'
 
 export default function Job() {
     return (
