@@ -1,17 +1,15 @@
 .header{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%; height: 60px;
-    position: relative;
-    z-index: 3;
-  }
-  
-  .header-content > img{
-    width: 32px; height: 32px;
-    margin: 20px;
-  }
-
-  .left{
-    margin-right: 72px;
-  }
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%; height: 60px;
+  position: relative;
+  z-index: 3;
+}
+.header-content > img{
+  width: 32px; height: 32px;
+  margin: 20px;
+}
+.left{
+  margin-right: 72px;
+}

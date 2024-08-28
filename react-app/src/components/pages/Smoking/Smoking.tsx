@@ -1,5 +1,4 @@
-import { NavLink } from 'react-router-dom';
-import { Header, Information, MiniCalendar } from '../../widgets'
+import { Header, Information, MiniCalendar} from '../../widgets'
 import { usePeriods } from './model/hooks';
 import { FetchPeriods } from './model/types';
 
@@ -21,6 +20,9 @@ export default function Smoking() {
             <Information title="Я не курю с" count={`${new Date(periods.start).toLocaleString('default',{day: 'numeric',month: 'long',year: "numeric", timeZone:'UTC'})}`}></Information>
             <Information title="Не курю уже" count={`${days} дней`}></Information>
             <Information title="Мой рекорд" count={`${days} дней без курения`}></Information>
+          </div>
+
+          <div>
           </div>
 
           <button style={{zIndex:2,marginTop:'30px', alignSelf:'center',fontSize:'26px',borderRadius:'15px', border:'0.5px solid black',backgroundColor:'#f5163b',width:'150px',height:'50px',color:'#f5edef'}}>
