@@ -2,7 +2,7 @@ import { useEffect, useState, useCallback } from "react"
 import { fetchPeriods } from "../api/fetchers"
 import { FetchPeriods } from "./types";
 
-export const usePeriods: (period: Date) => FetchPeriods[] = (period: Date) => {
+export const usePeriods: (period: string) => [FetchPeriods[]] = (period: string) => {
     const [state, setState] = useState([{
         id:"",
         username: "",
@@ -12,13 +12,13 @@ export const usePeriods: (period: Date) => FetchPeriods[] = (period: Date) => {
         end: ""
     }]);
 
-    const fetchData = useCallback(async () => {     
-        setState(await fetchPeriods(period));
-    }, [])
+    const fetchData = async () => {     
+        setState(await fetchPeriods(new Date(period)));
+    }
 
     useEffect(() => {
         fetchData();
-    }, [fetchData]);
+    },[period]);
 
-    return state;
+    return [state];
 }

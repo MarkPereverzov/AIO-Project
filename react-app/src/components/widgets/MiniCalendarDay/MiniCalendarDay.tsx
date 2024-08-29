@@ -11,7 +11,7 @@ export default function MiniCalendarDay(props: Props) {
     let shift = props.shift;
     if(props.shift == 0) shift = 7;
     return (
-        <div className="minicalendar-day" style={{gridColumnStart:(props.day+shift-2)%7+1}}>
+        <div className="minicalendar-day" style={{borderColor: props.color,gridColumnStart:(props.day+shift-2)%7+1}}>
             <h1 className='minicalendar-day-number' style={{color:props.color}}>{props.day}</h1>
         </div>
     );

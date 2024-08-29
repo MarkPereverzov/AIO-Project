@@ -2,7 +2,7 @@ import MiniCalendarDay from "../MiniCalendarDay/MiniCalendarDay";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCaretRight } from '@fortawesome/free-solid-svg-icons'
 import { faCaretLeft } from '@fortawesome/free-solid-svg-icons'
-import { ReactEventHandler, useState } from 'react';
+import { ReactEventHandler, useEffect, useMemo, useState } from 'react';
 import { FetchPeriods } from "../../pages/Smoking/model/types";
 import "./MiniCalendar.css"
 import { usePeriods } from "../../pages/Smoking/model/hooks";
@@ -18,10 +18,7 @@ interface MiniCalendarState {
 export default function MiniCalendar(props: Props) 
 {
     const [date, setDate] = useState<Date>(new Date());
-    const periods = usePeriods(date);
-    
-    console.log(date);
-    console.log(periods);
+    const [periods] = usePeriods(date.toDateString());
 
     let MC_days = [];
     const shift = findShift(date);

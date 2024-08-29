@@ -4,9 +4,8 @@ import { FetchPeriods } from './model/types';
 import "./Smoking.css"
 
 export default function Smoking() {
-    const periods = usePeriods(new Date());
-    console.log(periods);
-
+    const [periods] = usePeriods(new Date().toDateString());
+    
     const last_period = periods.at(periods.length-1);
     const days = last_period ? hmUsed(last_period) : 0;
 
