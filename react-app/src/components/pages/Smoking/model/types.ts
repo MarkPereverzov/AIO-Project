@@ -6,3 +6,10 @@ export interface FetchPeriods {
     start: string,
     end: string
 }
+
+export interface FetchRecords {
+    id: string,
+    username: string,
+    habitId: number,
+    record: number
+}
