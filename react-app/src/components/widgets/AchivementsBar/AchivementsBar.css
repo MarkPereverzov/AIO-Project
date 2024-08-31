@@ -18,13 +18,13 @@ div.container {
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	margin: 5px 10px 15px 10px;
+	margin: 5px;
 	border-radius: 25px;
 	border-color: #000000;
 	user-select: none;
-	width: 785px;
+	width: 675px;
+	padding: 30px;
 	height: 375px;
-	padding: 10px;
 	box-shadow: 0 4px 90px rgba(0, 0, 0, 0.4);
 	position: relative;
 	z-index: 2;
@@ -33,13 +33,16 @@ div.item {
 	display: flex;
 	flex: auto;
 	overflow-y: auto;
-	padding: 0rem 1rem 0rem 1rem;
+	width: 100%;
+	scroll-snap-type: x mandatory;
 }
 .item::-webkit-scrollbar {
 	height: 10px;
+	padding-left: 100px;
+	scrollbar-width: thin;
 }
 .item::-webkit-scrollbar-track {
-	background: #0f111b;
+	background: #0f111b17;
 	border-radius:20px;
 }
 .item::-webkit-scrollbar-thumb {
@@ -54,6 +57,7 @@ div.item {
 	margin-left: auto;
 	margin-right: auto;
 	margin-top: 3rem;
+	scroll-snap-type: x mandatory;
 }
 #timeline div:after {
 	content: '';
@@ -93,7 +97,7 @@ div.item {
 }
 #timeline section.year ul {
 	list-style-type: none;
-	padding: 0 0 0 75px;
+	padding: 0 0 0 80px;
 	margin: 0 0 2em;
 	max-width: 32rem;
 	font-size: 1em;

@@ -2,7 +2,7 @@
 
 .minicalendar-day{
     width: 40px; height: 40px;
-    border: 2px solid rgb(255, 255, 255);
+    border: 3px solid rgb(255, 255, 255);
     border-radius: 100%;
     text-align: center;
     display: flex;
