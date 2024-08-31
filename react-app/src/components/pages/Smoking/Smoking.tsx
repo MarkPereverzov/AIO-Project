@@ -27,7 +27,7 @@ export default function Smoking() {
           <AchivementsBar></AchivementsBar>
 
           <button>
-            ЗАКУРИЛ
+            <h1>ЗАКУРИЛ</h1>
           </button>
         </div>
       </>
