@@ -11,5 +11,6 @@ export interface FetchRecords {
     id: string,
     username: string,
     habitId: number,
-    record: number
+    record: number,
+    lastLatest: string
 }

@@ -28,7 +28,8 @@ export const useRecord: () => [FetchRecords] = () => {
         id: "",
         username: "",
         habitId: 0,
-        record: 0
+        record: 0,
+        lastLatest: ""
     });
 
     const fetchData = async () => {     

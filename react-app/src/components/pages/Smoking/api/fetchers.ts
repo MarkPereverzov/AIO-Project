@@ -42,6 +42,7 @@ export async function fetchStatistic() {
         id: "1",
         username: "wxczxo",
         habitId: 1,
-        record: 11
+        record: 11,
+        lastLatest: "2024-08-11",
     });
 }
