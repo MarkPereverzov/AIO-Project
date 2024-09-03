@@ -35,7 +35,7 @@ export default function Header(props: HeaderProps){
 
             <div className="header-content">
                 <img src='./img/clock.png'/>
-                <img src='./img/avatar.png'/>
+                <NavLink to='Profile'><img src='./img/avatar.png'/></NavLink>
             </div>
         </div>
     );

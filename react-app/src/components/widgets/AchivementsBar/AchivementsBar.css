@@ -113,9 +113,9 @@ div.item {
 }
 #timeline section.year ul:first-of-type:after {
 	content: '';
-	width: 10px;
-	height: 10px;
-	background: #C5C5C5;
+	width: 15px;
+	height: 15px;
+	background: rgb(173, 255, 47);
 	border: 2px solid #FFFFFF;
 	-webkit-border-radius: 50%;
 	-moz-border-radius: 50%;

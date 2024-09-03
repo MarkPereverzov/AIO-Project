@@ -5,6 +5,5 @@ import Information from "./Information/Information";
 import MiniCalendar from "./MiniCalendar/MiniCalendar";
 import Menu from "./Menu/Menu";
 import AchivementsBar from "./AchivementsBar/AchivementsBar";
-import Window from "./Window/Window";
 
-export {AddCard, Card, Header, Information, MiniCalendar, Menu, AchivementsBar, Window};
+export {AddCard, Card, Header, Information, MiniCalendar, Menu, AchivementsBar};

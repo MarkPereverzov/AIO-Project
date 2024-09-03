@@ -1,4 +1,4 @@
-import {Header, Card, AddCard, Window} from "../../widgets";
+import {Header, Card, AddCard} from "../../widgets";
 import "./MainPage.css"
 
 export default function MainPage() {
@@ -13,7 +13,6 @@ export default function MainPage() {
           <Card address="Nutrion" image="food" title="Чем же я питаюсь?" text="Пришло время обратить внимание на питание, и мы поможем тебе в этом."></Card>
           <Card address="Job" image="job" title="Мне пора на работу?" text="Теперь тебе не нужно беспокоиться о том, что опоздаешь на работу — мы напомним тебе вовремя."></Card>
           <AddCard image="plus" title="Добавить"></AddCard>
-          <Window></Window>
         </div>
       </div>
     );

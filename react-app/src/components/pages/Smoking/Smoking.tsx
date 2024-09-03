@@ -1,6 +1,5 @@
 import { Header, Information, MiniCalendar, AchivementsBar} from '../../widgets'
 import { usePeriods, useRecord } from './model/hooks';
-import { FetchPeriods } from './model/types';
 import "./Smoking.css"
 
 export default function Smoking() {
@@ -27,7 +26,7 @@ export default function Smoking() {
           <AchivementsBar></AchivementsBar>
 
           <button>
-            <h1>ЗАКУРИЛ</h1>
+            <h1>Закурил</h1>
           </button>
         </div>
       </>
