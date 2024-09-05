@@ -1,15 +1,24 @@
 import React from "react";
-import {BrowserRouter, HashRouter, Routes, Route} from 'react-router-dom';
-import {BadHabits, Dream, Budget, Nutrion, Job, MainPage, Smoking, Profile } from '../../components/pages';
-import GoogleCallback from '../../components/widgets/GoogleCallback/GoogleCallback';
+import { useEffect } from "react";
+import { BrowserRouter, HashRouter, Routes, Route } from 'react-router-dom';
+import { BadHabits, Dream, Budget, Nutrion, Job, MainPage, Smoking, Profile } from '../../components/pages';
+import { GoogleCallback, AppleCallback } from "../../components/pages/Callbacks";
+import { useToken } from "../../components/context";
 
 export function AppRouter()
 {
+    const { loadTokens } = useToken();
+
+    useEffect(() => {
+        loadTokens();
+    }, [loadTokens]);
+
     return(
         <>
             <BrowserRouter>
                 <Routes >
-                    <Route path='/google/callback' element={<GoogleCallback />}></Route> 
+                    <Route path='/google/callback' element={<GoogleCallback />}></Route>
+                    <Route path='/apple/callback' element={<AppleCallback />}></Route>
                 </Routes>
             </BrowserRouter>
             <HashRouter>
