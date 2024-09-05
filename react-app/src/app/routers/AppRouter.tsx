@@ -19,10 +19,6 @@ export function AppRouter()
                 <Routes >
                     <Route path='/google/callback' element={<GoogleCallback />}></Route>
                     <Route path='/apple/callback' element={<AppleCallback />}></Route>
-                </Routes>
-            </BrowserRouter>
-            <HashRouter>
-                <Routes>
                     <Route path='/' element={<MainPage />}></Route>
                     <Route path='/BadHabits' element={<BadHabits />}></Route>
                     <Route path='/Dream' element={<Dream />}></Route>
@@ -32,7 +28,8 @@ export function AppRouter()
                     <Route path='/Smoking' element={<Smoking />}></Route>
                     <Route path='/Profile' element={<Profile />}></Route>
                 </Routes>
-            </HashRouter>
+            </BrowserRouter>
+            
         </>
     );
 }
