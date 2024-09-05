@@ -9,7 +9,9 @@ export default function Profile() {
                 <form className="form" id="a-form" method="" action="">
                     <h2 className="form_title title">Регистрация</h2>
                     <div className="form__icons">
-                        <img width="48" height="48" src="https://img.icons8.com/color/48/google-logo.png" alt="google-logo"/>
+                        <a href="https://accounts.google.com/o/oauth2/v2/auth?response_type=code&client_id=169777967915-jemriuldqc87jhoar5gn51u2glm3tmca.apps.googleusercontent.com&scope=openid email profile&redirect_uri=http://localhost:3000/google/callback&state=1">
+                            <img width="48" height="48" src="https://img.icons8.com/color/48/google-logo.png" alt="google-logo"/>
+                        </a>
                         <img width="50" height="50" src="https://img.icons8.com/ios-filled/50/mac-os.png" alt="mac-os"/>
                     </div>
                     <span className="form__span">Использовать сервисы для регистрации</span>
