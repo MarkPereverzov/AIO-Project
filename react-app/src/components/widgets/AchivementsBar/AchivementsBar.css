@@ -22,9 +22,9 @@ div.container {
 	border-radius: 25px;
 	border-color: #000000;
 	user-select: none;
-	width: 675px;
-	padding: 30px;
-	height: 375px;
+	padding: 15px;
+    width: 375px;
+    height: 375px;
 	box-shadow: 0 4px 90px rgba(0, 0, 0, 0.4);
 	position: relative;
 	z-index: 2;
@@ -56,48 +56,18 @@ div.item {
 	height: 100%;
 	margin-left: auto;
 	margin-right: auto;
-	margin-top: 3rem;
 	scroll-snap-type: x mandatory;
-}
-#timeline div:after {
-	content: '';
-	width: 2px;
-	position: absolute;
-	top: 0.5rem;
-	bottom: 0rem;
-	left: 60px;
-	z-index: 1;
-	background: #C5C5C5;
-}
-#timeline h3 {
-	position: -webkit-sticky;
-	position: sticky;
-	top: 5rem;
-	color: #888;
-	margin: 0;
-	font-size: 1em;
-	font-weight: 400;
-}
-@media (min-width: 62em) {
-	#timeline h3 {
-	font-size: 1.1em;
-	}
 }
 #timeline section.year {
   	position: relative;
 }
-#timeline section.year:first-child section {
-	margin-top: -1em;
-	padding-bottom: 0px;
-}
 #timeline section.year section {
 	position: relative;
-	padding-bottom: 2em;
 	margin-bottom: 1em;
 }
 #timeline section.year ul {
 	list-style-type: none;
-	padding: 0 0 0 80px;
+	padding: 0 0 0 10px;
 	margin: 0 0 2em;
 	max-width: 32rem;
 	font-size: 1em;
@@ -105,7 +75,7 @@ div.item {
 @media (min-width: 62em) {
   	#timeline section.year ul {
     font-size: 1.1em;
-    padding: 0 0 0 80px;
+    padding: 0 0 0 20px;
   }
 }
 #timeline section.year ul:last-child {
@@ -122,20 +92,17 @@ div.item {
 	-ms-border-radius: 50%;
 	border-radius: 50%;
 	position: absolute;
-	left: 54px;
-	top: 3px;
+	top: 15px;
+	left: 0px;
 	z-index: 2;
 }
 #timeline section.year ul li {
-  	margin-left: 0.5rem;
+  	margin-left: 1.2rem;
 }
 #timeline section.year ul li:before {
 	content: '·';
 	margin-left: -0.5rem;
 	padding-right: 0.3rem;
-}
-#timeline section.year ul li:not(:first-child) {
-  	margin-top: 1rem;
 }
 #timeline section.year ul li span.price {
 	color: mediumturquoise;
@@ -143,4 +110,7 @@ div.item {
 }
 .usd {
   	display: inline;
+}
+.year > h1{
+	padding: 0;
 }

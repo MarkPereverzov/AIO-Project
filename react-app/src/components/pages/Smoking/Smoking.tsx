@@ -11,23 +11,24 @@ export default function Smoking() {
 
     return (
       <>
-        <Header title="Сколько я держусь без курения?"></Header>
         <div className='page-container'>
-          <div className="smoke">
-            <MiniCalendar shift={1} ></MiniCalendar>
+        <Header title="Сколько я держусь без курения?"></Header>
+
+          <div className='CardBoard'>
+            <div>
+              <MiniCalendar shift={1} ></MiniCalendar>
+            </div>
+
+            <div>
+              <Information title="Я не курю с" count={`${new Date(last_period).toLocaleString('default',{day: 'numeric',month: 'long',year: "numeric", timeZone:'UTC'})}`}></Information>
+              <Information title="Не курю уже" count={`${days} дней`}></Information>
+              <Information title="Мой рекорд" count={`${records.record} дней без курения`}></Information>
+            </div>
+
+            <div>
+              <AchivementsBar></AchivementsBar>
+            </div>
           </div>
-
-          <div>
-            <Information title="Я не курю с" count={`${new Date(last_period).toLocaleString('default',{day: 'numeric',month: 'long',year: "numeric", timeZone:'UTC'})}`}></Information>
-            <Information title="Не курю уже" count={`${days} дней`}></Information>
-            <Information title="Мой рекорд" count={`${records.record} дней без курения`}></Information>
-          </div>
-
-          <AchivementsBar></AchivementsBar>
-
-          <button>
-            <h1>Закурил</h1>
-          </button>
         </div>
       </>
     );

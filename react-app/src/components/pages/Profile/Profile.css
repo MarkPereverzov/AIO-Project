@@ -91,6 +91,9 @@ body {
     border-radius: 20px;
     color: white;
 }
+.form__input::placeholder{
+    color: #ffffff;
+}
 .form__input:focus {
     box-shadow: 0 4px 90px rgba(255, 255, 255, 0.836);
 }
