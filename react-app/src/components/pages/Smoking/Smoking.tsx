@@ -1,9 +1,8 @@
 import { Header, Information, MiniCalendar, AchivementsBar} from '../../widgets'
-import { usePeriods, useRecord } from './model/hooks';
+import { useRecord } from './model/hooks';
 import "./Smoking.css"
 
 export default function Smoking() {
-    const [periods] = usePeriods(new Date().toDateString());
     const [records] = useRecord();
 
     const last_period = records.lastLatest;

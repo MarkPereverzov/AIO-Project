@@ -7,6 +7,7 @@ import { FetchPeriods } from "../../pages/Smoking/model/types";
 import "./MiniCalendar.css"
 import { usePeriods } from "../../pages/Smoking/model/hooks";
 import { stat } from "fs";
+import { HealthRecordDto } from "../../../shared/api";
 
 interface Props {
     shift: number,
@@ -79,9 +80,18 @@ function findShift(date: Date) {
     return(new Date(date.getFullYear(), date.getMonth(), 1).getDay());
 }
 
-function inPeriod(period: FetchPeriods,date: Date): boolean {
-    const start = new Date(period.start).getTime();
-    const end = new Date(period.end).getTime();
+function parseDate(dateString: string): Date {
+    const [day, month, year] = dateString.split('.').map(Number);
+    
+    return new Date(year, month - 1, day);
+}
+
+function inPeriod(period: HealthRecordDto,date: Date): boolean {
+    const start = parseDate(period.streakBegin).getTime();
+    const end = parseDate(period.streakEnd).getTime();
+
+    console.log(new Date(start).toLocaleDateString());
+    console.log(new Date(end).toLocaleDateString());
   
     return start <= date.getTime() && end >= date.getTime();
 } 
