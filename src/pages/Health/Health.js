@@ -1,9 +1,9 @@
-import RoundedCarousel from '../../widgets/RoundedCarousel/RoundedCarousel';
+import {Carousel} from '../../widgets/index';
 
 export default function Health () {
     return(
         <div>
-            <RoundedCarousel></RoundedCarousel>
+            <Carousel></Carousel>
         </div>
     );
 }

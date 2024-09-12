@@ -1,6 +1,6 @@
 import React from 'react';
 import { Carousel } from 'react-bootstrap';
-import './RoundedCarousel.css'; // Подключаем стили
+import './Carousel.css';
 
 const slides = [
   { id: 1, title: 'Заголовок 1', content: 'Это описание для слайда 1' },

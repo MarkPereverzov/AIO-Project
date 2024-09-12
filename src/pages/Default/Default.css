@@ -1,0 +1,12 @@
+/* Default.css */
+.grid-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center; /* Центрирование блоков по горизонтали */
+  gap: 20px; /* Отступы между блоками */
+  padding: 20px; /* Отступы вокруг всей сетки */
+}
+
+.grid-container > .block {
+  margin: 0; /* Убедитесь, что margin внутри блоков не конфликтует */
+}
