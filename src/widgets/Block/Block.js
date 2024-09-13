@@ -2,9 +2,11 @@
 import React from 'react';
 import './Block.css';  // Убедитесь, что путь к CSS правильный
 import { FaCircle } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
 
 export default function Block({ title, subtitle }) {
   return (
+    
     <div className="block">
       <div className="block-content">
         <div className="block-icon">

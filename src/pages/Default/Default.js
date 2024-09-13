@@ -1,4 +1,4 @@
-import {Header, Block} from '../../widgets/index';
+import {Header, Block, Footer} from '../../widgets/index';
 import './Default.css';  
 
 export default function Default() {
@@ -18,6 +18,7 @@ export default function Default() {
             <Block key={index} title={block.title} subtitle={block.subtitle} />
           ))}
         </div>
+        <Footer/>
       </div>
     );
   }

@@ -1,0 +1,36 @@
+.modal-content {
+  padding: 20px;
+}
+
+.form-control {
+  margin-bottom: 15px;
+}
+
+button[type="submit"] {
+  width: 100%;
+}
+
+.modal-header {
+  text-align: center;
+}
+
+.modal-title {
+  font-size: 1.5rem;
+}
+
+.avatar-button {
+  display: flex  !important;
+  align-items: center  !important;
+  justify-content: center  !important;
+  font-size: 24px  !important;
+  background: transparent  !important;
+  border: none  !important;
+  height: 50px  !important;
+  width: 50px  !important;
+  transition: 1s !important;
+}
+
+.avatar-button > svg {
+  height: 30px;
+  width: 30px;
+}

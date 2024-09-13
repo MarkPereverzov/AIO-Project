@@ -78,6 +78,8 @@ function ModalRegister({ show, handleClose }) {
           </p>
         </div>
         <hr />
+
+
         <div className="social-login-buttons">
           <Button variant="outline-secondary" className="w-100 mb-2">
             <FaGoogle className="me-2" /> Войти через Google

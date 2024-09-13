@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Offcanvas, Button, Nav } from 'react-bootstrap';
+import {NavLink} from 'react-router-dom';
 import { FaMoneyBillWave, FaBed, FaBriefcase, FaUtensils, FaSmoking, FaBars, FaChevronRight } from 'react-icons/fa';
 import './Menu.css';
 
@@ -35,12 +36,12 @@ export default function Sidebar() {
 
                 {showHabits && (
                 <div className="sidebar-content">
-                    <Nav.Link href="#/smoking">Курение</Nav.Link>
-                    <Nav.Link href="#/alcohol">Алкоголь</Nav.Link>
-                    <Nav.Link href="#/drugs">Наркотики</Nav.Link>
-                    <Nav.Link href="#/sweets">Сладкое</Nav.Link>
-                    <Nav.Link href="#/coffee">Кофе</Nav.Link>
-                    <Nav.Link href="#/porn">Порно</Nav.Link>
+                    <Nav.Link address="/Health">Курение</Nav.Link>
+                    <Nav.Link href="/alcohol">Алкоголь</Nav.Link>
+                    <Nav.Link href="/drugs">Наркотики</Nav.Link>
+                    <Nav.Link href="/sweets">Сладкое</Nav.Link>
+                    <Nav.Link href="/coffee">Кофе</Nav.Link>
+                    <Nav.Link href="/porn">Порно</Nav.Link>
                 </div>
                 )}
 

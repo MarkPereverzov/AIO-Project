@@ -2,10 +2,14 @@
   width: 375px;
   height: 375px;
   border-radius: 25px;
-  background-color: #f8f9fa; /* Светлый фон */
-  overflow: hidden; /* Скрываем переполнение */
-  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Тень */
-  margin: 20px; /* Центрирование карусели */
+  background-color: #f8f9fa;
+  overflow: hidden;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  margin: 20px;
+}
+
+.carousel-indicator [data-bs-target] {
+  background-color: #3a3a3a !important;
 }
 
 .carousel-item-custom {
@@ -14,7 +18,7 @@
   justify-content: space-between;
   height: 100%;
   padding: 20px;
-  text-align: center; /* Центрирование текста */
+  text-align: center;
 }
 
 .carousel-title {
@@ -31,28 +35,51 @@
 .carousel-content p {
   font-size: 1rem;
   margin-bottom: 10px;
+  text-align: left;
+  padding-left: 25px;
+  padding-right: 25px;
+  color: #6c757d;
 }
 
 /* Стили для черных кнопок управления */
 .carousel-control-prev-icon,
 .carousel-control-next-icon {
-  background-color: rgb(255, 70, 70);
-  border-radius: 50%;
-  width: 15px;
-  height: 30px;
+  filter: brightness(0.5);
 }
 
-.carousel-control-prev-icon::before,
-.carousel-control-next-icon::before {
-  content: '';
-  display: block;
-  width: 100%;
-  height: 100%;
-  background-color: rgb(145, 145, 145) !important;
+.carousel-control-prev-icon {
+  right: 10px !important; 
 }
-
 
 .carousel-control-prev:hover,
 .carousel-control-next:hover {
   filter: brightness(0.8); /* Легкое осветление при наведении */
+}
+
+.carousel-indicators > button {
+  filter: brightness(0.5);
+}
+
+.carousel-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.carousel-title {
+  font-size: 1.5rem;
+  margin: 0 10px;
+}
+
+.carousel-nav-button {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: #000;
+}
+
+.carousel-nav-button:hover {
+  color: #007bff; /* Цвет при наведении */
 }
