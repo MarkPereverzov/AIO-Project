@@ -1,6 +1,7 @@
 import { Offcanvas, Nav } from 'react-bootstrap';
 import { FaMoneyBillWave, FaBed, FaBriefcase, FaUtensils, FaSmoking, FaChevronRight } from 'react-icons/fa';
 import { HabitsSection } from './HabitsSection';
+import Link from 'next/link';
 import styles from '../Menu.module.css';
 
 interface OffcanvasProps {
@@ -18,17 +19,17 @@ export const OffcanvasMenu = (
     </Offcanvas.Header>
     <Offcanvas.Body>
       <Nav defaultActiveKey="/" className="flex-column">
-        <Nav.Link onClick={toggleHabits} style={{ cursor: 'pointer' }}>
+        <Nav.Link className={styles.navLink} onClick={toggleHabits} style={{ cursor: 'pointer' }}>
           <FaSmoking className="me-2" />Зависимости
           <FaChevronRight  className="chevron-icon" style={{ transform: showHabits ? 'rotate(90deg)' : 'rotate(0deg)' }} />
         </Nav.Link>
 
         {showHabits && (<HabitsSection/>)}
-
-        <Nav.Link className={styles.navLink} href="/budget"><FaMoneyBillWave className="me-2" />Бюджет</Nav.Link>
-        <Nav.Link className={styles.navLink} href="/sleep"><FaBed className="me-2" />Сон</Nav.Link>
-        <Nav.Link className={styles.navLink} href="/work"><FaBriefcase className="me-2" />Работа</Nav.Link>
-        <Nav.Link className={styles.navLink} href="/nutrition"><FaUtensils className="me-2" />Питание</Nav.Link>
+        
+        <Nav.Link className={styles.navLink}><Link className={styles.link} href="/budget"><FaMoneyBillWave className="me-2" />Бюджет</Link></Nav.Link>
+        <Nav.Link className={styles.navLink}><Link className={styles.link} href="/sleep"><FaBed className="me-2" />Сон</Link></Nav.Link>
+        <Nav.Link className={styles.navLink}><Link className={styles.link} href="/work"><FaBriefcase className="me-2" />Работа</Link></Nav.Link>
+        <Nav.Link className={styles.navLink}><Link className={styles.link} href="/nutrition"><FaUtensils className="me-2" />Питание</Link></Nav.Link>
       </Nav>
     </Offcanvas.Body>
   </Offcanvas>

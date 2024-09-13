@@ -41,3 +41,11 @@
 .sidebarContent {
   padding-left: 25px;
 }
+
+.link {
+  display: block !important;
+  color: black !important;
+  text-decoration: none !important;
+  transition: 1s !important;
+  border-radius: 10px !important;
+}
