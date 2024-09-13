@@ -1,0 +1,1 @@
+export { ModalRegister } from './auth/ui/ModalRegister';

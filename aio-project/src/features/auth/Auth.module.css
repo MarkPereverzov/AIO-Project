@@ -1,0 +1,53 @@
+.modalContent {
+    padding: 20px;
+}
+  
+.formControl {
+  margin-bottom: 15px;
+}
+
+.submitButton {
+  width: 100%;
+}
+
+.toggleText {
+  margin-top: 20px;
+  text-align: center;
+  cursor: pointer;
+  color: black;
+}
+
+.toggleText p {
+  margin: 0;
+}
+
+.toggleText p:hover {
+  text-decoration: underline;
+}
+
+.toggleText strong {
+  font-weight: bold;
+}
+
+.oauthLoginButtons {
+  margin-top: 20px;
+}
+
+.oauthLoginButtons .btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+  
+.btnOutlineSecondary {
+  color: black;
+  border-color: black;
+}
+
+.btnOutlineSecondary:hover {
+  background-color: #cacaca;
+  color: black;
+  border-color: black;
+}
+
+  
