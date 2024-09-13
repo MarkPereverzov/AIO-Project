@@ -1,6 +1,6 @@
 'use client';
-import { Header } from '@/widgets'
+import { MainPage } from "@/pages/main/ui/MainPage";
 
-export default function Home () {
-    return (<Header pageName='Home'/>);
+export default function Page() {
+  return <MainPage />;
 }
