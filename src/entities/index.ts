@@ -1,0 +1,1 @@
+export {setToken, getToken, removeToken} from './user/model/token';

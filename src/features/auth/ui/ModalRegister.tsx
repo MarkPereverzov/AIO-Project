@@ -1,6 +1,6 @@
 import React from 'react';
 import { Modal, Form } from 'react-bootstrap';
-import { useAuth } from '../model';
+import { useAuth } from '../model/auth';
 import { LoginForm } from './LoginForm';
 import { RegisterForm } from './RegisterForm'
 import { ToggleText } from './ToggleText';

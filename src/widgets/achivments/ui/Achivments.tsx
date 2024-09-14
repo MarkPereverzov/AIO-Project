@@ -18,11 +18,7 @@ export const Achievements = () => {
     <div className={styles.achievementsContainer}>
       <div className={styles.achievementsList}>
         {achievements.map((achievement, index) => (
-          <AchivmentsElement 
-            title={achievement.title}
-            subtitle={achievement.subtitle}
-            index={index}
-          />
+          <AchivmentsElement title={achievement.title}subtitle={achievement.subtitle} index={index}/>
         ))}
       </div>
     </div>
