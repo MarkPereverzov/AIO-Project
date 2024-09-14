@@ -1,5 +1,8 @@
-import { RoundedCarousel } from '@/widgets';
-import { Header, Calendar, Achievements, Footer } from '@/widgets';
+import { RoundedCarousel } from '@/widgets/carousel';
+import { Header } from '@/widgets/header';
+import { Calendar } from '@/widgets/calendar';
+import { Achievements } from '@/widgets/achivments';
+import { Footer } from '@/widgets/footer';
 
 export const HealthPage = () => {
   return(

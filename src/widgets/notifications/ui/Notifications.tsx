@@ -2,7 +2,6 @@ import { useNotification } from "../model";
 import { NotificationsButton } from "./NotificationsButton";
 import { NotificationsElement } from "./NotificationsElemnt";
 import { OffcanvasNotifications } from "./OffcanvasNotifications";
-import '../Notifications.module.css';
 
 const notifications = [{
   title: 'Уведомление 1',

@@ -1,5 +1,6 @@
 'use client';
-import { Header, Block } from '@/widgets/';
+import { Header } from '@/widgets/header';
+import { Block } from '@/widgets/block';
 
 export const MainPage = () => {
   const blocks = [
