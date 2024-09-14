@@ -1,0 +1,15 @@
+.modalContent {
+  padding: 20px;
+}
+
+.formControl {
+  margin-bottom: 15px;
+}
+
+.submitButton {
+  width: 100%;
+}
+
+.submitButton:focus {
+  box-shadow: none;
+}
