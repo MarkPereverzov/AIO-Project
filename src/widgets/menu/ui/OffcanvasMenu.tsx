@@ -1,5 +1,5 @@
 import { Offcanvas, Nav } from 'react-bootstrap';
-import { FaMoneyBillWave, FaBed, FaBriefcase, FaUtensils, FaSmoking, FaChevronRight } from 'react-icons/fa';
+import { FaMoneyBillWave, FaBed, FaBriefcase, FaUtensils, FaSmoking, FaChevronRight, FaHome  } from 'react-icons/fa';
 import { HabitsSection } from './HabitsSection';
 import Link from 'next/link';
 import styles from '../Menu.module.css';
@@ -19,6 +19,8 @@ export const OffcanvasMenu = (
     </Offcanvas.Header>
     <Offcanvas.Body>
       <Nav defaultActiveKey="/" className="flex-column">
+
+      <Nav.Link className={styles.navLink}><Link className={styles.link} href="/"><FaHome className="me-2" />Главная</Link></Nav.Link>
         <Nav.Link className={styles.navLink} onClick={toggleHabits} style={{ cursor: 'pointer' }}>
           <FaSmoking className="me-2" />Зависимости
           <FaChevronRight  className="chevron-icon" style={{ transform: showHabits ? 'rotate(90deg)' : 'rotate(0deg)' }} />

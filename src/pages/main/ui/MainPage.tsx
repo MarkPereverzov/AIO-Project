@@ -12,11 +12,13 @@ export const MainPage = () => {
 
   return (
     <div>
-      <Header pageName="Главная"/>
-      <div className="gridContainer">
-        {blocks.map((block, index) => (
-          <Block key={index} title={block.title} subtitle={block.subtitle} />
-        ))}
+      <Header pageName="Главная" />
+      <div className='pageContainer'>
+        <div className="gridContainer">
+          {blocks.map((block, index) => (
+            <Block key={index} title={block.title} subtitle={block.subtitle} />
+          ))}
+        </div>
       </div>
     </div>
   );

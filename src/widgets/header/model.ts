@@ -1,7 +1,6 @@
 'use client';
 import { useState } from 'react';
 
-
 export const useHeader = () => {
     const [showRegisterModal, setShowRegisterModal] = useState(false);
     
