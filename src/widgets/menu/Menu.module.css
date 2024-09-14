@@ -1,0 +1,51 @@
+.navLink {
+  display: block !important;
+  margin: 5px !important;
+  color: black !important;
+  text-decoration: none !important;
+  transition: 1s !important;
+  border-radius: 10px !important;
+}
+
+.menuButton {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  font-size: 24px !important;
+  background: transparent !important;
+  border: none !important;
+  height: 50px !important;
+  width: 50px !important;
+  transition: 1s !important;
+}
+
+.menuButton:hover{
+  background-color: #cacaca !important;
+}
+
+.menuButton{
+  margin-right: 60px;
+}
+/* Стили для ссылок при наведении */
+
+.navLink:hover {
+  background-color: #cacaca;
+  color: black;
+}
+
+.menuButton > svg {
+  height: 25px;
+  width: 25px;
+}
+
+.sidebarContent {
+  padding-left: 25px;
+}
+
+.link {
+  display: block !important;
+  color: black !important;
+  text-decoration: none !important;
+  transition: 1s !important;
+  border-radius: 10px !important;
+}
