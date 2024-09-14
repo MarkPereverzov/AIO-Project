@@ -1,6 +1,5 @@
 'use client';
 import { Header, Block } from '@/widgets/';
-import styles from '../MainPage.module.css';
 
 export const MainPage = () => {
   const blocks = [
@@ -14,7 +13,7 @@ export const MainPage = () => {
   return (
     <div>
       <Header pageName="Главная"/>
-      <div className={styles.gridContainer}>
+      <div className="gridContainer">
         {blocks.map((block, index) => (
           <Block key={index} title={block.title} subtitle={block.subtitle} />
         ))}

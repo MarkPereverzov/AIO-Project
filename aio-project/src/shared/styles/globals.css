@@ -3,30 +3,42 @@
 @import "~bootstrap/dist/css/bootstrap.min.css";
 
 .background {
-    --size: 30px;
-    --line: color-mix(in lch, canvasText, transparent 85%);
-    height: 100vh;
-    width: 100vw;
-    position: fixed;
-    background: radial-gradient(4px 4px at 50% 50%, var(--line) 2px, transparent 2px var(--size)) 50% 50% / var(--size) var(--size);
-    mask: linear-gradient(-25deg, transparent 30%, #777777);
-    top: 0;
-    transform-style: flat;
-    pointer-events: none;
-    z-index: 0;
+  --size: 30px;
+  --line: color-mix(in lch, canvasText, transparent 85%);
+  height: 100vh;
+  width: 100vw;
+  position: fixed;
+  background: radial-gradient(4px 4px at 50% 50%, var(--line) 2px, transparent 2px var(--size)) 50% 50% / var(--size) var(--size);
+  mask: linear-gradient(-25deg, transparent 30%, #777777);
+  top: 0;
+  transform-style: flat;
+  pointer-events: none;
+  z-index: 0;
 }
+
+.pageContainer{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+  height: 100vh !important;
+}
+
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  -webkit-user-select: none; /* Chrome, Safari, and Opera */
+  -moz-user-select: none;    /* Firefox */
+  -ms-user-select: none;     /* Internet Explorer/Edge */
+  user-select: none;         /* Non-prefixed version, currently supported by Chrome, Opera, and Edge */
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
 }
 
 *{
@@ -34,6 +46,7 @@ code {
   color:black;
 }
 
+/* Стлии для AvatarButton */
 .avatarButton {
 	display: flex  !important;
 	align-items: center  !important;
@@ -55,7 +68,8 @@ code {
 .avatarButton:hover {
 	background-color: #cacaca !important;
 }
-  
+/* Стлии для AvatarButton */
+
 /* Стили для черных кнопок управления */
 .carousel-control-prev-icon,
 .carousel-control-next-icon {
@@ -79,3 +93,16 @@ code {
 .carousel-control-next:hover {
   filter: brightness(0.8); /* Легкое осветление при наведении */
 }
+
+.gridContainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center; /* Центрирование блоков по горизонтали */
+  gap: 20px; /* Отступы между блоками */
+  padding: 20px; /* Отступы вокруг всей сетки */
+}
+
+.gridContainer > .block {
+  margin: 0; /* Убедитесь, что margin внутри блоков не конфликтует */
+}
+  

@@ -1,0 +1,40 @@
+.footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  background-color: rgb(255, 255, 255);
+  border-bottom: 1px solid #dee2e642;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 25px 25px 0px 0px;
+  position: fixed;
+  top: 90%;
+  bottom: 0%;
+  z-index: 1;
+}
+  
+.footerButton {
+  display: flex  !important;
+  align-items: center  !important;
+  justify-content: center  !important;
+  font-size: 24px  !important;
+  background: transparent  !important;
+  border: none  !important;
+  height: 50px  !important;
+  width: 50px  !important;
+  transition: 1s !important;
+  border-radius: 10px;
+}
+
+.footerButton > svg {
+  height: 30px;
+  width: 30px;
+}
+
+.footerButton:hover {
+  background-color: #cacaca !important;
+}
+
+.sidebarContent {
+  padding-left: 25px;
+}
