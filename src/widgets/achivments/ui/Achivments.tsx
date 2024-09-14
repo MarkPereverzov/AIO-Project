@@ -1,4 +1,5 @@
 import React from 'react';
+import { AchivmentsElement } from './AchivmentsElement';
 import styles from '../Achivments.module.css';
 
 const achievements = [
@@ -17,10 +18,11 @@ export const Achievements = () => {
     <div className={styles.achievementsContainer}>
       <div className={styles.achievementsList}>
         {achievements.map((achievement, index) => (
-        <div key={index} className={styles.achievementBlock}>
-          <div className={styles.achievementTitle}>{achievement.title}</div>
-          <div className={styles.achievementSubtitle}>{achievement.subtitle}</div>
-        </div>
+          <AchivmentsElement 
+            title={achievement.title}
+            subtitle={achievement.subtitle}
+            index={index}
+          />
         ))}
       </div>
     </div>
