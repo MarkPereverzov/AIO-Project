@@ -1,7 +1,7 @@
 import React from 'react';
 import { FaCog } from 'react-icons/fa';
 import { useFooter } from '../model';
-import { Subscribe } from '@/features';
+import { Subscribe } from '@/features/subscribe';
 import styles from '../Footer.module.css';
 
 interface FooterProps {

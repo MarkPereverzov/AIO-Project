@@ -1,11 +1,8 @@
-import { RoundedCarousel } from '@/widgets/carousel';
 import { Header } from '@/widgets/header';
-import { Calendar } from '@/widgets/calendar';
-import { Achievements } from '@/widgets/achivments';
-import { Footer } from '@/widgets/footer';
 import { Block } from '@/widgets/block';
 
 export const HealthPage = () => {
+  
   const blocks = [
     { title: 'Курение', subtitle: 'Сильный кашель, хрипы и накопление мокроты мешают нормально жить, пора что-то менять.' },
     { title: 'Алкоголь', subtitle: 'Алкоголь является одной из самых распространенных зависимостей в мире, настало время освободиться от него.' },
