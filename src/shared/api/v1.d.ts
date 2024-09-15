@@ -175,11 +175,22 @@ export interface components {
              */
             streakEnd: string;
         };
-        HealthStatDto: {
+        CompleteStatDto: {
             /** @description Total days of not doing something bad for health */
             totalDays: number;
             /** @description Longest streak */
             longestStreak: number;
+            /**
+             * Format: date-time
+             * @description Last day with bad habit
+             */
+            lastBadDay: string;
+            /** @description Days from begining of all streaks */
+            lastStreakDays: number;
+            /** @description Bad thing count */
+            badThingCount: number;
+            /** @description Money saved */
+            moneySaved: number;
         };
         SubscribeDto: {
             /** @description Count of bad dozes per day */
@@ -297,7 +308,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/json": components["schemas"]["HealthStatDto"];
+                    "application/json": components["schemas"]["CompleteStatDto"];
                 };
             };
         };

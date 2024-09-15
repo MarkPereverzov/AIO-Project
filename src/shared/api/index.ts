@@ -3,4 +3,4 @@ export { fetchStatistic } from './statisticApi';
 export { fetchRecords } from './recordsApi';
 
 export type { HealthRecordDto } from "./models";
-export type { HealthStatDto } from "./models";
+export type { CompleteStatDto } from "./models";

@@ -1,7 +1,7 @@
+import { fetchStatistic } from "@/shared/api";
 import { SmokingPage } from "@/pages/smoking/ui/SmokingPage";
-import { prepareStatistic } from "@/features/statistic";
 
 export default async function Page() {
-  const completeStatistic = await prepareStatistic();
+  const completeStatistic = await fetchStatistic();
   return <SmokingPage completeStatistic={completeStatistic} />;
 }

@@ -4,10 +4,9 @@ import { Calendar } from '@/widgets/calendar';
 import { Achievements } from '@/features/statistic';
 import { Footer } from '@/widgets/footer';
 import { Header } from '@/widgets/header';
-import { HealthCompleteStatistic } from '@/features/statistic';
+import { CompleteStatDto } from '@/shared/api';
 
-
-export const SmokingPage = ({completeStatistic}: {completeStatistic: HealthCompleteStatistic}) => {
+export const SmokingPage = ({completeStatistic}: {completeStatistic: CompleteStatDto}) => {
   return(
     <>
       <Header pageName="Курение"/>

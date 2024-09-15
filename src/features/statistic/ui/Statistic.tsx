@@ -1,11 +1,14 @@
 import React from 'react';
 import { StatisticElement } from './StatisticElement';
 import styles from '../Statistic.module.css';
-import { HealthCompleteStatistic } from '@/features/statistic';
+import { CompleteStatDto } from '@/shared/api';
+import { prepareStatistic } from '../model/prepareStatistic';
 
-export const Statistic = ({completeStatistic}: {completeStatistic: HealthCompleteStatistic}) => {
+export const Statistic = ({completeStatistic}: {completeStatistic: CompleteStatDto}) => {
+  completeStatistic = prepareStatistic(completeStatistic);
+
   const statistic = [
-    { title: 'Не курю с', subtitle: completeStatistic?.lastBadDay?.toLocaleDateString() },
+    { title: 'Не курю с', subtitle: completeStatistic?.lastBadDay },
     { title: 'Не курил уже', subtitle: `${completeStatistic?.lastStreakDays} дней` },
     { title: 'Не курил всего', subtitle: `${completeStatistic?.totalDays} дней` },
     { title: 'Рекорд', subtitle: `${completeStatistic?.longestStreak} дней` },

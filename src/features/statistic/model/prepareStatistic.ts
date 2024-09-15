@@ -1,14 +1,6 @@
-import { fetchStatistic } from '@/shared/api/statisticApi';
-import { fetchRecords } from '@/shared/api';
-import { calculateStatistic } from '@/features/statistic';
-import { HealthCompleteStatistic } from '@/features/statistic';
+import { CompleteStatDto } from "@/shared/api";
 
-export const prepareStatistic = async (): Promise<HealthCompleteStatistic> => {
-  const dayStatistics = await fetchStatistic();
-  const dayStatistic = dayStatistics;
-  const records = await fetchRecords(new Date());
-  const lastStreak = records[records.length-1];
-  const completeStatistic = calculateStatistic({dayStatistic, lastStreak});
-
-  return completeStatistic;
+export const prepareStatistic = (statistic: CompleteStatDto) => {
+  statistic.lastBadDay = new Date(statistic.lastBadDay).toLocaleDateString();
+  return statistic;
 }

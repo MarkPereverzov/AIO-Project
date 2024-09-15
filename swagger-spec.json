@@ -104,6 +104,22 @@
             "schema": {
               "type": "number"
             }
+          },
+          {
+            "name": "month",
+            "required": true,
+            "in": "query",
+            "schema": {
+              "type": "number"
+            }
+          },
+          {
+            "name": "year",
+            "required": true,
+            "in": "query",
+            "schema": {
+              "type": "number"
+            }
           }
         ],
         "responses": {
@@ -116,6 +132,42 @@
                   "items": {
                     "$ref": "#/components/schemas/HealthRecordDto"
                   }
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "health"
+        ],
+        "security": [
+          {
+            "bearer": []
+          }
+        ]
+      }
+    },
+    "/health/stat": {
+      "get": {
+        "operationId": "HealthController_getStats",
+        "summary": "Get all user stat",
+        "parameters": [
+          {
+            "name": "healthId",
+            "required": true,
+            "in": "query",
+            "schema": {
+              "type": "number"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "List of health stats",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CompleteStatDto"
                 }
               }
             }
@@ -248,10 +300,12 @@
             "description": "Id of healthrercord"
           },
           "streakBegin": {
+            "format": "date-time",
             "type": "string",
             "description": "Day of begging of streak"
           },
           "streakEnd": {
+            "format": "date-time",
             "type": "string",
             "description": "Day of streak ending"
           }
@@ -260,6 +314,44 @@
           "id",
           "streakBegin",
           "streakEnd"
+        ]
+      },
+      "CompleteStatDto": {
+        "type": "object",
+        "properties": {
+          "totalDays": {
+            "type": "number",
+            "description": "Total days of not doing something bad for health"
+          },
+          "longestStreak": {
+            "type": "number",
+            "description": "Longest streak"
+          },
+          "lastBadDay": {
+            "format": "date-time",
+            "type": "string",
+            "description": "Last day with bad habit"
+          },
+          "lastStreakDays": {
+            "type": "number",
+            "description": "Days from begining of all streaks"
+          },
+          "badThingCount": {
+            "type": "number",
+            "description": "Bad thing count"
+          },
+          "moneySaved": {
+            "type": "number",
+            "description": "Money saved"
+          }
+        },
+        "required": [
+          "totalDays",
+          "longestStreak",
+          "lastBadDay",
+          "lastStreakDays",
+          "badThingCount",
+          "moneySaved"
         ]
       },
       "SubscribeDto": {
