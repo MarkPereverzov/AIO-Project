@@ -29,10 +29,17 @@ export const useCalendar = () => {
 
   const getMonthName = (month: number): string => (monthNames[month]);
 
+  const findShift = (date: Date) => {
+    let shift = new Date(date.getFullYear(), date.getMonth(), 1).getDay();
+    if (shift === 0) shift = 7;
+    return shift;
+  }
+
   // Получаем дни текущего месяца
   const daysInMonth = getDaysInMonth(currentDate.getFullYear(), currentDate.getMonth());
 
   // Генерация массива с днями
   const daysArray = Array.from({ length: daysInMonth }, (_, i) => i + 1);
-  return {currentDate, daysArray, handlePrevMonth, handleNextMonth, getMonthName };
+  const shift = findShift(currentDate);
+  return {currentDate, shift, daysArray, handlePrevMonth, handleNextMonth, getMonthName };
 }

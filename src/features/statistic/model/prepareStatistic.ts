@@ -1,6 +1,7 @@
 import { CompleteStatDto } from "@/shared/api";
 
 export const prepareStatistic = (statistic: CompleteStatDto) => {
-  statistic.lastBadDay = new Date(statistic.lastBadDay).toLocaleDateString();
+  const newLastDay = new Date(statistic?.lastBadDay).toLocaleDateString();
+  if (statistic) statistic.lastBadDay = newLastDay ? newLastDay : 'ERROR';
   return statistic;
 }

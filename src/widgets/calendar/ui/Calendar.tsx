@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import { useCalendar } from '../model';
+import { CalendarElement } from './CalendarElement';
 import styles from '../Calendar.module.css';
 
 export const Calendar = () => {
-  const {currentDate, daysArray, handlePrevMonth, handleNextMonth, getMonthName } = useCalendar();
+  const {currentDate, shift, daysArray, handlePrevMonth, handleNextMonth, getMonthName } = useCalendar();
 
   return (
     <div className={styles.calendarContainer}>
@@ -14,8 +15,9 @@ export const Calendar = () => {
         <button className={styles.nextButton} onClick={handleNextMonth}>›</button>
       </div>
       <div className={styles.calendarGrid}>
-        {daysArray.map(day => (
-          <div key={day} className={styles.calendarDay}>{day}</div>
+        {
+        daysArray.map(day => (
+          <CalendarElement day={day} shift={shift} />
         ))}
       </div>
     </div>
