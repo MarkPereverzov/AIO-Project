@@ -1,16 +1,16 @@
-import { FaCircle } from 'react-icons/fa';
 import styles from '../Block.module.css';
 
 interface BlockProps {
   title: string,
-  subtitle: string
+  subtitle: string,
+  Icon: React.ComponentType // Новый пропс для иконки
 }
 
-export const Block = ({ title, subtitle }: BlockProps) => (
+export const Block = ({ title, subtitle, Icon }: BlockProps) => (
   <div className={styles.block}>
     <div className={styles.blockContent}>
       <div className={styles.blockIcon}>
-        <FaCircle />
+        <Icon /> {/* Используем переданную иконку */}
       </div>
       <div className={styles.blockHeader}>{title}</div>
     </div>
