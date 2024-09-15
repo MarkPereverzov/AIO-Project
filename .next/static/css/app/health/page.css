@@ -1,0 +1,265 @@
+/*!****************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[13].oneOf[7].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[13].oneOf[7].use[3]!./src/widgets/menu/Menu.module.css ***!
+  \****************************************************************************************************************************************************************************************************************************************************************************/
+.Menu_navLink__PajGC {
+  display: block !important;
+  margin: 5px !important;
+  color: black !important;
+  text-decoration: none !important;
+  transition: 1s !important;
+  border-radius: 10px !important;
+}
+
+.Menu_menuButton__UIsWn {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  font-size: 24px !important;
+  background: transparent !important;
+  border: none !important;
+  height: 50px !important;
+  width: 50px !important;
+  transition: 1s !important;
+}
+
+.Menu_menuButton__UIsWn:hover{
+  background-color: #cacaca !important;
+}
+
+.Menu_menuButton__UIsWn{
+  margin-right: 60px;
+}
+/* Стили для ссылок при наведении */
+
+.Menu_navLink__PajGC:hover {
+  background-color: #cacaca;
+  color: black;
+}
+
+.Menu_menuButton__UIsWn > svg {
+  height: 25px;
+  width: 25px;
+}
+
+.Menu_sidebarContent__5JVvJ {
+  padding-left: 25px;
+}
+
+.Menu_link__Gd7OJ {
+  display: block !important;
+  color: black !important;
+  text-decoration: none !important;
+  transition: 1s !important;
+  border-radius: 10px !important;
+}
+
+/*!**********************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[13].oneOf[7].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[13].oneOf[7].use[3]!./src/widgets/notifications/Notifications.module.css ***!
+  \**********************************************************************************************************************************************************************************************************************************************************************************************/
+.Notifications_notificationsButton__mcl0z {
+  font-size: 24px;
+  color: #000;
+  background: transparent;
+  border: none;
+  position: relative;
+}
+
+.Notifications_notificationsButton__mcl0z .Notifications_badge__ezTfa {
+  position: absolute;
+  top: -10px;
+  right: -10px;
+}
+
+.Notifications_listGroupItem__KAMRm {
+  border: 0 !important;
+  border-bottom: 1px solid #dee2e6 !important;
+  padding: 15px !important;
+  margin-bottom: 10px !important;
+  background-color: #ffffff !important;
+  display: flex !important;
+  align-items: center !important;
+}
+
+.Notifications_listGroupItem__KAMRm:last-child {
+  border-bottom: 0;
+}
+
+.Notifications_notificationIcon__3JSzQ {
+  font-size: 30px ;
+  margin-right: 15px;  
+}
+
+.Notifications_notificationContent__ViDg7 {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.Notifications_notificationTitle__r7bhK {
+  font-size: 1.25rem;
+  margin: 0;
+  font-weight: 500;
+}
+
+.Notifications_notificationSubtitle__8hTGr {
+  font-size: 0.875rem;
+  color: #6c757d;
+  margin: 0 !important;
+}
+
+.Notifications_notificationsButton__mcl0z > svg {
+  height: 25px;
+  width: 25px;
+}
+
+.Notifications_notificationsButton__mcl0z:hover {
+  background-color: #cacaca !important;
+}
+
+.Notifications_notificationsButton__mcl0z {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  font-size: 24px !important;
+  background: transparent !important;
+  border: none !important;
+  height: 50px !important;
+  width: 50px !important;
+  transition: 1s !important;
+}
+
+.Notifications_notifications__TP1J3 {
+  display: flex;
+  align-items: center;
+}
+  
+.Notifications_notificationsBadge__CToBJ {
+  position: absolute;
+  top: -10px;
+  right: -10px;
+}
+/*!*****************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[13].oneOf[7].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[13].oneOf[7].use[3]!./src/features/auth/Auth.module.css ***!
+  \*****************************************************************************************************************************************************************************************************************************************************************************/
+.Auth_modalContent__2zN4E {
+  padding: 20px;
+}
+  
+.Auth_formControl__Yb0lU {
+  margin-bottom: 15px;
+}
+
+.Auth_submitButton__KH65M {
+  width: 100%;
+}
+
+.Auth_toggleText__rfQMI {
+  margin-top: 20px;
+  text-align: center;
+  cursor: pointer;
+  color: black;
+}
+
+.Auth_toggleText__rfQMI p {
+  margin: 0;
+}
+
+.Auth_toggleText__rfQMI p:hover {
+  text-decoration: underline;
+}
+
+.Auth_toggleText__rfQMI strong {
+  font-weight: bold;
+}
+
+.Auth_oauthLoginButtons__ofVfx {
+  margin-top: 20px;
+}
+
+.Auth_oauthLoginButtons__ofVfx .Auth_btn__zdr56 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+  
+.Auth_btnOutlineSecondary__lO0Y0 {
+  color: black;
+  border-color: black;
+}
+
+.Auth_btnOutlineSecondary__lO0Y0:hover {
+  background-color: #cacaca;
+  color: black;
+  border-color: black;
+}
+
+  
+/*!********************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[13].oneOf[7].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[13].oneOf[7].use[3]!./src/widgets/header/Header.module.css ***!
+  \********************************************************************************************************************************************************************************************************************************************************************************/
+.Header_header__9Wxwt {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
+  background-color: rgb(255, 255, 255);
+  border-bottom: 1px solid #dee2e642;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  position: fixed;
+  top: 0%;
+  z-index: 1;
+}
+  
+.Header_pageTitle__W_wRd {
+  flex: 1;
+  text-align: center;
+  margin: 0;
+  font-size: 1.5rem;
+  color: #343a40;
+}
+/*!******************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[13].oneOf[7].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[13].oneOf[7].use[3]!./src/widgets/block/Block.module.css ***!
+  \******************************************************************************************************************************************************************************************************************************************************************************/
+.Block_block__3dpv3 {
+    width: 400px;
+    height: 200px;
+    background-color: #ffffff !important;  /* Белый фон блока */
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 15px;
+    box-sizing: border-box;
+    position: relative;
+  }
+  
+  .Block_blockContent__VkrcJ {
+    display: flex;
+    flex-direction: column;
+    align-items: center;  /* Центрирование содержимого по горизонтали */
+    margin-bottom: 10px;
+  }
+  
+  .Block_blockIcon__pxIKA {
+    font-size: 40px;  /* Сделать иконку крупнее */
+    margin-bottom: 10px;
+  }
+  
+  .Block_blockHeader__dr3hf {
+    font-size: 1.25rem;
+    font-weight: 500;
+  }
+  
+  .Block_blockDivider__a2WVJ {
+    border-top: 1px solid #ccc;
+    margin: 10px 0;
+  }
+  
+  .Block_blockFooter__P3tsb {
+    font-size: 0.875rem;
+    color: #6c757d;
+  }
+  

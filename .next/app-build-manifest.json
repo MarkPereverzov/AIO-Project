@@ -1,0 +1,22 @@
+{
+  "pages": {
+    "/health/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/css/app/health/page.css",
+      "static/chunks/app/health/page.js"
+    ],
+    "/layout": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/css/app/layout.css",
+      "static/chunks/app/layout.js"
+    ],
+    "/health/smoking/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/css/app/health/smoking/page.css",
+      "static/chunks/app/health/smoking/page.js"
+    ]
+  }
+}
