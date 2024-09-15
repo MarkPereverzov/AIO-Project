@@ -72,6 +72,23 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
+    "/health/stat": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Get all user stat */
+        get: operations["HealthController_getStats"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
     "/health/subscribe": {
         parameters: {
             query?: never;
@@ -147,10 +164,22 @@ export interface components {
         HealthRecordDto: {
             /** @description Id of healthrercord */
             id: number;
-            /** @description Day of begging of streak */
+            /**
+             * Format: date-time
+             * @description Day of begging of streak
+             */
             streakBegin: string;
-            /** @description Day of streak ending */
+            /**
+             * Format: date-time
+             * @description Day of streak ending
+             */
             streakEnd: string;
+        };
+        HealthStatDto: {
+            /** @description Total days of not doing something bad for health */
+            totalDays: number;
+            /** @description Longest streak */
+            longestStreak: number;
         };
         SubscribeDto: {
             /** @description Count of bad dozes per day */
@@ -231,6 +260,8 @@ export interface operations {
         parameters: {
             query: {
                 healthId: number;
+                month: number;
+                year: number;
             };
             header?: never;
             path?: never;
@@ -245,6 +276,28 @@ export interface operations {
                 };
                 content: {
                     "application/json": components["schemas"]["HealthRecordDto"][];
+                };
+            };
+        };
+    };
+    HealthController_getStats: {
+        parameters: {
+            query: {
+                healthId: number;
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description List of health stats */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HealthStatDto"];
                 };
             };
         };

@@ -1,0 +1,67 @@
+.achievementsContainer {
+  width: 375px;
+  height: 375px;
+  border-radius: 25px;
+  background-color: #f8f9fa;
+  overflow: hidden;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  margin: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+  
+.achievementsList {
+  width: calc(100% - 15px);
+  height: 100%;
+  overflow-y: auto;
+  padding: 10px;
+  padding-right: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+  
+.achievementBlock {
+  width: 100%;
+  min-height: 75px;
+  background-color: #fff;
+  border-radius: 15px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 15px;
+}
+
+.achievementTitle {
+  font-size: 1.2rem;
+  font-weight: bold;
+  text-align: center;
+  flex: 1;
+}
+
+.achievementValue {
+  font-size: 1rem; /* Уменьшенный размер шрифта */
+  color: #6c757d;
+  text-align: center;
+  flex: 1;
+}
+
+/* Стили для полосы прокрутки */
+.achievementsList::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+.achievementsList::-webkit-scrollbar-thumb {
+  background-color: #6c757d;
+  border-radius: 10px;
+}
+
+.achievementsList::-webkit-scrollbar-track {
+  background-color: #e9ecef;
+  border-radius: 10px;
+}
+  

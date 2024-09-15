@@ -1,0 +1,1 @@
+export { RoundedCarousel } from './ui/Carousel';

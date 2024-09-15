@@ -1,0 +1,21 @@
+.modalContent {
+  padding: 20px;
+}
+
+.formControl {
+  margin-bottom: 15px;
+}
+
+.submitButton {
+  width: 100%;
+}
+
+.modalHeader {
+  text-align: center;
+}
+
+.modalTitle {
+  font-size: 1.5rem;
+}
+  
+  
