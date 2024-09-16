@@ -198,6 +198,10 @@ export interface components {
             /** @description Id of health */
             healthId: number;
         };
+        HealthStreakDto: {
+            /** @description HealthId for manipulation with streaks */
+            healthId: number;
+        };
     };
     responses: never;
     parameters: never;
@@ -343,7 +347,12 @@ export interface operations {
             path?: never;
             cookie?: never;
         };
-        requestBody?: never;
+        /** @description Health to end streak */
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["HealthStreakDto"];
+            };
+        };
         responses: {
             200: {
                 headers: {
@@ -360,7 +369,12 @@ export interface operations {
             path?: never;
             cookie?: never;
         };
-        requestBody?: never;
+        /** @description Health to end streak */
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["HealthStreakDto"];
+            };
+        };
         responses: {
             200: {
                 headers: {

@@ -4,3 +4,4 @@ export { fetchRecords } from './recordsApi';
 
 export type { HealthRecordDto } from "./models";
 export type { CompleteStatDto } from "./models";
+export type { HealthStreakDto } from "./models";
