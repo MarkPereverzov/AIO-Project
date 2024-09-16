@@ -4,7 +4,8 @@ import styles from '../Statistic.module.css';
 import { CompleteStatDto } from '@/shared/api';
 import { prepareStatistic } from '../model/prepareStatistic';
 
-export const Statistic = ({completeStatistic}: {completeStatistic: CompleteStatDto}) => {
+export const Statistic = ({completeStatistic}: {completeStatistic: CompleteStatDto | null
+}) => {
   completeStatistic = prepareStatistic(completeStatistic);
 
   const statistic = [
@@ -22,7 +23,7 @@ export const Statistic = ({completeStatistic}: {completeStatistic: CompleteStatD
     <div className={styles.achievementsContainer}>
       <div className={styles.achievementsList}>
         {statistic.map((achievement, index) => (
-          <StatisticElement title={achievement.title}subtitle={achievement.subtitle} index={index}/>
+          <StatisticElement title={achievement.title} subtitle={achievement.subtitle} key={index} index={index}/>
         ))}
       </div>
     </div>

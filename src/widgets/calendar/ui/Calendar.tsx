@@ -1,10 +1,15 @@
-import React, { useState } from 'react';
-import { useCalendar } from '../model';
+import React, { useEffect, useState } from 'react';
 import { CalendarElement } from './CalendarElement';
 import styles from '../Calendar.module.css';
+import { HealthRecordDto } from '@/shared/api';
+import { CalendarState, useCalendar } from '@/features/calendar';
 
-export const Calendar = () => {
-  const {currentDate, shift, daysArray, handlePrevMonth, handleNextMonth, getMonthName } = useCalendar();
+interface CalendarProps {
+  records: HealthRecordDto[] | null,
+}
+
+export const Calendar = ({records}: CalendarProps) => {
+  const {currentDate, shift, daysArray, isDayGood, handlePrevMonth, handleNextMonth, getMonthName } = useCalendar();
 
   return (
     <div className={styles.calendarContainer}>
@@ -16,8 +21,13 @@ export const Calendar = () => {
       </div>
       <div className={styles.calendarGrid}>
         {
-        daysArray.map(day => (
-          <CalendarElement day={day} shift={shift} />
+        daysArray.map((day, index) => (
+          <CalendarElement 
+            key={index}
+            day={day} 
+            shift={shift}
+            isGood={isDayGood(currentDate, records, day)}
+          />
         ))}
       </div>
     </div>
