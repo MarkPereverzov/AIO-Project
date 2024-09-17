@@ -1,7 +1,8 @@
-'use client';
-import { Header, Block } from '@/widgets/';
+import { Header } from '@/widgets/header';
+import { Block } from '@/widgets/block';
 
 export const HealthPage = () => {
+  
   const blocks = [
     { title: 'Курение', subtitle: 'Сильный кашель, хрипы и накопление мокроты мешают нормально жить, пора что-то менять.' },
     { title: 'Алкоголь', subtitle: 'Алкоголь является одной из самых распространенных зависимостей в мире, настало время освободиться от него.' },

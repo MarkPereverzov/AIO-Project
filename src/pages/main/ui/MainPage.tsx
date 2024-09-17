@@ -1,5 +1,6 @@
 'use client';
-import { Header, Block } from '@/widgets/';
+import { Header } from '@/widgets/header';
+import { Block } from '@/widgets/block';
 import { FaSmoking, FaMoneyBillWave, FaBed, FaBriefcase, FaUtensils } from 'react-icons/fa'; // Импортируем иконки
 
 export const MainPage = () => {

@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { GoogleCallback } from "@/features";
+import { GoogleCallback } from "@/features/auth";
 import { getToken } from "@/entities";
 
 export async function GET(request: Request) {

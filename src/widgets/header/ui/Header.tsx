@@ -1,8 +1,9 @@
 'use client';
 import { useHeader } from "../model";
-import { Menu, Notifications } from '@/widgets';
+import { Menu } from '@/widgets/menu';
+import { Notifications } from '@/widgets/notifications';
 import { AvatarButton } from "@/shared";
-import { ModalRegister } from "@/features";
+import { ModalRegister } from "@/features/auth";
 import styles from '../Header.module.css';
 
 export const Header = ({ pageName }: { pageName: string }) => {
