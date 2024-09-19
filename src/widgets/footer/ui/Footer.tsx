@@ -13,8 +13,11 @@ export const Footer = ({}: FooterProps) => {
     handleShow,
     handleClose,
     showPlayModal,
+    statusPlayModal,
+    isLoadingPlayModal,
     handleShowPlayModal,
     handleClosePlayModal,
+    handleStreak,
   } = useFooter();
 
   return (
@@ -33,7 +36,13 @@ export const Footer = ({}: FooterProps) => {
       <Subscribe show={showModal} handleClose={handleClose} />
 
       {/* Второе модальное окно с другим текстом */}
-      <PlayModal show={showPlayModal} handleClose={handleClosePlayModal} />
+      <PlayModal 
+        show={showPlayModal} 
+        handleClose={handleClosePlayModal} 
+        status={statusPlayModal} 
+        handleStreak={handleStreak} 
+        isLoading={isLoadingPlayModal}
+      />
     </footer>
   );
 };
