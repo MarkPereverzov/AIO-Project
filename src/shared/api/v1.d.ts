@@ -106,34 +106,18 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
-    "/health/beginStreak": {
+    "/health/streak": {
         parameters: {
             query?: never;
             header?: never;
             path?: never;
             cookie?: never;
         };
-        get?: never;
+        /** Is there any continous streak? */
+        get: operations["HealthController_isStreakExist"];
         put?: never;
-        /** Create new streak */
-        post: operations["HealthController_beginHealthStreak"];
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/health/endStreak": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        get?: never;
-        put?: never;
-        /** End existing streak */
-        post: operations["HealthController_endHealthStreak"];
+        /** Create or end streak */
+        post: operations["HealthController_toggleHealthStreak"];
         delete?: never;
         options?: never;
         head?: never;
@@ -195,12 +179,20 @@ export interface components {
         SubscribeDto: {
             /** @description Count of bad dozes per day */
             countPerDay: number;
+            /** @description Price per thing in USD */
+            pricePerThing: number;
             /** @description Id of health */
             healthId: number;
         };
         HealthStreakDto: {
             /** @description HealthId for manipulation with streaks */
             healthId: number;
+            /** @description Create or Stop Streak ? */
+            create: boolean;
+        };
+        HealthStreakResponseDto: {
+            /** @description Is there any existing streak for given healthId ? */
+            isExist: boolean;
         };
     };
     responses: never;
@@ -340,36 +332,36 @@ export interface operations {
             };
         };
     };
-    HealthController_beginHealthStreak: {
+    HealthController_isStreakExist: {
         parameters: {
-            query?: never;
+            query: {
+                healthId: number;
+            };
             header?: never;
             path?: never;
             cookie?: never;
         };
-        /** @description Health to end streak */
-        requestBody: {
-            content: {
-                "application/json": components["schemas"]["HealthStreakDto"];
-            };
-        };
+        requestBody?: never;
         responses: {
+            /** @description Boolean meaning streak exist or doesnt */
             200: {
                 headers: {
                     [name: string]: unknown;
                 };
-                content?: never;
+                content: {
+                    "application/json": components["schemas"]["HealthStreakResponseDto"];
+                };
             };
         };
     };
-    HealthController_endHealthStreak: {
+    HealthController_toggleHealthStreak: {
         parameters: {
             query?: never;
             header?: never;
             path?: never;
             cookie?: never;
         };
-        /** @description Health to end streak */
+        /** @description Health to create or end streak */
         requestBody: {
             content: {
                 "application/json": components["schemas"]["HealthStreakDto"];

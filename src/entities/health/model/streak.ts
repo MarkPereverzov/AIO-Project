@@ -1,38 +1,33 @@
-import { POST } from "@/shared/api/";
-type StreakAction = 'begin' | 'end';
+import { GET, POST } from "@/shared/api/";
+import { HealthStreakResponseDto } from "@/shared/api";
 
-export const streakActionFactory = (action: StreakAction) => {
-  return async (healthId: number): Promise<void> => {
-    if (action === 'begin') {
-      await beginStreak(healthId);
-    } else if (action === 'end') {
-      await endStreak(healthId);
+export const toggleStreak = async (action: boolean, healthId: number) => {
+  const { data, error, response } = await POST('/health/streak', {
+    body: {
+      healthId: healthId,
+      create: action,
     }
-  };
+  });
+  console.log(data);
+
+  if (error !== undefined) {
+    console.log(error);
+  }
 };
 
-const beginStreak = async (healthId: number): Promise<void> => {
-  const { data, error, response } = await POST('/health/beginStreak', {
-    body: {
-      healthId: healthId,
+export const isStreakExist = async (healthId: number): Promise<HealthStreakResponseDto | null> => {
+  const { data, error, response } = await GET('/health/streak', {
+    params: {
+      query: {
+        healthId: healthId,
+      }
     }
   });
+  
   console.log(data);
 
   if (error !== undefined) {
     console.log(error);
   }
-}
-
-const endStreak = async (healthId: number): Promise<void> => {
-  const { data, error, response } = await POST('/health/endStreak', {
-    body: {
-      healthId: healthId,
-    }
-  });
-  console.log(data);
-
-  if (error !== undefined) {
-    console.log(error);
-  }
-}
+  return data;
+};
