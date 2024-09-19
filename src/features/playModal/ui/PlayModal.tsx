@@ -20,17 +20,11 @@ export const PlayModal = ({ show, handleClose }: PlayModalProps) => {
       <Modal.Header closeButton>
         <Modal.Title>Действие</Modal.Title>
       </Modal.Header>
-      <Modal.Body>
-        <p>Это второе модальное окно с другим содержимым.</p>
+      <Modal.Body style={{ borderBottom: 'none' }}>
         <Button variant="primary" onClick={handleClick}>
           {buttonText}
         </Button>
       </Modal.Body>
-      <Modal.Footer>
-        <Button variant="secondary" onClick={handleClose}>
-          Закрыть
-        </Button>
-      </Modal.Footer>
     </Modal>
   );
 };
