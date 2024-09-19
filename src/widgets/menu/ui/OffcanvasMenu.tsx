@@ -29,8 +29,8 @@ export const OffcanvasMenu = (
         {showHabits && (<HabitsSection/>)}
         
         <Nav.Link className={styles.navLink}><Link className={styles.link} href="/budget"><FaMoneyBillWave className="me-2" />Бюджет</Link></Nav.Link>
-        <Nav.Link className={styles.navLink}><Link className={styles.link} href="/sleep"><FaBed className="me-2" />Сон</Link></Nav.Link>
-        <Nav.Link className={styles.navLink}><Link className={styles.link} href="/work"><FaBriefcase className="me-2" />Работа</Link></Nav.Link>
+        <Nav.Link className={styles.navLink}><Link className={styles.link} href="/dream"><FaBed className="me-2" />Сон</Link></Nav.Link>
+        <Nav.Link className={styles.navLink}><Link className={styles.link} href="/job"><FaBriefcase className="me-2" />Работа</Link></Nav.Link>
         <Nav.Link className={styles.navLink}><Link className={styles.link} href="/nutrition"><FaUtensils className="me-2" />Питание</Link></Nav.Link>
       </Nav>
     </Offcanvas.Body>

@@ -16,6 +16,10 @@
   z-index: 0;
 }
 
+p{
+  color: gray !important;
+}
+
 .pageContainer{
   display: flex;
   flex-direction: column;
@@ -42,7 +46,7 @@ code {
 }
 
 *{
-  text-decoration: none;
+  text-decoration: none !important;
   color:black;
 }
 
