@@ -1,0 +1,11 @@
+.buttonModal{
+    margin-top: 20px;
+}
+
+.bodyModal{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border-bottom: none;
+}
