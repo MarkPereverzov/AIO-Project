@@ -1,4 +1,4 @@
-import { DreamPage } from "@/pages/dream/ui/DreamPage";
+import { DreamPage } from "@/pages/dream/ui/dreamPage";
 
 export default async function Page( ) {
   return(
