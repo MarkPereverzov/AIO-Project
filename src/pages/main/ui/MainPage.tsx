@@ -1,3 +1,4 @@
+'use client';
 import { Header } from '@/widgets/header';
 import { Block } from '@/widgets/block';
 import { FaSmoking, FaMoneyBillWave, FaBed, FaBriefcase, FaUtensils } from 'react-icons/fa';
