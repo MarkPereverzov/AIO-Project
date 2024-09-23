@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 import { AppleCallback } from "@/features/auth";
-import { getToken } from "@/entities";
+import { getToken } from "@/entities/user";
 
 export async function GET(request: Request) {
   const url = new URL(request.url);
