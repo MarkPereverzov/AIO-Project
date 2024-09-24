@@ -55,6 +55,116 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
+    "/budget/category": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Get all categories */
+        get: operations["BudgetController_getCategories"];
+        /** Update an existing category */
+        put: operations["BudgetController_updateCategory"];
+        /** Create a new category */
+        post: operations["BudgetController_createCategory"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/budget/category/{id}": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        post?: never;
+        /** Delete a category */
+        delete: operations["BudgetController_deleteCategory"];
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/budget/tag": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Get all tags */
+        get: operations["BudgetController_getTags"];
+        /** Update an existing tag */
+        put: operations["BudgetController_updateTag"];
+        /** Create a new tag */
+        post: operations["BudgetController_createTag"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/budget/tag/{id}": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Get a tag by id */
+        get: operations["BudgetController_getTagById"];
+        put?: never;
+        post?: never;
+        /** Delete a tag */
+        delete: operations["BudgetController_deleteTag"];
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/budget/product": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Get all products with filter */
+        get: operations["BudgetController_getProducts"];
+        /** Update an existing product */
+        put: operations["BudgetController_updateProduct"];
+        /** Create a new product */
+        post: operations["BudgetController_createProduct"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/budget/product/{id}": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Get a product by id */
+        get: operations["BudgetController_getProductById"];
+        put?: never;
+        post?: never;
+        /** Delete a product */
+        delete: operations["BudgetController_deleteProduct"];
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
     "/health/records": {
         parameters: {
             query?: never;
@@ -145,6 +255,97 @@ export interface paths {
 export type webhooks = Record<string, never>;
 export interface components {
     schemas: {
+        CategoryDtoResponse: {
+            /** @description Id of category */
+            id: number;
+            /** @description Name of category */
+            name: string;
+        };
+        CategoryDtoRequest: {
+            /** @description Name of category */
+            name: string;
+        };
+        TagDtoResponse: {
+            /** @description Name of tag */
+            name: string;
+            /** @description Color of tag */
+            color: string;
+            /** @description Id of tag */
+            id: number;
+            /** @description UserId can be null */
+            userId: string;
+            /** @description Category */
+            category: components["schemas"]["CategoryDtoResponse"];
+        };
+        TagDtoRequest: {
+            /** @description Name of tag */
+            name: string;
+            /** @description Color of tag */
+            color: string;
+            /** @description Category id */
+            categoryId: number;
+            /** @description UserId can be null */
+            userId: string;
+        };
+        TagDtoUpdateRequest: {
+            /** @description Id of tag */
+            id: number;
+            /** @description Name of tag */
+            name: string;
+            /** @description Color of tag */
+            color: string;
+            /** @description UserId can be null */
+            userId: string;
+            /** @description Category Id of tag */
+            category: number;
+        };
+        ProductDtoCreateRequest: {
+            /** @description Name of product */
+            name: string;
+            /** @description Price of product */
+            price: number;
+            /**
+             * Format: date-time
+             * @description Date of product when it was added to List
+             */
+            date: string;
+            /** @description List of tags that the product must have in array of tags id */
+            tags: number[];
+            /** @description UserId can be null */
+            userId: string;
+        };
+        ProductDtoResponse: {
+            /** @description Name of product */
+            name: string;
+            /** @description Price of product */
+            price: number;
+            /**
+             * Format: date-time
+             * @description Date of product when it was added to List
+             */
+            date: string;
+            /** @description Id of product */
+            id: number;
+            /** @description Tags array with detailed information */
+            tags: components["schemas"]["TagDtoResponse"][];
+        };
+        ProductUpdateDtoRequest: {
+            /** @description Name of product */
+            name: string;
+            /** @description Price of product */
+            price: number;
+            /**
+             * Format: date-time
+             * @description Date of product when it was added to List
+             */
+            date: string;
+            /** @description Id of product */
+            id: number;
+            /** @description List of tags that the product must have in array of tags id */
+            tags: string[];
+            /** @description UserId can be null */
+            userId: string;
+        };
         HealthRecordDto: {
             /** @description Id of healthrercord */
             id: number;
@@ -255,6 +456,325 @@ export interface operations {
         requestBody?: never;
         responses: {
             /** @description UserResponseDto */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+        };
+    };
+    BudgetController_getCategories: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description List of categories */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["CategoryDtoResponse"][];
+                };
+            };
+        };
+    };
+    BudgetController_updateCategory: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["CategoryDtoResponse"];
+            };
+        };
+        responses: {
+            /** @description The updated category */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["CategoryDtoResponse"];
+                };
+            };
+        };
+    };
+    BudgetController_createCategory: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["CategoryDtoRequest"];
+            };
+        };
+        responses: {
+            /** @description The created category */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["CategoryDtoResponse"];
+                };
+            };
+        };
+    };
+    BudgetController_deleteCategory: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                id: number;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Category deleted */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+        };
+    };
+    BudgetController_getTags: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description List of tags */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["TagDtoResponse"][];
+                };
+            };
+        };
+    };
+    BudgetController_updateTag: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["TagDtoUpdateRequest"];
+            };
+        };
+        responses: {
+            /** @description The updated tag */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["TagDtoResponse"];
+                };
+            };
+        };
+    };
+    BudgetController_createTag: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["TagDtoRequest"];
+            };
+        };
+        responses: {
+            /** @description The created tag */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["TagDtoResponse"];
+                };
+            };
+        };
+    };
+    BudgetController_getTagById: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                id: number;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Tag details */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["TagDtoResponse"];
+                };
+            };
+        };
+    };
+    BudgetController_deleteTag: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                id: number;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Tag deleted */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+        };
+    };
+    BudgetController_getProducts: {
+        parameters: {
+            query?: {
+                /** @description Filter by month */
+                month?: number;
+                /** @description Filter by year */
+                year?: number;
+                /** @description Filter by tag */
+                tags?: number[];
+                /** @description Filter by category */
+                category?: number;
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description List of products */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ProductDtoCreateRequest"][];
+                };
+            };
+        };
+    };
+    BudgetController_updateProduct: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                id: number;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["ProductUpdateDtoRequest"];
+            };
+        };
+        responses: {
+            /** @description The updated product */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ProductUpdateDtoRequest"];
+                };
+            };
+        };
+    };
+    BudgetController_createProduct: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["ProductDtoCreateRequest"];
+            };
+        };
+        responses: {
+            /** @description The created product */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ProductDtoResponse"];
+                };
+            };
+        };
+    };
+    BudgetController_getProductById: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                id: number;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Product details */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ProductDtoCreateRequest"];
+                };
+            };
+        };
+    };
+    BudgetController_deleteProduct: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                id: number;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Product deleted */
             200: {
                 headers: {
                     [name: string]: unknown;
