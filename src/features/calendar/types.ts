@@ -1,4 +1,4 @@
-import { HealthRecordDto } from "@/shared/api";
+import { HealthRecordDto } from "@/shared/models";
 
 export interface CalendarState {
   currentDate: Date,
