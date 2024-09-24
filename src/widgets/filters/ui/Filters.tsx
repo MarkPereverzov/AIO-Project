@@ -1,9 +1,16 @@
+'use client';
 import styles from '../Filters.module.css'; 
 import React, { useState } from 'react';
+import { useTag } from '@/features/tag';
 
 export const Filters = () => {
   const [selectedCategory, setSelectedCategory] = useState<string>('');
-  const [activeTags, setActiveTags] = useState<string[]>([]); // Для отслеживания активных тегов
+  //const [activeTags, setActiveTags] = useState<string[]>([]); // Для отслеживания активных тегов
+
+  const { activeTags, addTag } : {
+    activeTags: string[], 
+    addTag: (tag: string) => void
+  } = useTag();
 
   const categories = [
     'Продукты',
@@ -23,11 +30,12 @@ export const Filters = () => {
   };
 
   const handleTagClick = (tag: string) => {
-    if (activeTags.includes(tag)) {
+    /*if (activeTags.includes(tag)) {
       setActiveTags(activeTags.filter((t) => t !== tag)); // Убираем активный тег
     } else {
       setActiveTags([...activeTags, tag]); // Добавляем активный тег
-    }
+    }*/
+   addTag(tag);
   };
 
 

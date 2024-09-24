@@ -1,0 +1,3 @@
+export {
+  useTag
+} from './model';
