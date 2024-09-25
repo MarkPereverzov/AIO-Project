@@ -47,18 +47,14 @@ return (
 
 
     <div className={styles.filterItem}>
-      <div>
-        <select value={selectedCategory} onChange={handleCategoryChange} className={styles.selectInput}>
-          <option value="">Категория</option>
-          {categories.map((category, index) => (
-            <option key={index} value={category}>
-              {category}
-            </option>
-          ))}
-        </select>
-        {selectedCategory && <p>Вы выбрали: {selectedCategory}</p>}
-      </div>
-    </div>
+  <div>
+    <select value={selectedCategory}  onChange={handleCategoryChange}  className={styles.selectInput}>
+      <option value="">Категория</option>
+      {categories.map((category, index) => (<option key={index} value={category}>{category}</option>))}
+    </select>
+  </div>
+</div>
+
 
     <div className={styles.filterItem}>
       <div className={styles.tagContainer}>

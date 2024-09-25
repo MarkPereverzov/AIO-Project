@@ -2,6 +2,7 @@
 import { Filters } from '@/widgets/filters';
 import { Header } from '@/widgets/header';
 import React, { useState } from 'react';
+import { Transaction } from '@/widgets/transactions';
 
 export const BudgetPage = () => {
   
@@ -11,6 +12,7 @@ export const BudgetPage = () => {
       <div className='pageContainer'>
         <div className="gridContainer">
           <Filters />
+          <Transaction />
         </div>
       </div>
     </div>
