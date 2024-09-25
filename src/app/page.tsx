@@ -1,5 +1,5 @@
 'use client';
-import { MainPage } from "@/pages/main/ui/MainPage";
+import { MainPage } from "@/cpages/main/ui/MainPage";
 
 export default function Page() {
   return <MainPage />;

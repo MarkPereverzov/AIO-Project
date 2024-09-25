@@ -1,6 +1,6 @@
-import { NextResponse } from "next/server";
-import { GoogleCallback } from "@/features/auth";
-import { getToken } from "@/entities/user";
+import { NextResponse } from 'next/server';
+import { GoogleCallback } from '@/features/auth';
+import { getToken } from '@/entities/user';
 
 export async function GET(request: Request) {
   const url = new URL(request.url);

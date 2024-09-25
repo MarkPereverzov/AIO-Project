@@ -1,7 +1,7 @@
 import React from 'react';
 import { StatisticElement } from './StatisticElement';
 import styles from '../Statistic.module.css';
-import { CompleteStatDto } from '@/shared/api';
+import { CompleteStatDto } from '@/shared/models';
 import { prepareStatistic } from '../model/prepareStatistic';
 
 export const Statistic = ({completeStatistic}: {completeStatistic: CompleteStatDto | null

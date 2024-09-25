@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Modal, Form, Button } from 'react-bootstrap';
 import { useSubscribe } from '../model';
 import styles from '../Subscribe.module.css';

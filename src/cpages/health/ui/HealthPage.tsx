@@ -1,6 +1,6 @@
 import { Header } from '@/widgets/header';
 import { Block } from '@/widgets/block';
-import { FaSmoking, FaWineBottle, FaCoffee , FaCandyCane, FaUtensils } from 'react-icons/fa'; // Импортируем иконки
+import { FaSmoking, FaWineBottle, FaCoffee , FaCandyCane } from 'react-icons/fa'; // Импортируем иконки
 import { TbRating18Plus } from "react-icons/tb";
 export const HealthPage = () => {
   

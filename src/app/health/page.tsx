@@ -1,5 +1,5 @@
 'use client';
-import { HealthPage } from "@/pages/health/ui/HealthPage";
+import { HealthPage } from "@/cpages/health/ui/HealthPage";
 
 export default function Page() {
   return <HealthPage />;

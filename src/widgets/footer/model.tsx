@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { isStreakExist, toggleStreak } from '@/entities/health/model/streak';
-import { HealthStreakResponseDto } from '@/shared/api';
+import { HealthStreakResponseDto } from '@/shared/models';
 
 export const useFooter = () => {
   // Состояние для первой модалки

@@ -1,8 +1,8 @@
 import { GET, POST } from "@/shared/api/";
-import { HealthStreakResponseDto } from "@/shared/api";
+import { HealthStreakResponseDto } from "@/shared/models";
 
 export const toggleStreak = async (action: boolean, healthId: number) => {
-  const { data, error, response } = await POST('/health/streak', {
+  const { data, error } = await POST('/health/streak', {
     body: {
       healthId: healthId,
       create: action,
@@ -16,7 +16,7 @@ export const toggleStreak = async (action: boolean, healthId: number) => {
 };
 
 export const isStreakExist = async (healthId: number): Promise<HealthStreakResponseDto | null> => {
-  const { data, error, response } = await GET('/health/streak', {
+  const { data, error } = await GET('/health/streak', {
     params: {
       query: {
         healthId: healthId,

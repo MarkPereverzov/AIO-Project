@@ -299,21 +299,6 @@ export interface components {
             /** @description Category Id of tag */
             category: number;
         };
-        ProductDtoCreateRequest: {
-            /** @description Name of product */
-            name: string;
-            /** @description Price of product */
-            price: number;
-            /**
-             * Format: date-time
-             * @description Date of product when it was added to List
-             */
-            date: string;
-            /** @description List of tags that the product must have in array of tags id */
-            tags: number[];
-            /** @description UserId can be null */
-            userId: string;
-        };
         ProductDtoResponse: {
             /** @description Name of product */
             name: string;
@@ -328,6 +313,21 @@ export interface components {
             id: number;
             /** @description Tags array with detailed information */
             tags: components["schemas"]["TagDtoResponse"][];
+        };
+        ProductDtoCreateRequest: {
+            /** @description Name of product */
+            name: string;
+            /** @description Price of product */
+            price: number;
+            /**
+             * Format: date-time
+             * @description Date of product when it was added to List
+             */
+            date: string;
+            /** @description List of tags that the product must have in array of tags id */
+            tags: number[];
+            /** @description UserId can be null */
+            userId: string;
         };
         ProductUpdateDtoRequest: {
             /** @description Name of product */
@@ -686,7 +686,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/json": components["schemas"]["ProductDtoCreateRequest"][];
+                    "application/json": components["schemas"]["ProductDtoResponse"][];
                 };
             };
         };
@@ -712,7 +712,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/json": components["schemas"]["ProductUpdateDtoRequest"];
+                    "application/json": components["schemas"]["ProductDtoResponse"];
                 };
             };
         };
@@ -758,7 +758,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/json": components["schemas"]["ProductDtoCreateRequest"];
+                    "application/json": components["schemas"]["ProductDtoResponse"];
                 };
             };
         };

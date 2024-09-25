@@ -1,4 +1,4 @@
-import { CompleteStatDto } from "@/shared/api";
+import { CompleteStatDto } from '@/shared/models';
 import { toLocaleDateString } from '@/shared/lib';
 
 export const prepareStatistic = (statistic: CompleteStatDto | null) => {

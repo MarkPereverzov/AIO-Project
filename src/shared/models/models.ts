@@ -16,3 +16,4 @@ export type TagDtoUpdateRequest = components["schemas"]["TagDtoUpdateRequest"];
 export type ProductDtoCreateRequest = components["schemas"]["ProductDtoCreateRequest"];
 export type ProductDtoResponse = components["schemas"]["ProductDtoResponse"];
 export type ProductUpdateDtoRequest = components["schemas"]["ProductUpdateDtoRequest"];
+export type { ProductGetParams } from './product';

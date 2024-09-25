@@ -1,4 +1,4 @@
-import { JobPage } from "@/pages/job/ui/jobPage";
+import { JobPage } from "@/cpages/job/ui/jobPage";
 
 export default async function Page( ) {
   return(

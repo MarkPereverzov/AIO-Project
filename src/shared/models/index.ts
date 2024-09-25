@@ -11,5 +11,6 @@ export type {
   CompleteStatDto, 
   SubscribeDto, 
   HealthStreakDto, 
-  HealthStreakResponseDto 
+  HealthStreakResponseDto,
+  ProductGetParams
 } from "./models";

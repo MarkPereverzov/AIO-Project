@@ -4,7 +4,7 @@ import { Calendar } from '@/widgets/calendar';
 import { Achievements } from '@/features/statistic';
 import { Footer } from '@/widgets/footer';
 import { Header } from '@/widgets/header';
-import { CompleteStatDto, HealthRecordDto } from '@/shared/api';
+import { CompleteStatDto, HealthRecordDto } from '@/shared/models';
 
 interface SmokingPageProps {
   completeStatistic: CompleteStatDto | null,

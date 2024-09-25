@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { CalendarElement } from './CalendarElement';
 import styles from '../Calendar.module.css';
-import { HealthRecordDto } from '@/shared/api';
-import { CalendarState, useCalendar } from '@/features/calendar';
+import { HealthRecordDto } from '@/shared/models';
+import { useCalendar } from '@/features/calendar';
 
 interface CalendarProps {
   records: HealthRecordDto[] | null,

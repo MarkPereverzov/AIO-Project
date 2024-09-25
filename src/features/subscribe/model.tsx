@@ -5,7 +5,6 @@ import { subscribe } from '@/entities/health';
 export const useSubscribe = (handleClose: () => void) => {
   const [pricePerPack, setPricePerPack] = useState('');
   const [cigarettesPerDay, setCigarettesPerDay] = useState('');
-  const [additionalParameter, setAdditionalParameter] = useState('');
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();

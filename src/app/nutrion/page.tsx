@@ -1,4 +1,4 @@
-import { NutrionPage } from "@/pages/nutrion/ui/nutrionPage";
+import { NutrionPage } from "@/cpages/nutrion/ui/nutrionPage";
 
 export default async function Page( ) {
   return(

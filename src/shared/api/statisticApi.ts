@@ -1,7 +1,8 @@
-import { CompleteStatDto, GET } from "@/shared/api/";
+import { GET } from '@/shared/api';
+import { CompleteStatDto } from '@/shared/models';
 
 export const fetchStatistic = async (): Promise<CompleteStatDto> => {
-  const { data, error, response } = await GET('/health/stat', {
+  const { data, error } = await GET('/health/stat', {
     params: {
       query: { healthId: 1 },
     }

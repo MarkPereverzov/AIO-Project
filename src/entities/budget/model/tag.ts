@@ -7,7 +7,8 @@ export const getTags = async (): Promise<TagDtoResponse[]> => {
   console.log(data);
 
   if (error !== undefined) {
-    console.log(error);
+    console.error(error);
+    console.error("F");
   }
 
   return data;

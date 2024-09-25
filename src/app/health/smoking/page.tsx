@@ -1,5 +1,5 @@
-import { fetchRecords, fetchStatistic } from "@/shared/api";
-import { SmokingPage } from "@/pages/smoking/ui/SmokingPage";
+import { fetchRecords, fetchStatistic } from '@/shared/api';
+import { SmokingPage } from '@/cpages/smoking/ui/SmokingPage';
 
 export default async function Page({ searchParams }: { searchParams: { date?: string } }) {
   try {

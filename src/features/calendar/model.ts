@@ -1,8 +1,8 @@
-import { HealthRecordDto } from "@/shared/models";
-import { useEffect, useState } from "react";
-import { ReadonlyURLSearchParams, useRouter, useSearchParams } from 'next/navigation';
-import { AppRouterInstance } from "next/dist/shared/lib/app-router-context.shared-runtime";
-import { toClearDate, isDayInInterval } from "@/shared/lib";
+import { HealthRecordDto } from '@/shared/models';
+import { useEffect, useState } from 'react';
+import { useRouter } from 'next/navigation';
+import { AppRouterInstance } from 'next/dist/shared/lib/app-router-context.shared-runtime';
+import { toClearDate, isDayInInterval } from '@/shared/lib';
 
  // Получение названия месяца
 const monthNames = ['Январь', 'Февраль', 'Март', 'Апрель', 'Май', 'Июнь', 'Июль', 'Август', 'Сентябрь', 'Октябрь', 'Ноябрь', 'Декабрь'];
@@ -18,13 +18,12 @@ const setCurrentDate = (router: AppRouterInstance, date: Date) => {
 
 export const useCalendar = () => {
   const router = useRouter();
-  const searchParams = useSearchParams();
   const [currentDate, setCurrentDateState] = useState(new Date());
   //getCurrentDate(searchParams);
   
   useEffect(()=>{
     setCurrentDate(router, currentDate);
-  },[currentDate]);
+  },[currentDate, router]);
 
   // Получение количества дней в месяце
   const getDaysInMonth = (year: number, month: number) => {

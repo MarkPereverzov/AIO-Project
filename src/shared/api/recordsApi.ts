@@ -1,7 +1,7 @@
 import { GET } from "@/shared/api/";
 
 export const fetchRecords = async (date: Date) => {
-  const { data, error, response } = await GET('/health/records', {
+  const { data, error } = await GET('/health/records', {
     params: {
       query: { 
         healthId: 1, 

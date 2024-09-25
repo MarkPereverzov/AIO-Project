@@ -1,6 +1,6 @@
 import React from 'react';
 import { Modal, Button } from 'react-bootstrap';
-import { HealthStreakResponseDto } from '@/shared/api';
+import { HealthStreakResponseDto } from '@/shared/models';
 import '../PlayModal.module.css';
 
 interface PlayModalProps {
@@ -11,7 +11,7 @@ interface PlayModalProps {
   handleStreak: () => void;
 }
 
-export const PlayModal = ({ show, status, isLoading, handleClose, handleStreak }: PlayModalProps) => {
+export const PlayModal = ({ show, status, handleClose, handleStreak }: PlayModalProps) => {
   const isStarted = status?.isExist;
   const buttonText = isStarted ? 'остановить' : 'начать';
 
