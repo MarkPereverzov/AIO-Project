@@ -3,4 +3,5 @@ export type ProductGetParams = {
   year?: number,
   tags?: number[],
   category?: number,
+  name?: string,
 }

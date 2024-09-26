@@ -665,13 +665,15 @@ export interface operations {
     BudgetController_getProducts: {
         parameters: {
             query?: {
-                /** @description Filter by month */
+                /** @description For wich month list products */
                 month?: number;
-                /** @description Filter by year */
+                /** @description For wich year list products */
                 year?: number;
-                /** @description Filter by tag */
+                /** @description Partial or full name of product */
+                name?: string;
+                /** @description List of tags that the product must have in array of tags id */
                 tags?: number[];
-                /** @description Filter by category */
+                /** @description Category of product */
                 category?: number;
             };
             header?: never;

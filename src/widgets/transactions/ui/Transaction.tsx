@@ -4,7 +4,7 @@ import { TransactionElement } from './TransactionElement';
 import { toLocaleDateString } from '@/shared/lib';
 
 interface TransactionProps {
-  products: ProductDtoResponse[],
+  products: ProductDtoResponse[] | null,
 }
 
 export const Transaction = ({products}: TransactionProps) => {

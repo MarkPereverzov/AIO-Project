@@ -1,7 +1,8 @@
-import { GET } from "@/shared/api/";
+import { GET } from '@/shared/api/';
+import { throwAnyErrors } from '@/shared/lib';
 
 export const fetchRecords = async (date: Date) => {
-  const { data, error } = await GET('/health/records', {
+  return await throwAnyErrors(GET('/health/records', {
     params: {
       query: { 
         healthId: 1, 
@@ -9,13 +10,5 @@ export const fetchRecords = async (date: Date) => {
         year: date.getFullYear()
       },
     }
-  });
-
-  console.log(data);
-
-  if (error !== undefined) {
-    console.log(error);
-  }
-
-  return data;
+  }));
 }

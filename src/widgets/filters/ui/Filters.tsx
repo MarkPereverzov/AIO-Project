@@ -5,12 +5,13 @@ import { useUrlParams } from '@/shared/hooks';
 import { CategoryDtoResponse, TagDtoResponse } from '@/shared/models';
 
 interface FiltersProps {
-  tags: TagDtoResponse[],
-  categories: CategoryDtoResponse[]
+  tags: TagDtoResponse[] | null,
+  categories: CategoryDtoResponse[] | null
 }
 
 export const Filters = ({tags, categories}: FiltersProps) => {
   const { paramValue: activeCategory, updateParamValue: setActiveCategory } = useUrlParams('category');
+  const { paramValue: inputValue, updateParamValue: setName } = useUrlParams('name');
   const { paramValue: activeTags, toggleParamValue: addTag, removeParam: clearAll } = useUrlParams('tags');
 
   const categories_uf = [
@@ -40,7 +41,13 @@ export const Filters = ({tags, categories}: FiltersProps) => {
   return (
     <div className={styles.filterContainer}>
       <div className={styles.filterItem}>
-        <input type="text" placeholder="Поиск" className={styles.searchInput} />
+        <input 
+          type="text" 
+          placeholder="Поиск" 
+          className={styles.searchInput} 
+          value={inputValue}
+          onChange={(event) => setName(event.target.value)}
+        />
       </div>
 
 

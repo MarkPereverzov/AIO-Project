@@ -6,9 +6,9 @@ import { Transaction } from '@/widgets/transactions';
 import { CategoryDtoResponse, ProductDtoResponse, TagDtoResponse } from '@/shared/models';
 
 interface BudgetPageProps {
-  tags: TagDtoResponse[],
-  categories: CategoryDtoResponse[],
-  products: ProductDtoResponse[],
+  tags: TagDtoResponse[] | null,
+  categories: CategoryDtoResponse[] | null,
+  products: ProductDtoResponse[] | null,
 }
 
 export const BudgetPage = ({tags, categories, products}: BudgetPageProps) => {
