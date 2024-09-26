@@ -69,12 +69,12 @@ export const Filters = ({tags, categories}: FiltersProps) => {
         <div className={styles.tagContainer}>
           { tags
             ? tags?.map((tag) => (
-              <span key={tag.id} className={`${styles.tag} ${activeTags.includes(tag.name) ? styles.activeTag : ''}`} onClick={() => addTag(tag.id.toString())}>
+              <span key={tag.id} className={`${styles.tag} ${activeTags.includes(tag.id.toString()) ? styles.activeTag : ''}`} onClick={() => addTag(tag.id.toString())}>
                 {tag.name}
               </span>
             ))
             : tags_uf.map((tag) => (
-              <span key={tag.id} className={`${styles.tag} ${activeTags.includes(tag.name) ? styles.activeTag : ''}`} onClick={() => addTag(tag.id.toString())}>
+              <span key={tag.id} className={`${styles.tag} ${activeTags.includes(tag.id.toString()) ? styles.activeTag : ''}`} onClick={() => addTag(tag.id.toString())}>
                 {tag.name}
               </span>
             ))
