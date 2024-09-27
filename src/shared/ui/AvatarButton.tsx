@@ -1,11 +1,19 @@
 import React from 'react';
-import { Button } from 'react-bootstrap';
+import { Button, Image } from 'react-bootstrap';
 import { FaUserCircle } from 'react-icons/fa';
 
-export const AvatarButton = ({ onClick }: { onClick: () => void }) => {
+interface AvatarButtonProps {
+  userAvatar: string | undefined,
+  onClick: () => void,
+};
+
+export const AvatarButton = ({ userAvatar, onClick }: AvatarButtonProps) => {
   return (
     <Button className="avatarButton" onClick={onClick}> {/* кнопка регистрации */}
-      <FaUserCircle className="avatarIcon" />
+      { userAvatar
+        ? <Image src={ userAvatar } roundedCircle fluid />
+        : <FaUserCircle className="avatarIcon" />
+      }
     </Button>
   );
 };

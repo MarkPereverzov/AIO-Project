@@ -1,5 +1,8 @@
 import type { components } from "@/shared/api/v1";
 
+//User Dto's
+export type UserResponseDto = components["schemas"]["UserResponseDto"];
+
 //Health Dto's
 export type HealthRecordDto = components["schemas"]["HealthRecordDto"];
 export type CompleteStatDto = components["schemas"]["CompleteStatDto"];

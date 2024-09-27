@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { User, getUserInfo, UserProvider } from "@/entities/user";
 import localFont from "next/font/local";
 import "@/shared/styles/globals.css";
 
@@ -18,17 +19,21 @@ export const metadata: Metadata = {
   description: "AIO-project",
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const user: User | null = await getUserInfo();
+
   return (
     <html lang="en">
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        {children}
+        <UserProvider initialUser={user}>
+          {children}
+        </UserProvider>
         <div className="background"></div>
       </body>
     </html>

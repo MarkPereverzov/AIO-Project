@@ -1,2 +1,2 @@
-export { toggleStreak, isStreakExist } from './model/streak';
-export { subscribe } from './model/registrate';
+export { toggleStreak, isStreakExist } from './api/streak';
+export { subscribe } from './api/registrate';

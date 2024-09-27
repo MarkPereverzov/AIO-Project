@@ -4,14 +4,14 @@ export {
   updateProduct,
   getProductById,
   deleteProduct
-} from './model/product';
+} from './api/product';
 
 export {
   getCategories,
   createCategory,
   updateCategory,
   deleteCategory
-} from './model/category';
+} from './api/category';
 
 export {
   getTags,
@@ -19,4 +19,4 @@ export {
   updateTag,
   getTagById,
   deleteTag
-} from './model/tag';
+} from './api/tag';

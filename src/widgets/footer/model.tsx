@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { isStreakExist, toggleStreak } from '@/entities/health/model/streak';
+import { isStreakExist, toggleStreak } from '@/entities/health/api/streak';
 import { HealthStreakResponseDto } from '@/shared/models';
 
 export const useFooter = () => {

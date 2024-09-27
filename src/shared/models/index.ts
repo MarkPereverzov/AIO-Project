@@ -1,4 +1,5 @@
 export type { 
+  UserResponseDto,
   CategoryDtoResponse, 
   CategoryDtoRequest, 
   TagDtoResponse, 

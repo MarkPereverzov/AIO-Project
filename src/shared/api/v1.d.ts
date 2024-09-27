@@ -255,6 +255,28 @@ export interface paths {
 export type webhooks = Record<string, never>;
 export interface components {
     schemas: {
+        UserResponseDto: {
+            /**
+             * @description Email
+             * @example regular@mail.com
+             */
+            email: string;
+            /**
+             * @description Nickname
+             * @example John43
+             */
+            name: string;
+            /**
+             * @description userId in our system
+             * @example a48c8910-9ff2-4a84-ae15-fdce540f4455
+             */
+            userId: string;
+            /**
+             * @description Link to Image
+             * @example https://e7.pngegg.com/pngimages/251/239/png-clipart-logo-design-rebranding-typography-letter-a-angle-text-thumbnail.png
+             */
+            userLogo: string;
+        };
         CategoryDtoResponse: {
             /** @description Id of category */
             id: number;
@@ -460,7 +482,9 @@ export interface operations {
                 headers: {
                     [name: string]: unknown;
                 };
-                content?: never;
+                content: {
+                    "application/json": components["schemas"]["UserResponseDto"];
+                };
             };
         };
     };
