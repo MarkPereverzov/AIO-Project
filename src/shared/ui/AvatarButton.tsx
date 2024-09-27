@@ -9,11 +9,15 @@ interface AvatarButtonProps {
 
 export const AvatarButton = ({ userAvatar, onClick }: AvatarButtonProps) => {
   return (
-    <Button className="avatarButton" onClick={onClick}> {/* кнопка регистрации */}
-      { userAvatar
-        ? <Image src={ userAvatar } roundedCircle fluid />
-        : <FaUserCircle className="avatarIcon" />
+    <>
+      { !userAvatar
+        ? <Button className="avatarButton" onClick={onClick}> {/* кнопка регистрации */}
+            <FaUserCircle className="avatarIcon" />
+          </Button>
+        :  <Button className="avatarButton">
+            <Image src={ userAvatar } roundedCircle fluid />
+          </Button>
       }
-    </Button>
+    </>
   );
 };
