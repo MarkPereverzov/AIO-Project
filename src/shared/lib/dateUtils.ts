@@ -14,7 +14,7 @@ export const isDayInInterval = (begin: Date, end: Date, day: Date) => {
 } 
 
 export const toLocaleDateString = (date: string | Date, separator?: string | null): string => {
-  const newDate = new Date();
+  const newDate = new Date(date);
   const sep = separator ? separator : '-';
   
   const day = newDate.getDate();

@@ -10,7 +10,7 @@ export const Statistic = ({completeStatistic}: {completeStatistic: CompleteStatD
 
   const statistic = [
     { title: 'Не курю с', subtitle: completeStatistic?.lastBadDay },
-    { title: 'Не курил уже', subtitle: `${completeStatistic?.lastStreakDays} дней` },
+    { title: 'Не курил уже', subtitle: `${completeStatistic?.lastStreakDays ?? 0} дней` },
     { title: 'Не курил всего', subtitle: `${completeStatistic?.totalDays} дней` },
     { title: 'Рекорд', subtitle: `${completeStatistic?.longestStreak} дней` },
     { title: 'Сигарет не выкурено', subtitle: `${completeStatistic?.badThingCount} сигарет` },
