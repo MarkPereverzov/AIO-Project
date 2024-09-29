@@ -166,6 +166,7 @@ code {
 .gridContainer {
   display: flex;
   flex-wrap: wrap;
+  align-items: center;
   justify-content: center; /* Центрирование блоков по горизонтали */
   gap: 20px; /* Отступы между блоками */
   padding: 20px; /* Отступы вокруг всей сетки */
@@ -173,5 +174,23 @@ code {
 
 .gridContainer > .block {
   margin: 0; /* Убедитесь, что margin внутри блоков не конфликтует */
+}
+
+@media screen and (max-width: 600px) {
+  .gridContainer {
+    margin-top: 15%;
+  }
+}
+
+@media (min-width: 600px) and (max-width: 1024px) {
+  .gridContainer {
+    margin-top: 10%;
+  }
+}
+
+@media (min-width: 1024px) {
+  .gridContainer {
+    margin-top: 5%;
+  }
 }
   

@@ -1,83 +1,120 @@
+/* Основной контейнер для фильтров */
 .filterContainer {
     display: flex;
-    align-items: center;
-    padding: 10px;
-    flex-direction: column;
-    width: 15%;
-    height: 90%;
-    position: fixed;
-    left: 0%;
-    top: 10%;
-    z-index: 1;
-}
-
-.filterItem {
-    margin: 5px;
-    width: 100%;
-}
-
-.searchInput, .selectInput {
-    width: 100%;
-    padding: 5px;
-    font-size: 0.875rem;
-    border-radius: 7.5px;
-    appearance: none;
-    color: gray;
-    border: 1px solid #ddd; /* Изначально серый */
-    background-color: white;
-    transition: border-color 0.3s ease; /* Плавный переход цвета */
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-.searchInput:focus, .selectInput:focus {
-    border-color: gray; /* При фокусе граница становится синей */
-    outline: none; /* Убираем стандартный outline */
-}
-
-.selectInput {
-    width: 100%;
-    font-size: 0.875rem;
-    border: 1px solid #ddd;
-    color: gray;
-    border-radius: 7.5px;
-    appearance: none; /* Убираем стандартный вид select */
-    background-image: url('/path-to-your-custom-icon.svg'); /* Иконка раскрытия списка */
-    background-repeat: no-repeat;
-    background-position: right 10px center; /* Позиция иконки */
-    background-size: 16px; /* Размер иконки */
-}
-
-.selectInput::-ms-expand {
-    display: none; /* Убираем стрелку в IE */
-}
-
-/* Стили для контейнера тегов */
-.tagContainer {
+    flex-direction: column; /* Колонкой, чтобы теги были снизу */
+    gap: 20px;
+    padding: 15px 20px;
+    background-color: #f8f9fa;
+    border-radius: 10px;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Контейнер для строки с поиском и выпадающим списком */
+  .searchCategoryRow {
     display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 5px;
-    border-radius: 7.5px;
-    padding: 5px;
-    border: 1px solid #ddd;
-    box-shadow: 0px 4px 8px rgba(255, 255, 255, 0.1);
-    background-color: white;  /* Фон, как у поиска */
-}
-
-.tag {
-    border-radius: 25px;
-    font-size: 0.875rem;
-    cursor: pointer;
-    transition: opacity 0.3s ease, background-color 0.3s ease; /* Плавное изменение цвета и прозрачности */
-    padding: 0px 5px 0px 5px;
-    color: gray;
-    border-color: black;
-    border: 1px solid #ddd;
+    width: 100%;
+    gap: 15px; /* Отступ между элементами */
+  }
+  
+  /* Поисковый input */
+  .searchInput {
+    flex: 1; /* Занимает оставшееся пространство */
+    padding: 8px 12px;
+    font-size: 1rem;
+    border: 1px solid #ced4da;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+  }
+  
+  .searchInput:focus {
+    border-color: #495057;
+    box-shadow: 0px 0px 5px rgba(0, 123, 255, 0.25);
+    outline: none;
+  }
+  
+  /* Select (категории) */
+  .selectInput {
+    flex: 0 0 200px; /* Фиксированная ширина */
+    padding: 8px 12px;
+    font-size: 1rem;
+    border: 1px solid #ced4da;
+    border-radius: 5px;
     background-color: white;
-}
-
-.activeTag {
+    background-image: url('/path-to-custom-icon.svg');
+    background-repeat: no-repeat;
+    background-position: right 12px center;
+    background-size: 16px;
+    appearance: none;
+    transition: all 0.3s ease;
+  }
+  
+  .selectInput:focus {
+    border-color: #495057;
+    box-shadow: 0px 0px 5px rgba(0, 123, 255, 0.25);
+    outline: none;
+  }
+  
+  /* Контейнер для тегов */
+  .tagContainer {
+    display: flex;
+    flex-wrap: wrap; /* Теги переносятся на новую строку при необходимости */
+    gap: 10px; /* Пространство между тегами */
+    justify-content: flex-start; /* Выровнять теги влево */
+  }
+  
+  /* Кнопка очистки тегов */
+  .clear {
+    padding: 5px 15px;
+    font-size: 0.9rem;
+    border-radius: 25px;
+    background-color: #dc3545;
     color: white;
-    border-color: gray;
-    background-color: gray;
-}
+    cursor: pointer;
+    border: none;
+    transition: all 0.3s ease;
+  }
+  
+  .clear:hover {
+    background-color: #c82333;
+  }
+  
+  /* Адаптивность для мобильных устройств */
+  @media (max-width: 768px) {
+    .searchCategoryRow {
+      flex-direction: column; /* Переводим в колонку на мобильных */
+    }
+  
+    .selectInput {
+      width: 100%;
+    }
+  }
+
+/* Тег по умолчанию */
+.tag {
+    padding: 5px 10px;
+    font-size: 0.9rem;
+    border-radius: 25px;
+    background-color: #ffffff; /* Белый фон для обычных тегов */
+    border: 1px solid #ced4da;
+    cursor: pointer;
+    transition: all 0.3s ease, transform 0.2s ease;
+  }
+  
+  .tag:hover {
+    transform: scale(1.05); /* Легкое увеличение при наведении */
+  }
+  
+  /* Активный тег */
+  .activeTag {
+    background-color: #a05151; /* Серый фон для активного тега */
+    color: white; /* Белый текст для активного тега */
+    transform: scale(1.05); /* Легкое увеличение активного тега */
+    border-color: #a05151; /* Граница совпадает с фоном активного тега */
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
+  }
+  
+  /* Убираем эффект наведения для активного тега */
+  .activeTag:hover {
+    transform: none; /* Не увеличиваем активный тег при наведении */
+  }
+  

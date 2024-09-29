@@ -10,11 +10,11 @@ interface TransactionProps {
 export const Transaction = ({products}: TransactionProps) => {
 
   const statistic = [
-    { name: 'Transaction 1', date: 'text', price: '+100$'},
-    { name: 'Transaction 2', date: 'text', price: '-1000$'},
-    { name: 'Transaction 3', date: 'text', price: '+10000$'},
-    { name: 'Transaction 4', date: 'text', price: '-100000$'},
-    { name: 'Transaction 5', date: 'text', price: '+1$'},
+    { name: 'Name', tag: 'tag', date: '00.00.0000', price: '+100$'},
+    { name: 'Name', tag: 'tag', date: '00.00.0000', price: '+100$'},
+    { name: 'Name', tag: 'tag', date: '00.00.0000', price: '+100$'},
+    { name: 'Name', tag: 'tag', date: '00.00.0000', price: '+100$'},
+    { name: 'Name', tag: 'tag', date: '00.00.0000', price: '+100$'},
   ];
 
   return (
@@ -23,8 +23,8 @@ export const Transaction = ({products}: TransactionProps) => {
         {products?.map((product, index) => (
           <TransactionElement 
             key={index} 
-            title={product.name} 
-            subtitle={toLocaleDateString(product.date)} 
+            name={product.name}
+            date={toLocaleDateString(product.date)} 
             price={product.price.toString()}
           />
         ))}
@@ -33,8 +33,9 @@ export const Transaction = ({products}: TransactionProps) => {
           statistic.map((product, index) => (
             <TransactionElement 
               key={index} 
-              title={product.name} 
-              subtitle={product.date} 
+              tag={product.tag}
+              name={product.name} 
+              date={product.date} 
               price={product.price}
             />
           ))
