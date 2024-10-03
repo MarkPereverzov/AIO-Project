@@ -17,15 +17,15 @@ export const BudgetPage = ({tags, categories, products}: BudgetPageProps) => {
   console.log(tags, categories, products);
 
   return (
-    <div>
+    <>
       <Header pageName="Бюджет" />
       <div className='pageContainer'>
-        <div className="gridContainer">
-          <Filters tags={tags} categories={categories} />
-          <Transaction products={products} />
-        </div>
+          <div className="gridContainer">
+            <Filters tags={tags} categories={categories} />
+            <Transaction products={products} />
+          </div>
+          <Footer/>
       </div>
-      <Footer/>
-    </div>
+    </>
   );
 };

@@ -1,8 +1,9 @@
 import React from 'react';
-import { FaCog, FaPlay } from 'react-icons/fa';
 import { useFooter } from '../model';
 import { Subscribe } from '@/features/subscribe';
-import { PlayModal } from '@/features/playModal'; 
+import { CreateTag } from '@/features/createTag';
+import { PlayModal } from '@/features/playModal';
+import { BiSolidCog, BiSolidCustomize, BiSolidRightArrow, BiSolidPin } from "react-icons/bi";
 import styles from '../Footer.module.css';
 
 interface FooterProps {}
@@ -18,22 +19,36 @@ export const Footer = ({}: FooterProps) => {
     handleShowPlayModal,
     handleClosePlayModal,
     handleStreak,
+    handleShowCreateTag,
   } = useFooter();
 
   return (
     <footer className={styles.footer}>
       {/* Кнопка с иконкой FaCog для открытия первой модалки */}
       <button className={styles.footerButton} onClick={handleShow}>
-        <FaCog />
+        <BiSolidCog />
       </button>
 
       {/* Кнопка с иконкой FaPlay для открытия второй модалки */}
       <button className={styles.footerButton} onClick={handleShowPlayModal}>
-        <FaPlay />
+        <BiSolidRightArrow />
+      </button>
+
+      {/* Кнопка с иконкой FaPlay для открытия второй модалки */}
+      <button className={styles.footerButton} onClick={handleShowCreateTag}>
+        <BiSolidCustomize  />
+      </button>
+
+      {/* Кнопка с иконкой FaPlay для открытия второй модалки */}
+      <button className={styles.footerButton} onClick={handleShowPlayModal}>
+        <BiSolidPin />
       </button>
 
       {/* Первое модальное окно */}
-      <Subscribe show={showModal} handleClose={handleClose} />
+      <Subscribe
+        show={showModal}
+        handleClose={handleClose}
+      />
 
       {/* Второе модальное окно с другим текстом */}
       <PlayModal 
@@ -42,6 +57,11 @@ export const Footer = ({}: FooterProps) => {
         status={statusPlayModal} 
         handleStreak={handleStreak} 
         isLoading={isLoadingPlayModal}
+      />
+
+      <CreateTag
+        show={showModal}
+        handleClose={handleClose}
       />
     </footer>
   );

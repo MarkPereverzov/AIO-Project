@@ -9,7 +9,8 @@ export const useFooter = () => {
   const [showPlayModal, setShowPlayModal] = useState(false);
   const [statusPlayModal, setStatusPlayModal] = useState<HealthStreakResponseDto | null>(null);
   const [isLoadingPlayModal, setIsLoadingPlayModal] = useState(false);
-
+  // Состояние для третьей модалки
+  const [showModalCreteTag, setShowModalCreteTag] = useState(false);
 
   // Обработчики для первой модалки
   const handleShow = () => setShowModal(true);
@@ -40,6 +41,11 @@ export const useFooter = () => {
   };
 
   const handleClosePlayModal = () => setShowPlayModal(false);
+};
+
+  // Обработчики для третьей модалки
+  const handleShowCreateTag = () => setShowModalCreteTag(true);
+  const handleCloseCreateTag = () => setShowModalCreteTag(false);
 
   return {
     showModal,
@@ -51,5 +57,9 @@ export const useFooter = () => {
     handleShowPlayModal,
     handleClosePlayModal,
     handleStreak,
-  };
+    showModalCreteTag,
+    setShowModalCreteTag,
+    handleShowCreateTag,
+    handleCloseCreateTag,
+
 };
