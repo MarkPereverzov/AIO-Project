@@ -20,3 +20,18 @@ export type ProductDtoCreateRequest = components["schemas"]["ProductDtoCreateReq
 export type ProductDtoResponse = components["schemas"]["ProductDtoResponse"];
 export type ProductUpdateDtoRequest = components["schemas"]["ProductUpdateDtoRequest"];
 export type { ProductGetParams } from './product';
+
+//Sport Dto
+export type ExerciseEntity = components["schemas"]["ExerciseEntity"];
+export type ResponseAnalysisExerciseDto = components["schemas"]["ResponseAnalysisExerciseDto"];
+export type CreateExerciseDto = components["schemas"]["CreateExerciseDto"];
+export type UpdateExerciseDto = components["schemas"]["UpdateExerciseDto"];
+export type ExerciseDayDto = components["schemas"]["ExerciseDay"];
+export type CreateExerciseDayDto = components["schemas"]["CreateExerciseDayDto"];
+export type UpdateExerciseDayDto = components["schemas"]["UpdateExerciseDayDto"];
+export type CreateExerciseRecordDto = components["schemas"]["CreateExerciseRecordDto"];
+export type UpdateExerciseRecordDto = components["schemas"]["UpdateExerciseRecordDto"];
+export type CreatePlanExerciseDto = components["schemas"]["CreatePlanExerciseDto"];
+export type UpdatePlanExerciseDto = components["schemas"]["UpdatePlanExerciseDto"];
+export type CreatePlanExerciseDayDto = components["schemas"]["CreatePlanExerciseDayDto"];
+export type UpdatePlanExerciseDayDto = components["schemas"]["UpdatePlanExerciseDayDto"];

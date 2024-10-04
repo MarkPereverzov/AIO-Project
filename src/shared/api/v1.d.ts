@@ -251,6 +251,203 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
+    "/sport/analyse": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Analyse exercise weight for day */
+        get: operations["SportController_analyseExerciseDay"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/sport/exercises": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Get all exercises */
+        get: operations["SportController_getAllExercises"];
+        put?: never;
+        /** Create a new exercise */
+        post: operations["SportController_createExercise"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/sport/exercises/{id}": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        /** Update an existing exercise */
+        put: operations["SportController_updateExercise"];
+        post?: never;
+        /** Delete an exercise */
+        delete: operations["SportController_deleteExercise"];
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/sport/exercise-days": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Get all exercise days */
+        get: operations["SportController_getAllExerciseDays"];
+        put?: never;
+        /** Create a new exercise day */
+        post: operations["SportController_createExerciseDay"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/sport/exercise-days/{id}": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        /** Update an existing exercise day */
+        put: operations["SportController_updateExerciseDay"];
+        post?: never;
+        /** Delete an exercise day */
+        delete: operations["SportController_deleteExerciseDay"];
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/sport/exercise-records": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Get all exercise records */
+        get: operations["SportController_getAllExerciseRecords"];
+        put?: never;
+        /** Create a new exercise record */
+        post: operations["SportController_createExerciseRecord"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/sport/exercise-records/{id}": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        /** Update an existing exercise record */
+        put: operations["SportController_updateExerciseRecord"];
+        post?: never;
+        /** Delete an exercise record */
+        delete: operations["SportController_deleteExerciseRecord"];
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/sport/plan-exercises": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Get all plan exercises */
+        get: operations["SportController_getAllPlanExercises"];
+        put?: never;
+        /** Create a new plan exercise */
+        post: operations["SportController_createPlanExercise"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/sport/plan-exercises/{id}": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        /** Update an existing plan exercise */
+        put: operations["SportController_updatePlanExercise"];
+        post?: never;
+        /** Delete a plan exercise */
+        delete: operations["SportController_deletePlanExercise"];
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/sport/plan-exercise-days": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Get all plan exercise days */
+        get: operations["SportController_getAllPlanExerciseDays"];
+        put?: never;
+        /** Create a new plan exercise day */
+        post: operations["SportController_createPlanExerciseDay"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/sport/plan-exercise-days/{id}": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        /** Update an existing plan exercise day */
+        put: operations["SportController_updatePlanExerciseDay"];
+        post?: never;
+        /** Delete a plan exercise day */
+        delete: operations["SportController_deletePlanExerciseDay"];
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
 }
 export type webhooks = Record<string, never>;
 export interface components {
@@ -417,6 +614,58 @@ export interface components {
             /** @description Is there any existing streak for given healthId ? */
             isExist: boolean;
         };
+        ExerciseEntity: Record<string, never>;
+        ResponseAnalysisExerciseDto: {
+            /** @description Exercise of Day */
+            exercise: components["schemas"]["ExerciseEntity"];
+            /** @description Sets of analysed exercise */
+            sets: number;
+            /** @description Reps of analysed exercise */
+            reps: number;
+            /** @description Weight of analysed exercise */
+            weight: number;
+        };
+        CreateExerciseDto: {
+            /** @description Name of the exercise */
+            name: string;
+        };
+        UpdateExerciseDto: Record<string, never>;
+        ExerciseDay: Record<string, never>;
+        CreateExerciseDayDto: {
+            /**
+             * Format: date-time
+             * @description Date of the exercise day
+             */
+            date: string;
+        };
+        UpdateExerciseDayDto: Record<string, never>;
+        CreateExerciseRecordDto: {
+            /** @description ID of the associated exercise */
+            exerciseId: number;
+            /** @description Weight used in the exercise */
+            weight: number;
+            /** @description Number of repetitions */
+            reps: number;
+            /** @description ID of the associated exercise day */
+            exerciseDayId: number;
+        };
+        UpdateExerciseRecordDto: Record<string, never>;
+        CreatePlanExerciseDto: {
+            /** @description ID of the associated exercise */
+            exerciseId: number;
+            /** @description Number of sets to perform */
+            sets: number;
+            /** @description Number of repetitions per set */
+            reps: number;
+            /** @description ID of the associated plan day */
+            planExerciseDayId: number;
+        };
+        UpdatePlanExerciseDto: Record<string, never>;
+        CreatePlanExerciseDayDto: {
+            /** @description Day of the week (0-6) */
+            weekDay: number;
+        };
+        UpdatePlanExerciseDayDto: Record<string, never>;
     };
     responses: never;
     parameters: never;
@@ -932,6 +1181,475 @@ export interface operations {
         requestBody?: never;
         responses: {
             201: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+        };
+    };
+    SportController_analyseExerciseDay: {
+        parameters: {
+            query: {
+                /** @description Week day of plan exercise day */
+                weekDay: number;
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Return analysed day */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ResponseAnalysisExerciseDto"][];
+                };
+            };
+        };
+    };
+    SportController_getAllExercises: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Return all exercises. */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["CreateExerciseDto"][];
+                };
+            };
+        };
+    };
+    SportController_createExercise: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["CreateExerciseDto"];
+            };
+        };
+        responses: {
+            /** @description The exercise has been successfully created. */
+            201: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["CreateExerciseDto"];
+                };
+            };
+        };
+    };
+    SportController_updateExercise: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                id: number;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["UpdateExerciseDto"];
+            };
+        };
+        responses: {
+            /** @description The exercise has been successfully updated. */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["UpdateExerciseDto"];
+                };
+            };
+        };
+    };
+    SportController_deleteExercise: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                id: number;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description The exercise has been successfully deleted. */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+        };
+    };
+    SportController_getAllExerciseDays: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Return all exercise days. */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ExerciseDay"][];
+                };
+            };
+        };
+    };
+    SportController_createExerciseDay: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description The exercise day has been successfully created. */
+            201: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["CreateExerciseDayDto"];
+                };
+            };
+        };
+    };
+    SportController_updateExerciseDay: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                id: number;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["UpdateExerciseDayDto"];
+            };
+        };
+        responses: {
+            /** @description The exercise day has been successfully updated. */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["UpdateExerciseDayDto"];
+                };
+            };
+        };
+    };
+    SportController_deleteExerciseDay: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                id: number;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description The exercise day has been successfully deleted. */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+        };
+    };
+    SportController_getAllExerciseRecords: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Return all exercise records. */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["CreateExerciseRecordDto"][];
+                };
+            };
+        };
+    };
+    SportController_createExerciseRecord: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["CreateExerciseRecordDto"];
+            };
+        };
+        responses: {
+            /** @description The exercise record has been successfully created. */
+            201: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["CreateExerciseRecordDto"];
+                };
+            };
+        };
+    };
+    SportController_updateExerciseRecord: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                id: number;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["UpdateExerciseRecordDto"];
+            };
+        };
+        responses: {
+            /** @description The exercise record has been successfully updated. */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["UpdateExerciseRecordDto"];
+                };
+            };
+        };
+    };
+    SportController_deleteExerciseRecord: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                id: number;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description The exercise record has been successfully deleted. */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+        };
+    };
+    SportController_getAllPlanExercises: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Return all plan exercises. */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["CreatePlanExerciseDto"][];
+                };
+            };
+        };
+    };
+    SportController_createPlanExercise: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["CreatePlanExerciseDto"];
+            };
+        };
+        responses: {
+            /** @description The plan exercise has been successfully created. */
+            201: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["CreatePlanExerciseDto"];
+                };
+            };
+        };
+    };
+    SportController_updatePlanExercise: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                id: number;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["UpdatePlanExerciseDto"];
+            };
+        };
+        responses: {
+            /** @description The plan exercise has been successfully updated. */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["UpdatePlanExerciseDto"];
+                };
+            };
+        };
+    };
+    SportController_deletePlanExercise: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                id: number;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description The plan exercise has been successfully deleted. */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+        };
+    };
+    SportController_getAllPlanExerciseDays: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Return all plan exercise days. */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["CreatePlanExerciseDayDto"][];
+                };
+            };
+        };
+    };
+    SportController_createPlanExerciseDay: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["CreatePlanExerciseDayDto"];
+            };
+        };
+        responses: {
+            /** @description The plan exercise day has been successfully created. */
+            201: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["CreatePlanExerciseDayDto"];
+                };
+            };
+        };
+    };
+    SportController_updatePlanExerciseDay: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                id: number;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["UpdatePlanExerciseDayDto"];
+            };
+        };
+        responses: {
+            /** @description The plan exercise day has been successfully updated. */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["UpdatePlanExerciseDayDto"];
+                };
+            };
+        };
+    };
+    SportController_deletePlanExerciseDay: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                id: number;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description The plan exercise day has been successfully deleted. */
+            200: {
                 headers: {
                     [name: string]: unknown;
                 };
