@@ -2,7 +2,7 @@
 import { Header } from '@/widgets/header';
 import { Footer } from '@/widgets/footer';
 import React from 'react';
-import { DayExerciseElement, PlanExercise, AnalysedExercise } from '@/widgets/sport';
+import { DayExerciseElement, PlanExerciseElement, AnalysedExercise } from '@/widgets/sport';
 import { ResponseAnalysisExerciseDto, ExerciseDayDto, ResponsePlanExerciseDto } from '@/shared/models';
 import { ResponseAnalysisDayDto } from '@/shared/models';
 import { DayExerciseBlock } from '@/widgets/sport';
@@ -23,7 +23,7 @@ export const SportPage = ({analysedExercises, planExercises, exerciseRecordDays}
           <div className="gridContainer">
             <AnalysedExercise analysedExercises={analysedExercises}/>
             <DayExerciseBlock days={exerciseRecordDays}/>
-            <PlanExercise planExercises={planExercises}/>
+            <PlanExerciseElement planExercises={planExercises}/>
           </div>
           <Footer/>
       </div>

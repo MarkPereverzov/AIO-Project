@@ -6,10 +6,10 @@ interface PlanRowProps {
 
 export const PlanRow = ({exercise, reps, sets }: PlanRowProps) => {
   return (
-    <tr>
+    <>
       <td>{exercise}</td>
       <td>{reps}</td>
       <td>{sets}</td>
-    </tr>
+    </>
   );
 }
