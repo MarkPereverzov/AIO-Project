@@ -5,16 +5,10 @@ import '../CreateTag.module.css';
 
 interface PlayModalProps {
   show: boolean;
-  status: HealthStreakResponseDto | null;
-  isLoading: boolean;
   handleClose: () => void;
-  handleStreak: () => void;
 }
 
-export const CreateTag = ({ show, status, handleClose, handleStreak }: PlayModalProps) => {
-  const isStarted = status?.isExist;
-  const buttonText = isStarted ? 'сбросить счетчик' : 'бросить курить';
-
+export const CreateTag = ({ show, handleClose }: PlayModalProps) => {
   return (
     <Modal
       show={show}
@@ -28,9 +22,9 @@ export const CreateTag = ({ show, status, handleClose, handleStreak }: PlayModal
         style={{
           
         }} className='bodyModal'>
-        <Button variant="primary" onClick={handleStreak} className='buttonModal'>
+        {/*<Button variant="primary" onClick={handleStreak} className='buttonModal'>
           {buttonText}
-        </Button>
+        </Button>*/}
       </Modal.Body>
     </Modal>
   );

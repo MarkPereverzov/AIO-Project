@@ -614,23 +614,42 @@ export interface components {
             /** @description Is there any existing streak for given healthId ? */
             isExist: boolean;
         };
-        ExerciseEntity: Record<string, never>;
-        ResponseAnalysisExerciseDto: {
-            /** @description Exercise of Day */
-            exercise: components["schemas"]["ExerciseEntity"];
-            /** @description Sets of analysed exercise */
-            sets: number;
-            /** @description Reps of analysed exercise */
-            reps: number;
-            /** @description Weight of analysed exercise */
-            weight: number;
+        ResponseAnalysisDayDto: {
+            /** @description Planned exercise of Day */
+            planExercises: unknown[][];
+            /** @description Week day of analysed day */
+            weekDay: number;
         };
         CreateExerciseDto: {
             /** @description Name of the exercise */
             name: string;
         };
         UpdateExerciseDto: Record<string, never>;
-        ExerciseDay: Record<string, never>;
+        ResponseExerciseRecordDto: {
+            /** @description ID of ExerciseRecord */
+            id: number;
+            /** @description Exercise name */
+            exercise: string;
+            /** @description Weight used in the exercise */
+            weight: number;
+            /** @description Number of repetitions */
+            reps: number;
+            /** @description ID of the associated exercise day */
+            exerciseDayId: number;
+        };
+        ResponseExerciseDay: {
+            /** @description ID of exercise day */
+            id: number;
+            /**
+             * Format: date-time
+             * @description Date of the exercise day
+             */
+            date: string;
+            /** @description exerciseRecords of the exercise day */
+            exerciseRecords: components["schemas"]["ResponseExerciseRecordDto"][];
+            /** @description UserID of exercise day */
+            userId: string;
+        };
         CreateExerciseDayDto: {
             /**
              * Format: date-time
@@ -650,6 +669,18 @@ export interface components {
             exerciseDayId: number;
         };
         UpdateExerciseRecordDto: Record<string, never>;
+        ResponsePlanExerciseDto: {
+            /** @description ID of Plan Exercise */
+            id: number;
+            /** @description Exercise name */
+            exercise: string;
+            /** @description Number of sets */
+            sets: number;
+            /** @description Number of reps */
+            reps: number;
+            /** @description ID of the associated plan exercise day */
+            planExerciseDayId: number;
+        };
         CreatePlanExerciseDto: {
             /** @description ID of the associated exercise */
             exerciseId: number;
@@ -1206,7 +1237,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/json": components["schemas"]["ResponseAnalysisExerciseDto"][];
+                    "application/json": components["schemas"]["ResponseAnalysisDayDto"];
                 };
             };
         };
@@ -1316,7 +1347,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/json": components["schemas"]["ExerciseDay"][];
+                    "application/json": components["schemas"]["ResponseExerciseDay"][];
                 };
             };
         };
@@ -1402,7 +1433,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/json": components["schemas"]["CreateExerciseRecordDto"][];
+                    "application/json": components["schemas"]["ResponseExerciseRecordDto"][];
                 };
             };
         };
@@ -1426,7 +1457,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/json": components["schemas"]["CreateExerciseRecordDto"];
+                    "application/json": components["schemas"]["ResponseExerciseRecordDto"];
                 };
             };
         };
@@ -1452,7 +1483,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/json": components["schemas"]["UpdateExerciseRecordDto"];
+                    "application/json": components["schemas"]["ResponseExerciseRecordDto"];
                 };
             };
         };
@@ -1492,7 +1523,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/json": components["schemas"]["CreatePlanExerciseDto"][];
+                    "application/json": components["schemas"]["ResponsePlanExerciseDto"][];
                 };
             };
         };
@@ -1516,7 +1547,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/json": components["schemas"]["CreatePlanExerciseDto"];
+                    "application/json": components["schemas"]["ResponsePlanExerciseDto"];
                 };
             };
         };
@@ -1542,7 +1573,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/json": components["schemas"]["UpdatePlanExerciseDto"];
+                    "application/json": components["schemas"]["ResponsePlanExerciseDto"];
                 };
             };
         };

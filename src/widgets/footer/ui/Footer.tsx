@@ -16,10 +16,12 @@ export const Footer = ({}: FooterProps) => {
     showPlayModal,
     statusPlayModal,
     isLoadingPlayModal,
+    showModalCreteTag,
     handleShowPlayModal,
     handleClosePlayModal,
     handleStreak,
     handleShowCreateTag,
+    handleCloseCreateTag,
   } = useFooter();
 
   return (
@@ -39,11 +41,6 @@ export const Footer = ({}: FooterProps) => {
         <BiSolidCustomize  />
       </button>
 
-      {/* Кнопка с иконкой FaPlay для открытия второй модалки */}
-      <button className={styles.footerButton} onClick={handleShowPlayModal}>
-        <BiSolidPin />
-      </button>
-
       {/* Первое модальное окно */}
       <Subscribe
         show={showModal}
@@ -60,8 +57,8 @@ export const Footer = ({}: FooterProps) => {
       />
 
       <CreateTag
-        show={showModal}
-        handleClose={handleClose}
+        show={showModalCreteTag}
+        handleClose={handleCloseCreateTag}
       />
     </footer>
   );

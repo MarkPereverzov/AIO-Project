@@ -14,7 +14,6 @@ export type {
   HealthStreakDto, 
   HealthStreakResponseDto,
   ProductGetParams,
-  ExerciseEntity,
   ResponseAnalysisExerciseDto,
   CreateExerciseDto,
   UpdateExerciseDto,
@@ -27,4 +26,7 @@ export type {
   UpdatePlanExerciseDto,
   CreatePlanExerciseDayDto,
   UpdatePlanExerciseDayDto,
+  ResponseExerciseRecordDto,
+  ResponsePlanExerciseDto,
+  ResponseAnalysisDayDto,
 } from "./models";

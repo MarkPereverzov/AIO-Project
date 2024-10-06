@@ -41,7 +41,7 @@ export const useFooter = () => {
   };
 
   const handleClosePlayModal = () => setShowPlayModal(false);
-};
+
 
   // Обработчики для третьей модалки
   const handleShowCreateTag = () => setShowModalCreteTag(true);
@@ -61,5 +61,5 @@ export const useFooter = () => {
     setShowModalCreteTag,
     handleShowCreateTag,
     handleCloseCreateTag,
-
+  }
 };

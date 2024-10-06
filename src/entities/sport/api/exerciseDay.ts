@@ -4,7 +4,8 @@ import { throwAnyErrors } from "@/shared/lib";
 
 // Get all exercise days
 export const getAllExerciseDays = async (): Promise<ExerciseDayDto[]> => {
-  return await throwAnyErrors(GET('/sport/exercise-days'));
+  const res = await throwAnyErrors(GET('/sport/exercise-days'));
+  return res;
 };
 
 // Create a new exercise day

@@ -21,12 +21,13 @@ export type ProductDtoResponse = components["schemas"]["ProductDtoResponse"];
 export type ProductUpdateDtoRequest = components["schemas"]["ProductUpdateDtoRequest"];
 export type { ProductGetParams } from './product';
 
-//Sport Dto
-export type ExerciseEntity = components["schemas"]["ExerciseEntity"];
-export type ResponseAnalysisExerciseDto = components["schemas"]["ResponseAnalysisExerciseDto"];
+//Sport Dto 
+export type ResponseExerciseRecordDto = components["schemas"]["ResponseExerciseRecordDto"];
+export type ResponsePlanExerciseDto = components["schemas"]["ResponsePlanExerciseDto"];
+
 export type CreateExerciseDto = components["schemas"]["CreateExerciseDto"];
 export type UpdateExerciseDto = components["schemas"]["UpdateExerciseDto"];
-export type ExerciseDayDto = components["schemas"]["ExerciseDay"];
+export type ExerciseDayDto = components["schemas"]["ResponseExerciseDay"];
 export type CreateExerciseDayDto = components["schemas"]["CreateExerciseDayDto"];
 export type UpdateExerciseDayDto = components["schemas"]["UpdateExerciseDayDto"];
 export type CreateExerciseRecordDto = components["schemas"]["CreateExerciseRecordDto"];
@@ -35,3 +36,5 @@ export type CreatePlanExerciseDto = components["schemas"]["CreatePlanExerciseDto
 export type UpdatePlanExerciseDto = components["schemas"]["UpdatePlanExerciseDto"];
 export type CreatePlanExerciseDayDto = components["schemas"]["CreatePlanExerciseDayDto"];
 export type UpdatePlanExerciseDayDto = components["schemas"]["UpdatePlanExerciseDayDto"];
+export type { ResponseAnalysisExerciseDto } from './response-analysis-exercise.dto';
+export type { ResponseAnalysisDayDto } from './response-analysis-day.dto';
