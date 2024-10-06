@@ -9,7 +9,7 @@ import { DayExerciseBlock } from '@/widgets/sport';
 
 interface SportPageProps {
   analysedExercises: ResponseAnalysisDayDto | null,
-  planExercises: ResponsePlanExerciseDto[] | null,
+  planExercises: ResponsePlanExerciseDto[] | null,  
   exerciseRecordDays: ExerciseDayDto[] | null,
 }
 
