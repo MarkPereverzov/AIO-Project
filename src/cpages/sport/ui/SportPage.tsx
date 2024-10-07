@@ -22,7 +22,8 @@ export const SportPage = ({analysedExercises, planExercises, exerciseRecordDays}
   
   //console.log(analysedExercises, planExercises, exerciseRecordDays);
   const buttons = [
-    {element: <CreateExerciseRecord/>, icon: <BiSolidCog/>},
+    <CreateExerciseRecord/>,
+    <Subscribe/>
     // {element: <Subscribe/>, icon: <BiSolidCog/>},
     // {element: <PlayModal/>, icon: <BiSolidRightArrow/>},
     // {element: <CreateTag/>, icon: <BiSolidCustomize/>},

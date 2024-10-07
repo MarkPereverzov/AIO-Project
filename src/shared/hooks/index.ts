@@ -1,3 +1,2 @@
-export {
-  useUrlParams
-} from './useUrlParams';
+export * from './useUrlParams';
+export * from './useModalButton';

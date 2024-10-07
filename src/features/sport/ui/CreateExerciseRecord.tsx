@@ -2,19 +2,16 @@ import React, { useState } from 'react';
 import { Modal } from 'react-bootstrap';
 import { BiSolidBomb } from "react-icons/bi";
 import '../CreateExerciseRecord.module.css';
+import { useModalButton } from '@/shared/hooks';
 
 export const CreateExerciseRecord = () => {
-  const [show, setShow] = useState(false);
-  const handleClose = () => setShow(false);
-  const handleOpen = () => setShow(true);
+  const { show, handleClose, handleOpen } = useModalButton();
   
   return (
     <>
-    { !show && 
-      <button onClick={handleOpen}>
-        <BiSolidBomb />
-      </button>
-    }
+    <button onClick={handleOpen}>
+      <BiSolidBomb />
+    </button>
     { show && 
       <Modal
         show={show}
