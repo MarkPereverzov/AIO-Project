@@ -660,13 +660,13 @@ export interface components {
         UpdateExerciseDayDto: Record<string, never>;
         CreateExerciseRecordDto: {
             /** @description ID of the associated exercise */
-            exerciseId: number;
+            exercise: string;
             /** @description Weight used in the exercise */
             weight: number;
             /** @description Number of repetitions */
             reps: number;
             /** @description ID of the associated exercise day */
-            exerciseDayId: number;
+            exerciseDayId?: number;
         };
         UpdateExerciseRecordDto: Record<string, never>;
         ResponsePlanExerciseDto: {

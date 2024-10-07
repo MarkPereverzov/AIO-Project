@@ -50,8 +50,8 @@ export const PlayModal = () => {
             style={{
               
             }} className='bodyModal'>
-            <Button variant="primary" onClick={handleStreak} className='buttonModal'>
-              {buttonText}
+            <Button variant="primary" onClick={handleStreak} className='buttonModal' disabled={isLoading}>
+              {isLoading ? 'Loading...' : buttonText}
             </Button>
           </Modal.Body>
         </Modal>

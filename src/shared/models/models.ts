@@ -38,3 +38,4 @@ export type CreatePlanExerciseDayDto = components["schemas"]["CreatePlanExercise
 export type UpdatePlanExerciseDayDto = components["schemas"]["UpdatePlanExerciseDayDto"];
 export type { ResponseAnalysisExerciseDto } from './response-analysis-exercise.dto';
 export type { ResponseAnalysisDayDto } from './response-analysis-day.dto';
+export type { RequestExerciseRecordDto } from './request-exercise-record.dto';
