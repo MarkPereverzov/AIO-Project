@@ -4,6 +4,8 @@ import { Calendar } from '@/widgets/calendar';
 import { Achievements } from '@/features/statistic';
 import { Footer } from '@/widgets/footer';
 import { Header } from '@/widgets/header';
+import { Subscribe } from '@/features/subscribe';
+import { PlayModal } from '@/features/playModal';
 import { CompleteStatDto, HealthRecordDto } from '@/shared/models';
 
 interface SmokingPageProps {
@@ -21,7 +23,10 @@ export const SmokingPage = ({completeStatistic, records}: SmokingPageProps) => {
             <Achievements completeStatistic={completeStatistic}/>
             <RoundedCarousel/>
         </div>
-        <Footer/>
+        <Footer>
+          <Subscribe/>
+          <PlayModal />
+        </Footer>
       </div>
     </>
   );

@@ -5,6 +5,7 @@ import { Footer } from '@/widgets/footer';
 import React from 'react';
 import { Transaction } from '@/widgets/transactions';
 import { CategoryDtoResponse, ProductDtoResponse, TagDtoResponse } from '@/shared/models';
+import { CreateTag } from '@/features/createTag';
 
 interface BudgetPageProps {
   tags: TagDtoResponse[] | null,
@@ -24,7 +25,9 @@ export const BudgetPage = ({tags, categories, products}: BudgetPageProps) => {
             <Filters tags={tags} categories={categories} />
             <Transaction products={products} />
           </div>
-          <Footer/>
+          <Footer>
+            <CreateTag/>
+          </Footer>
       </div>
     </>
   );

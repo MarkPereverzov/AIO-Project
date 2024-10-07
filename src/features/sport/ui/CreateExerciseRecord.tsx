@@ -9,7 +9,7 @@ export const CreateExerciseRecord = () => {
   
   return (
     <>
-    <button onClick={handleOpen}>
+    <button className='footerButton' onClick={handleOpen}>
       <BiSolidBomb />
     </button>
     { show && 

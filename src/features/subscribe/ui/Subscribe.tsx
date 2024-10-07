@@ -11,7 +11,7 @@ export const Subscribe = () => {
 
   return (
   <>
-    <button onClick={handleOpen}>
+    <button className='footerButton' onClick={handleOpen}>
       <BiSolidCog />
     </button>
     { show &&
