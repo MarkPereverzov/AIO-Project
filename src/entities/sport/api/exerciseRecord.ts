@@ -8,8 +8,9 @@ export const getAllExerciseRecords = async (): Promise<ResponseExerciseRecordDto
 };
 
 // Create a new exercise record
-export const createExerciseRecord = async (body: CreateExerciseRecordDto): Promise<ResponseExerciseRecordDto> => {
-  return await throwAnyErrors(POST('/sport/exercise-records', { body }));
+// Promise<ResponseExerciseRecordDto>
+export const createExerciseRecord = async (body: CreateExerciseRecordDto) => {
+  return await (POST('/sport/exercise-records', { body }));
 };
 
 // Update an existing exercise record

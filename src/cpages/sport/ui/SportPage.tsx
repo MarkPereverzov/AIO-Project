@@ -19,14 +19,14 @@ export const SportPage = ({analysedExercises, planExercises, exerciseRecordDays}
     <>
       <Header pageName="Спорт" />
       <div className='pageContainer'>
-          <div className="gridContainer">
-            <AnalysedExercise analysedExercises={analysedExercises}/>
-            <DayExerciseBlock days={exerciseRecordDays}/>
-            <PlanExerciseElement planExercises={planExercises}/>
-          </div>
-          <Footer>
-            <CreateExerciseRecord/>
-          </Footer> 
+        <div className="gridContainer">
+          <AnalysedExercise analysedExercises={analysedExercises}/>
+          <DayExerciseBlock days={exerciseRecordDays}/>
+          <PlanExerciseElement planExercises={planExercises}/>
+        </div>
+        <Footer>
+          <CreateExerciseRecord/>
+        </Footer> 
       </div>
     </>
   );

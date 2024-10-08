@@ -4,11 +4,17 @@ import { BiSolidBomb } from "react-icons/bi";
 import { useModalButton } from '@/shared/hooks';
 import { useCreateExerciseRecord } from '../model';
 import styles from '../CreateExerciseRecord.module.css';
+import { PopupHint } from '@/shared';
+import { usePopupHints } from '@/shared/hooks';
 
 export const CreateExerciseRecord = () => {
   const { show, handleClose, handleOpen } = useModalButton();
-  const { exercise, weight, reps, setExercise, setWeight, setReps, handleSubmit } = useCreateExerciseRecord();
-  
+  const { show: popupState, setShow: setPopup} = usePopupHints();
+  const { exercise, weight, reps, setExercise, setWeight, setReps, handleSubmit } = useCreateExerciseRecord({setPopup});
+
+  const successMessage = "Succesfully saved";
+  const errorMessage = "Error occured";
+
   return (
     <>
     <button className='footerButton' onClick={handleOpen}>
@@ -20,6 +26,12 @@ export const CreateExerciseRecord = () => {
         onHide={handleClose}
         centered // Этот проп делает модальное окно центрированным
       >
+        { popupState == 1 &&
+          <PopupHint message={successMessage} variant='success' closeAfter={2000} setState={setPopup}/>
+        }
+        { popupState == 2 &&
+          <PopupHint message={errorMessage} variant='danger' closeAfter={2000} setState={setPopup}/>
+        }
         <Modal.Header closeButton onClick={handleClose}>
           <Modal.Title>Действие</Modal.Title>
         </Modal.Header>
