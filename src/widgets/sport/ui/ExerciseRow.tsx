@@ -6,10 +6,10 @@ interface ExerciseRowProps {
 
 export const ExerciseRow = ({exercise, weight, reps }: ExerciseRowProps) => {
   return (
-    <tr>
+    <>
       <td>{exercise}</td>
       <td>{weight}</td>
       <td>{reps}</td>
-    </tr>
+    </>
   );
 }

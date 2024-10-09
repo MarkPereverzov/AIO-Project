@@ -193,4 +193,25 @@ code {
     margin-top: 5%;
   }
 }
-  
+
+.footerButton {
+  display: flex  !important;
+  align-items: center  !important;
+  justify-content: center  !important;
+  font-size: 24px  !important;
+  background: transparent  !important;
+  border: none  !important;
+  height: 50px  !important;
+  width: 50px  !important;
+  transition: 1s !important;
+  border-radius: 10px;
+}
+
+.footerButton > svg {
+  height: 30px;
+  width: 30px;
+}
+
+.footerButton:hover {
+  background-color: #cacaca !important;
+}

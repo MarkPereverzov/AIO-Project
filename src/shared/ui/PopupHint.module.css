@@ -1,0 +1,11 @@
+.ProgressBar{
+  text-align: 'center';
+  height: 4px;
+}
+
+.Alert {
+  padding: 5px 10px;   /* Уменьшенный отступ */
+  font-size: 12px;     /* Меньший размер шрифта */
+  line-height: 1.2;    /* Уменьшенная высота строки */
+  margin: 5px 0;       /* Уменьшенные отступы сверху и снизу */
+}

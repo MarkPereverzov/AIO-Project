@@ -1,1 +1,2 @@
-export { AvatarButton } from './ui/AvatarButton'
+export * from './ui/AvatarButton';
+export * from './ui/PopupHint';
