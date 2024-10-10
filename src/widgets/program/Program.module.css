@@ -28,16 +28,24 @@
   
 .transactionBlock {
   width: 100%;
-  min-height: 75px;
+  min-height: 100px;
   background-color: #fff;
   border-radius: 15px;
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
   display: flex;
-  flex-direction: row;
-  align-items: center;
+  flex-direction: column;
+  align-items: flex-start;
+  align-content: flex-start;
   justify-content: space-between;
   padding: 15px;
 }
+
+.baba {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
 
 .transactionElement > p {
  margin-bottom: 0px !important;
@@ -45,6 +53,19 @@
 
 .transactionTitle {
   font-size: 1.2rem;
+  text-align: center;
+  font-weight: bold;
+  flex: 1;
+}
+
+.transactionSubtitle {
+  font-size: 1.2rem;
+  text-align: center;
+  flex: 1;
+}
+
+.transactionSecondSubtitle {
+  font-size: 1rem;
   text-align: center;
   flex: 1;
 }
@@ -57,7 +78,6 @@
 
 .transactionList::-webkit-scrollbar {
   width: 8px;
-  height: 8px;
 }
 
 .transactionList::-webkit-scrollbar-thumb {
@@ -69,4 +89,3 @@
   background-color: #e9ecef;
   border-radius: 10px;
 }
-    
