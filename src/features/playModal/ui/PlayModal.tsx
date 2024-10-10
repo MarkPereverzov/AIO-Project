@@ -30,7 +30,7 @@ export const PlayModal = () => {
 
   const { show, handleClose, handleOpen } = useModalButton();
   const isStarted = isUsedToBadThing?.isExist;
-  const buttonText = isStarted ? 'сбросить счетчик' : 'бросить курить';
+  const buttonText = isStarted ? 'Сбросить счетчик' : 'Бросить курить';
 
   return (
     <>

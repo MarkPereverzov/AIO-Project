@@ -2,8 +2,8 @@ import React from 'react';
 import { Modal, Form, Button } from 'react-bootstrap';
 import { useSubscribe } from '../model';
 import styles from '../Subscribe.module.css';
-import { BiSolidCog } from "react-icons/bi";
 import { useModalButton } from '@/shared/hooks';
+import { HiAdjustments } from "react-icons/hi";
 
 export const Subscribe = () => {
   const {show, handleClose, handleOpen} = useModalButton();
@@ -12,7 +12,7 @@ export const Subscribe = () => {
   return (
   <>
     <button className='footerButton' onClick={handleOpen}>
-      <BiSolidCog />
+    <HiAdjustments />
     </button>
     { show &&
       <Modal show={show} onHide={handleClose} centered contentClassName={styles.modalContent}>
