@@ -5,11 +5,10 @@ import { ProgramElement } from './ProgramElement';
 export const Program = ( ) => {
 
   const statistic = [
-    { title: 'Name', exercise: '10x20', pastExercise: '20x20'},
-    { title: 'Name', exercise: '10x20', pastExercise: '20x20'},
-    { title: 'Name', exercise: '10x20', pastExercise: '20x20'},
-    { title: 'Name', exercise: '10x20', pastExercise: '20x20'},
-    { title: 'Name', exercise: '10x20', pastExercise: '20x20'},
+    { title: 'Присед', exercise: '10x20', pastExercise: '20x20'},
+    { title: 'Жим лежа', exercise: '10x20', pastExercise: '20x20'},
+    { title: 'Тяга верхнего блока', exercise: '10x20', pastExercise: '20x20'},
+    { title: 'Рычажная тяга', exercise: '10x20', pastExercise: '20x20'},
   ];
 
   return (

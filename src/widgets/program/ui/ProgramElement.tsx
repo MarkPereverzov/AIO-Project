@@ -11,23 +11,25 @@ export const ProgramElement = ({ title, exercise, pastExercise }: ProgramElement
 
     <div className={styles.transactionElement}>
       <div className={styles.transactionTitle}>{title}</div>
-
     </div>
 
     <div className={styles.baba}>
-      <div>
+      <a>Последняя тренировка</a>
+      <div className={styles.row}>
         <div className={styles.transactionSubtitle}>{exercise}</div>
-        <div className={styles.transactionSecondSubtitle}>{pastExercise}</div>
+        <div className={styles.transactionSubtitle}>{exercise}</div>
+        <div className={styles.transactionSubtitle}>{exercise}</div>
+        <div className={styles.transactionSubtitle}>{exercise}</div>
+        <div className={styles.transactionSubtitle}>{exercise}</div>
       </div>
 
-      <div>
+      <a>Предыдущая тренировка</a>
+      <div className={styles.row}>
         <div className={styles.transactionSubtitle}>{exercise}</div>
-        <div className={styles.transactionSecondSubtitle}>{pastExercise}</div>
-      </div>
-      
-      <div>
         <div className={styles.transactionSubtitle}>{exercise}</div>
-        <div className={styles.transactionSecondSubtitle}>{pastExercise}</div>
+        <div className={styles.transactionSubtitle}>{exercise}</div>
+        <div className={styles.transactionSubtitle}>{exercise}</div>
+        <div className={styles.transactionSubtitle}>{exercise}</div>
       </div>
     </div>
 

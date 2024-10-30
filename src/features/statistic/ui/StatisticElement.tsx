@@ -8,7 +8,7 @@ interface StatisticElementProps {
 
 export const StatisticElement = ({title, subtitle, index}: StatisticElementProps) => (
   <div key={index} className={styles.achievementBlock}>
-    <div className={styles.achievementTitle}>{title}</div>
+    <h3 className={styles.achievementTitle}>{title}</h3>
     <div className={styles.achievementSubtitle}><p>{subtitle}</p></div>
   </div>
 );
