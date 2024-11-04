@@ -6,6 +6,7 @@ import React from 'react';
 import { Transaction } from '@/widgets/transactions';
 import { CategoryDtoResponse, ProductDtoResponse, TagDtoResponse } from '@/shared/models';
 import { CreateTag } from '@/features/createTag';
+import { Tags } from '@/features/tags';
 
 interface BudgetPageProps {
   tags: TagDtoResponse[] | null,
@@ -14,7 +15,17 @@ interface BudgetPageProps {
 }
 
 export const BudgetPage = ({tags, categories, products}: BudgetPageProps) => {
-  
+  const categories_uf = [
+    { name: 'Продукты', id: 1 },
+    { name: 'Здоровье', id: 2 },
+    { name: 'Спорт', id: 3 },
+    { name: 'Одежда', id: 4 },
+    { name: 'Кафе и рестораны', id: 5 },
+    { name: 'Путешествия', id: 6 },
+    { name: 'Книги', id: 7 },
+    { name: 'Такси', id: 8 },
+  ];
+
   console.log(tags, categories, products);
 
   return (
@@ -26,7 +37,9 @@ export const BudgetPage = ({tags, categories, products}: BudgetPageProps) => {
             <Transaction products={products} />
           </div>
           <Footer>
-            <CreateTag/>
+            <CreateTag 
+              categories={categories ? categories : categories_uf}
+            />
           </Footer>
       </div>
     </>

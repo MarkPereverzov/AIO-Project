@@ -1,6 +1,6 @@
 import React from 'react';
 import { Modal, Form, Button } from 'react-bootstrap';
-import { useTags } from '../model';
+import { useTags } from '../../createTag/model';
 import styles from '../Tags.module.css';
 
 interface TagsProps {
