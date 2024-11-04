@@ -1,26 +1,23 @@
 'use client';
 import { useState } from 'react';
-import { subscribe } from '@/entities/health';
 
 export const useSubscribe = (handleClose: () => void) => {
-  const [pricePerPack, setPricePerPack] = useState('');
-  const [cigarettesPerDay, setCigarettesPerDay] = useState('');
+  const [exerciseName, setExerciseName] = useState('');
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     // Обработка отправки данных формы
-
+    //TODO
+    /*
     await subscribe({
-      countPerDay: parseInt(cigarettesPerDay),
-      pricePerThing: parseFloat(pricePerPack),
+      exerciseName: exerciseName,
       healthId: 1
-    });
+    });*/
 
-    console.log('Цена за пачку:', pricePerPack);
-    console.log('Количество сигарет в день:', cigarettesPerDay);
+    console.log('Название упражнения:', exerciseName);
     handleClose();
   };
 
-	return { pricePerPack, cigarettesPerDay, setPricePerPack,  setCigarettesPerDay, handleSubmit };
+	return { exerciseName, setExerciseName, handleSubmit };
 
 }
