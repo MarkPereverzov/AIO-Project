@@ -110,7 +110,6 @@
     color: white; /* Белый текст для активного тега */
     transform: scale(1.05); /* Легкое увеличение активного тега */
     border-color: #a05151; /* Граница совпадает с фоном активного тега */
-    transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
   }
   
   /* Убираем эффект наведения для активного тега */

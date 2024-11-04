@@ -1,7 +1,7 @@
 'use client';
 import { useState } from 'react';
 
-export const useSubscribe = (handleClose: () => void) => {
+export const useExercise = (handleClose: () => void) => {
   const [exerciseName, setExerciseName] = useState('');
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {

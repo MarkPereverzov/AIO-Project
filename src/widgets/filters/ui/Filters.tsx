@@ -10,6 +10,27 @@ interface FiltersProps {
   categories: CategoryDtoResponse[] | null;
 }
 
+const list_categories = (categories: {name: string, id: number}[]) => (
+  categories.map((category, index) => (
+    <option key={index} value={category.id}>
+      {category.name}
+    </option>
+  ))
+)
+
+const list_tags = (tags: {name: string, id: number}[], activeTags: any, addTag: any) => (
+  tags.map((tag) => (
+    <Button
+      key={tag.id}
+      variant={'outline-secondary'}
+      className={`${styles.tag} ${activeTags.includes(tag.id.toString()) ? styles.activeTag : ''}`}
+      onClick={() => addTag(tag.id.toString())}
+    >
+      {tag.name}
+    </Button>
+  ))
+)
+
 export const Filters = ({ tags, categories }: FiltersProps) => {
   const { paramValue: activeCategory, updateParamValue: setActiveCategory } = useUrlParams('category');
   const { paramValue: inputValue, updateParamValue: setName } = useUrlParams('name');
@@ -60,16 +81,9 @@ export const Filters = ({ tags, categories }: FiltersProps) => {
         >
           <option value="">Категория</option>
           {categories
-            ? categories.map((category, index) => (
-                <option key={index} value={category.id}>
-                  {category.name}
-                </option>
-              ))
-            : categories_uf.map((category, index) => (
-                <option key={index} value={category.id}>
-                  {category.name}
-                </option>
-              ))}
+            ? list_categories(categories)
+            : list_categories(categories_uf)
+          }
         </Form.Select>
       </Form.Group>
 
@@ -78,26 +92,9 @@ export const Filters = ({ tags, categories }: FiltersProps) => {
       <div className={styles.filterItem}>
         <div className={styles.tagContainer}>
           {tags
-            ? tags.map((tag) => (
-                <Button
-                  key={tag.id}
-                  variant={activeTags.includes(tag.id.toString()) ? 'primary' : 'outline-secondary'}
-                  className={styles.tag}
-                  onClick={() => addTag(tag.id.toString())}
-                >
-                  {tag.name}
-                </Button>
-              ))
-            : tags_uf.map((tag) => (
-                <Button
-                  key={tag.id}
-                  variant={activeTags.includes(tag.id.toString()) ? 'primary' : 'outline-secondary'}
-                  className={styles.tag}
-                  onClick={() => addTag(tag.id.toString())}
-                >
-                  {tag.name}
-                </Button>
-              ))}
+            ? list_tags(tags, activeTags, addTag)
+            : list_tags(tags_uf, activeTags, addTag)
+          }
           <Button variant="danger" className={styles.clear} onClick={clearAll}>
             ОЧИСТИТЬ
           </Button>

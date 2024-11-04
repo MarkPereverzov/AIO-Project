@@ -1,13 +1,13 @@
 import React from 'react';
 import { Modal, Form, Button } from 'react-bootstrap';
-import { useSubscribe } from '../model';
+import { useExercise } from '../model';
 import styles from '../Exercise.module.css';
 import { HiAdjustments } from "react-icons/hi";
 import { useModalButton } from '@/shared/hooks';
 
 export const Exercise = () => {
   const { show, handleClose, handleOpen } = useModalButton();
-  const { exerciseName, setExerciseName, handleSubmit } = useSubscribe(handleClose);
+  const { exerciseName, setExerciseName, handleSubmit } = useExercise(handleClose);
 
   return (
     <>
