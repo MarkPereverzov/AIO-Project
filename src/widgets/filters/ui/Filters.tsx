@@ -3,6 +3,7 @@ import React from 'react';
 import { useUrlParams } from '@/shared/hooks';
 import { Form, Button, InputGroup } from 'react-bootstrap';
 import { CategoryDtoResponse, TagDtoResponse } from '@/shared/models';
+import { Tag } from './Tag';
 import styles from '../Filters.module.css'; // Подключаем стили
 
 interface FiltersProps {
@@ -18,16 +19,23 @@ const list_categories = (categories: {name: string, id: number}[]) => (
   ))
 )
 
-const list_tags = (tags: {name: string, id: number}[], activeTags: any, addTag: any) => (
+const list_tags = (tags: {name: string, id: number, color?: string}[], activeTags: any, addTag: any) => (
   tags.map((tag) => (
-    <Button
+    /*<Button
       key={tag.id}
       variant={'outline-secondary'}
       className={`${styles.tag} ${activeTags.includes(tag.id.toString()) ? styles.activeTag : ''}`}
       onClick={() => addTag(tag.id.toString())}
     >
       {tag.name}
-    </Button>
+    </Button>*/
+    <Tag 
+      id={tag.id}
+      name={tag.name}
+      color={tag.color ?? '#000000'}
+      isActive={activeTags.includes(tag.id.toString())}
+      addTag={addTag}
+    />
   ))
 )
 
