@@ -91,23 +91,26 @@
 
 /* Тег по умолчанию */
 .tag {
+    color: var(--tag-color);
     padding: 5px 10px;
     font-size: 0.9rem;
     border-radius: 25px;
-    background-color: #ffffff; /* Белый фон для обычных тегов */
+    background-color: var(--tag-background-color); /* Белый фон для обычных тегов */
     border: 1px solid #ced4da;
     cursor: pointer;
     transition: all 0.3s ease, transform 0.2s ease;
   }
   
-  .tag:hover {
+  .tag:hover, .tag:active, .tag:focus, .tag:focus-visible {
+    color: var(--tag-color);
+    background-color: var(--tag-background-color);
     transform: scale(1.05); /* Легкое увеличение при наведении */
   }
   
   /* Активный тег */
   .activeTag {
-    background-color: #a05151; /* Серый фон для активного тега */
-    color: white; /* Белый текст для активного тега */
+    /*background-color: #a05151; /* Серый фон для активного тега */
+    /* color: white; /* Белый текст для активного тега */
     transform: scale(1.05); /* Легкое увеличение активного тега */
     border-color: #a05151; /* Граница совпадает с фоном активного тега */
   }
