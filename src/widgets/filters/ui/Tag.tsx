@@ -7,17 +7,20 @@ interface TagProps {
     name: string,
     color: string,
     isActive: boolean,
-    addTag: (arg0:string)=>void,
+    disabled?: boolean,
+    addTag?: (arg0:string)=>void,
 }
 
-export const Tag = ({id, name, color, isActive, addTag}: TagProps) => (
-    <Button
+export const Tag = ({id, name, color, isActive, disabled, addTag}: TagProps) => {
+  return (
+    <Button 
+      disabled={disabled ?? false}
       key={id}
       variant={'outline-secondary'}
       className={`${styles.tag} ${isActive ? styles.activeTag : ''}`}
-      onClick={() => addTag(id.toString())}
-      style={{backgroundColor: color}}
+      onClick={() => addTag!(id.toString())}
+      style={isActive ? {borderColor: color} : {}}
     >
       {name}
     </Button>
-)
+)}

@@ -32,7 +32,7 @@ const list_tags = (tags: {name: string, id: number, color?: string}[], activeTag
     <Tag 
       id={tag.id}
       name={tag.name}
-      color={tag.color ?? '#000000'}
+      color={tag.color ?? '#fff'}
       isActive={activeTags.includes(tag.id.toString())}
       addTag={addTag}
     />

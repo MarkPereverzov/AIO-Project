@@ -39,6 +39,10 @@ export const BudgetPage = ({tags, categories, products}: BudgetPageProps) => {
             <CreateTag 
               categories={categories ? categories : categories_uf}
             />
+            <CreateProduct 
+              tags={tags}
+              categories={categories}
+            />
           </Footer>
       </div>
     </>
