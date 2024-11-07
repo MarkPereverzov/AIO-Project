@@ -1,119 +1,124 @@
 /* Основной контейнер для фильтров */
 .filterContainer {
-    display: flex;
-    flex-direction: column; /* Колонкой, чтобы теги были снизу */
-    gap: 20px;
-    padding: 15px 20px;
-    background-color: #f8f9fa;
-    border-radius: 10px;
-    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
-  }
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: 10px;
+  background-color: rgb(255, 255, 255);
+  border-right: 1px solid #ced4da;
+  position: fixed;
+  gap: 10px;
+  top: 10%; left: 0%;
+  width: 270px; height: 100%;
+  z-index: 1;
+}
+
+/* Контейнер для строки с поиском и выпадающим списком */
+.searchCategoryRow {
+  display: flex;
+  width: 100%;
+  gap: 15px;
+}
+
+.searchInput {
+  width: 250px; height: 40px;
+  padding: 8px 12px;
+  color: black;
+  font-size: 1rem;
+  flex: 0 0 250px !important;
+  border: 1px solid #ced4da;
+  border-radius: 5px;
+  transition: all 0.3s ease;
+}
+
+.searchInput:focus {
+  border-color: #495057;
+  box-shadow: 0px 0px 5px rgba(0, 123, 255, 0.25);
+  outline: none;
+}
+
+.selectInput {
+  width: 250px; height: 40px;
+  padding: 8px 12px;
+  color: black;
+  font-size: 1rem;
+  border: 1px solid #ced4da;
+  border-radius: 5px;
+  background-color: white;
+  transition: all 0.3s ease;
+}
   
-  /* Контейнер для строки с поиском и выпадающим списком */
+.selectInput:focus {
+  border-color: #495057;
+  box-shadow: 0px 0px 5px rgba(0, 123, 255, 0.25);
+  outline: none;
+}
+.separator-line {
+  width: 80%;
+  height: 1px;
+  background-color: #ccc;
+  margin: 20px auto;
+}
+
+/* Контейнер для тегов */
+.tagContainer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: flex-start;
+}
+
+/* Адаптивность для мобильных устройств */
+@media (max-width: 768px) {
   .searchCategoryRow {
-    display: flex;
-    width: 100%;
-    gap: 15px; /* Отступ между элементами */
-  }
-  
-  /* Поисковый input */
-  .searchInput {
-    flex: 1; /* Занимает оставшееся пространство */
-    padding: 8px 12px;
-    font-size: 1rem;
-    border: 1px solid #ced4da;
-    border-radius: 5px;
-    transition: all 0.3s ease;
-  }
-  
-  .searchInput:focus {
-    border-color: #495057;
-    box-shadow: 0px 0px 5px rgba(0, 123, 255, 0.25);
-    outline: none;
-  }
-  
-  /* Select (категории) */
-  .selectInput {
-    flex: 0 0 200px; /* Фиксированная ширина */
-    padding: 8px 12px;
-    font-size: 1rem;
-    border: 1px solid #ced4da;
-    border-radius: 5px;
-    background-color: white;
-    background-image: url('/path-to-custom-icon.svg');
-    background-repeat: no-repeat;
-    background-position: right 12px center;
-    background-size: 16px;
-    appearance: none;
-    transition: all 0.3s ease;
-  }
-  
-  .selectInput:focus {
-    border-color: #495057;
-    box-shadow: 0px 0px 5px rgba(0, 123, 255, 0.25);
-    outline: none;
-  }
-  
-  /* Контейнер для тегов */
-  .tagContainer {
-    display: flex;
-    flex-wrap: wrap; /* Теги переносятся на новую строку при необходимости */
-    gap: 10px; /* Пространство между тегами */
-    justify-content: flex-start; /* Выровнять теги влево */
-  }
-  
-  /* Кнопка очистки тегов */
-  .clear {
-    padding: 5px 15px;
-    font-size: 0.9rem;
-    border-radius: 25px;
-    background-color: #dc3545;
-    color: white;
-    cursor: pointer;
-    border: none;
-    transition: all 0.3s ease;
-  }
-  
-  .clear:hover {
-    background-color: #c82333;
-  }
-  
-  /* Адаптивность для мобильных устройств */
-  @media (max-width: 768px) {
-    .searchCategoryRow {
-      flex-direction: column; /* Переводим в колонку на мобильных */
-    }
-  
-    .selectInput {
-      width: 100%;
-    }
+    flex-direction: column; /* Переводим в колонку на мобильных */
   }
 
-/* Тег по умолчанию */
+  .selectInput {
+    width: 100%;
+  }
+}
+
+.clear {
+  height: 40px;
+  width: 100%;
+  padding: 5px 10px;
+  font-size: 1rem;
+  border-radius: 6px;
+  background-color: #ff6272;
+  border: 1px solid #ced4da;
+  color: white;
+  cursor: pointer;
+  border: none;
+  transition: all 0.3s ease;
+}
+
 .tag {
-    padding: 5px 10px;
-    font-size: 0.9rem;
-    border-radius: 25px;
-    background-color: #ffffff; /* Белый фон для обычных тегов */
-    border: 1px solid #ced4da;
-    cursor: pointer;
-    transition: all 0.3s ease, transform 0.2s ease;
-  }
-  
-  .tag:hover {
-    transform: scale(1.05); /* Легкое увеличение при наведении */
-  }
-  
-  /* Активный тег */
-  .activeTag {
-    background-color: #a05151; /* Серый фон для активного тега */
-    color: white; /* Белый текст для активного тега */
-    transform: scale(1.05); /* Легкое увеличение активного тега */
-    border-color: #a05151; /* Граница совпадает с фоном активного тега */
-  }
-  
-  /* Убираем эффект наведения для активного тега */
-  .activeTag:hover {
-    transform: none; /* Не увеличиваем активный тег при наведении */
-  }
-  
+  height: 30px;
+  display: flex;
+  align-items: center;
+  font-size: 0.9rem;
+  border-radius: 6px;
+  background-color: #ffffff !important;
+  border: 1px solid #ced4da;
+  color: #343A40;
+  cursor: pointer;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  text-decoration: solid;
+}
+
+.tag:hover{
+  color: #343A40;
+}
+
+.activeTag:hover{
+  color: white;
+}
+
+.activeTag {
+  background-color: #343A40 !important;
+  color: white;
+  border-color: #343A40;
+}

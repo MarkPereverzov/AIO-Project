@@ -56,15 +56,10 @@ export const Filters = ({ tags, categories }: FiltersProps) => {
   ];
 
   const tags_uf = [
-    { name: 'член', id: 1 },
-    { name: 'пенис', id: 2 },
-    { name: 'залупа', id: 3 },
-    { name: 'попа', id: 4 },
-    { name: 'какашка', id: 5 },
-    { name: 'ствол', id: 6 },
-    { name: 'легенда', id: 7 },
-    { name: 'танк', id: 8 },
-    { name: 'емае', id: 9 },
+    { name: 'Фильтр', id: 1 },
+    { name: 'Фильтр', id: 2 },
+    { name: 'Фильтр', id: 3 },
+    { name: 'Фильтр', id: 4 },
   ];
 
   return (
@@ -95,6 +90,7 @@ export const Filters = ({ tags, categories }: FiltersProps) => {
         </Form.Select>
       </Form.Group>
 
+      <div className="separator-line"></div>
 
       {/* Контейнер для тегов */}
       <div className={styles.filterItem}>
@@ -104,7 +100,7 @@ export const Filters = ({ tags, categories }: FiltersProps) => {
             : list_tags(tags_uf, activeTags, addTag)
           }
           <Button variant="danger" className={styles.clear} onClick={clearAll}>
-            ОЧИСТИТЬ
+            Сбросить фильтры
           </Button>
         </div>
       </div>
