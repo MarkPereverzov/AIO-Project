@@ -6,6 +6,7 @@ import React from 'react';
 import { Transaction } from '@/widgets/transactions';
 import { CategoryDtoResponse, ProductDtoResponse, TagDtoResponse } from '@/shared/models';
 import { CreateTag } from '@/features/createTag';
+import { CreateProduct } from '@/features/createProduct';
 
 interface BudgetPageProps {
   tags: TagDtoResponse[] | null,

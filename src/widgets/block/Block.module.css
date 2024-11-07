@@ -1,7 +1,7 @@
 .block {
     width: 400px;
     height: 200px;
-    background-color: #ffffff !important;  /* Белый фон блока */
+    background-color: #f8f9fa !important;  /* Белый фон блока */
     border: 1px solid #ddd;
     border-radius: 8px;
     display: flex;

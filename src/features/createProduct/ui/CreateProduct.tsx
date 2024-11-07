@@ -71,28 +71,28 @@ export const CreateProduct = ({tags, categories}: CreateProductProps) => {
       { show &&
         <Modal show={show} onHide={handleClose} centered contentClassName={styles.modalContent}>
         <Modal.Header closeButton>
-          <Modal.Title>Добавить продукт</Modal.Title>
+          <Modal.Title>Добавить транзакции</Modal.Title>
         </Modal.Header>
         <Modal.Body>
           <Form onSubmit={handleSubmit}>
             <Form.Group controlId="tagName">
-              <Form.Label>Название продукта</Form.Label>
+              <Form.Label>Название транзакции</Form.Label>
               <Form.Control
                 type="text"
-                placeholder="Введите название продукта"
+                placeholder="Введите название транзакции"
                 value={productName}
                 onChange={(e) => setProductName(e.target.value)}
                 className={styles.formControl}
               />
-              <Form.Label>Цена продукта</Form.Label>
+              <Form.Label>Цена транзакции</Form.Label>
               <Form.Control
                 type="text"
-                placeholder="Введите цену продукта"
+                placeholder="Введите цену транзакции"
                 value={price}
                 onChange={(e) => setPrice(e.target.value)}
                 className={styles.formControl}
               />
-              <Form.Label>Теги продукта</Form.Label>
+              <Form.Label>Теги транзакции</Form.Label>
               <div key={`checkbox`} className="mb-3">
                 {list_tags(tags)}
               </div>
