@@ -15,6 +15,11 @@ export const Transaction = ({products}: TransactionProps) => {
     { name: 'Name', tag: 'tag', date: '00.00.0000', price: '+100$'},
     { name: 'Name', tag: 'tag', date: '00.00.0000', price: '+100$'},
     { name: 'Name', tag: 'tag', date: '00.00.0000', price: '+100$'},
+    { name: 'Name', tag: 'tag', date: '00.00.0000', price: '+100$'},
+    { name: 'Name', tag: 'tag', date: '00.00.0000', price: '+100$'},
+    { name: 'Name', tag: 'tag', date: '00.00.0000', price: '+100$'},
+    { name: 'Name', tag: 'tag', date: '00.00.0000', price: '+100$'},
+    { name: 'Name', tag: 'tag', date: '00.00.0000', price: '+100$'},
   ];
 
   return (

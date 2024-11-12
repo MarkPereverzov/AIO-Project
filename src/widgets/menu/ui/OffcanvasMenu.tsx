@@ -34,7 +34,7 @@ export const OffcanvasMenu = (
         <Nav.Link className={styles.navLink}><Link className={styles.link} href="/budget"><GiPayMoney  className="me-2" />Бюджет</Link></Nav.Link>
         <Nav.Link className={styles.navLink}><Link className={styles.link} href="/dream"><FaBed className="me-2" />Сон</Link></Nav.Link>
         <Nav.Link className={styles.navLink}><Link className={styles.link} href="/job"><MdWork className="me-2" />Работа</Link></Nav.Link>
-        <Nav.Link className={styles.navLink}><Link className={styles.link} href="/nutrition"><FaBurger className="me-2" />Питание</Link></Nav.Link>
+        <Nav.Link className={styles.navLink}><Link className={styles.link} href="/nutrion"><FaBurger className="me-2" />Питание</Link></Nav.Link>
         <Nav.Link className={styles.navLink}><Link className={styles.link} href="/sport"><FaDumbbell className="me-2" />Спорт</Link></Nav.Link>
       </Nav>
     </Offcanvas.Body>

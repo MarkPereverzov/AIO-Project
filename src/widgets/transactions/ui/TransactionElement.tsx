@@ -4,7 +4,7 @@ interface TransactionElementProps {
   name: string;
   date?: string; // Сделаем subtitle необязательным
   price: string;
-  tag?: string;
+  tag?: string; // Сделаем tag необязательным
 }
 
 export const TransactionElement = ({ name, date, price, tag }: TransactionElementProps) => (

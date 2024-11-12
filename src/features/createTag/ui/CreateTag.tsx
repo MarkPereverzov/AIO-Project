@@ -63,13 +63,6 @@ export const CreateTag = ({categories}: {categories: CategoryDtoResponse[] | nul
                 onChange={(e) => setTagName(e.target.value)}
                 className={styles.formControl}
               />
-              <Form.Label>Цвет тега</Form.Label>
-              <Form.Control
-                type="color"
-                value={tagColor}
-                onChange={(e) => setTagColor(e.target.value)}
-                className={styles.formControl}
-              />
               <Form.Label>Категория тега</Form.Label>
               <Form.Select 
                 aria-label="Default select example"
@@ -79,6 +72,13 @@ export const CreateTag = ({categories}: {categories: CategoryDtoResponse[] | nul
                 <option>Выберете категорию</option>
                 {list_categories(categories)}
               </Form.Select>
+              <Form.Label>Цвет тега</Form.Label>
+              <Form.Control
+                type="color"
+                value={tagColor}
+                onChange={(e) => setTagColor(e.target.value)}
+                className={styles.formControl}
+              />
             </Form.Group>
             <Button variant="primary" type="submit" className={`w-100 mt-3 ${styles.submitButton}`}>
               Добавить тег
