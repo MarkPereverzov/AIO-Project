@@ -1,10 +1,52 @@
 .navLink {
   display: block !important;
-  margin: 5px !important;
-  color: black !important;
-  text-decoration: none !important;
   transition: 1s !important;
-  border-radius: 10px !important;
+  background-color: var(--light-gray);
+  border-radius: var(--corner-raidus) !important;
+  color: var(--main-text);
+  padding: 18px;
+}
+
+.navLink:hover {
+  background-color: var(--gray);
+  color: var(--main-text);
+}
+
+.active, .active:hover{
+  background-color: var(--red);
+}
+
+.activeText > h3, .activeText > svg {
+  color: var(--light-gray) !important;
+}
+
+.link {
+  display: flex !important;
+  align-items: center;
+  justify-content: space-between;
+  color: var(--main-text);
+  gap: 20px;
+  text-decoration: none !important;
+
+}
+
+.navText{
+  font-family: "Inter", sans-serif; 
+  font-size: 22px;
+  font-weight: medium;
+  margin: 0px;
+  color: var(--main-text);
+  line-height: 120%;
+}
+
+.navLinkBlock {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.icon {
+  color: var(--black);
 }
 
 .menuButton {
@@ -28,10 +70,7 @@
 }
 /* Стили для ссылок при наведении */
 
-.navLink:hover {
-  background-color: #cacaca;
-  color: black;
-}
+
 
 .menuButton > svg {
   height: 25px;
@@ -42,10 +81,30 @@
   padding-left: 25px;
 }
 
-.link {
-  display: block !important;
-  color: black !important;
-  text-decoration: none !important;
-  transition: 1s !important;
-  border-radius: 10px !important;
+.menuBody, .menuHeader {
+  background-color: var(--light-gray);
+  padding: 0 30px;
+}
+
+.menuHeader{
+  height: 90px;
+}
+
+.menuHeader > div {
+  font-family: "Inter", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: medium;
+  font-style: normal;
+  line-height: 120%;
+  font-size: 30px;
+}
+
+.menuBody > div{
+  overflow: scroll;
+  scrollbar-width: none;
+  gap: 12px;
+}
+
+.menuBody::-webkit-scrollbar{
+  display: none;
 }

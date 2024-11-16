@@ -1,10 +1,17 @@
 import React from 'react';
 import { Button } from 'react-bootstrap';
-import { FaBars } from 'react-icons/fa';
+import { RoundButton } from '@/shared';
+import { HiMiniBars3 } from "react-icons/hi2";
 import styles from '../Menu.module.css';
 
 export const MenuButton = ({ onClick }: { onClick: () => void }) => (
-  <Button className={styles.menuButton} onClick={onClick}>
-    <FaBars />
-  </Button>
+  <RoundButton
+    onClick={onClick}
+    content={<HiMiniBars3 size={30}/>}
+    size={64}
+
+  />
 );
+{/* <Button className={styles.menuButton} onClick={onClick}>
+    <HiMiniBars3 />
+  </Button> */}

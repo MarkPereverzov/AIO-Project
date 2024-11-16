@@ -1,0 +1,23 @@
+.roundButton {
+    border: 0px;
+    border-radius: 50%;
+    background-color: var(--light-gray);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--main-text);
+}
+
+.roundButton:hover {
+    background-color: var(--gray);
+    color: var(--main-text);
+}
+
+.roundButton:active, .roundButton:focus, .roundButton:focus-visible {
+    background-color: var(--dark-gray) !important;
+    color: var(--main-text) !important;
+}
+
+.roundButton:focus-visible {
+    box-shadow: 0;
+}

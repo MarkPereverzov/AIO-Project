@@ -2,14 +2,14 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 10px;
-  background-color: rgb(255, 255, 255);
-  border-bottom: 1px solid #ced4da;
+  background-color: var(--light-gray);
+  border-bottom: 1px solid var(--dark-gray);
   width: 100%;
   position: fixed;
   top: 0%;
   height: 90px;
   z-index: 1;
+  padding: 0 3%;
 }
   
 .pageTitle {

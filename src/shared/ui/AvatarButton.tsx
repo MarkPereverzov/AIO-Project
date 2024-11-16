@@ -1,6 +1,7 @@
 import React from 'react';
 import { Button, Image } from 'react-bootstrap';
-import { FaUserCircle } from 'react-icons/fa';
+import { LuUser2 } from "react-icons/lu";
+import { RoundButton } from './RoundButton';
 
 interface AvatarButtonProps {
   userAvatar: string | undefined,
@@ -11,13 +12,26 @@ export const AvatarButton = ({ userAvatar, onClick }: AvatarButtonProps) => {
   return (
     <>
       { !userAvatar
-        ? <Button className="avatarButton" onClick={onClick}> {/* кнопка регистрации */}
-            <FaUserCircle className="avatarIcon" />
-          </Button>
-        :  <Button className="avatarButton">
-            <Image src={ userAvatar } roundedCircle fluid />
-          </Button>
+        ? <RoundButton 
+          size={64}
+          onClick={onClick}
+          content={<LuUser2 size={35} />}
+        /> 
+        : <RoundButton 
+          size={64}
+          onClick={onClick}
+          content={<LuUser2 size={35} />}
+        /> 
       }
     </>
   );
 };
+
+// { !userAvatar
+//         ? <Button className="avatarButton" onClick={onClick}> {/* кнопка регистрации */}
+//         <FaUserCircle className="avatarIcon" />
+//         </Button>
+//       :  <Button className="avatarButton">
+//           <Image src={ userAvatar } roundedCircle fluid />
+//         </Button>
+//     }

@@ -4,7 +4,8 @@ import { FaBurger } from "react-icons/fa6";
 import { GiPayMoney } from "react-icons/gi";
 import { MdWork } from "react-icons/md";
 import { HabitsSection } from './HabitsSection';
-import Link from 'next/link';
+import { LinkElement } from './LinkElement';
+import { LiaHomeSolid, LiaSmokingSolid, LiaWalletSolid, LiaHamburgerSolid, LiaBriefcaseSolid, LiaDumbbellSolid, LiaBedSolid } from "react-icons/lia";
 import styles from '../Menu.module.css';
 
 interface OffcanvasProps {
@@ -16,26 +17,53 @@ interface OffcanvasProps {
 
 export const OffcanvasMenu = (
   { show, onHide, showHabits, toggleHabits }: OffcanvasProps) => (
-  <Offcanvas show={show} onHide={onHide} style={{ width: '250px' }}>
-    <Offcanvas.Header closeButton>
+  <Offcanvas show={show} onHide={onHide} >
+    <Offcanvas.Header closeButton className={styles.menuHeader}>
         <Offcanvas.Title>Меню</Offcanvas.Title>
     </Offcanvas.Header>
-    <Offcanvas.Body>
+    <Offcanvas.Body className={styles.menuBody}>
       <Nav defaultActiveKey="/" className="flex-column">
-
-      <Nav.Link className={styles.navLink}><Link className={styles.link} href="/"><FaHome className="me-2" />Главная</Link></Nav.Link>
-        <Nav.Link className={styles.navLink} onClick={toggleHabits} style={{ cursor: 'pointer' }}>
-          <FaSmoking className="me-2" />Зависимости
-          <FaChevronRight  className="chevron-icon" style={{ transform: showHabits ? 'rotate(90deg)' : 'rotate(0deg)' }} />
-        </Nav.Link>
+        <LinkElement
+          isActive={true}
+          caption='Главная'
+          content={<LiaHomeSolid size={26} className={`me-2 ${styles.icon}`} />}
+          href='/'
+        />
+        <LinkElement
+          caption='Зависимости'
+          content={<LiaSmokingSolid size={26} className={`me-2 ${styles.icon}`} />}
+          isNested={true}
+          showHabits={showHabits}
+          onClick={toggleHabits}
+        />
 
         {showHabits && (<HabitsSection/>)}
-        
-        <Nav.Link className={styles.navLink}><Link className={styles.link} href="/budget"><GiPayMoney  className="me-2" />Бюджет</Link></Nav.Link>
-        <Nav.Link className={styles.navLink}><Link className={styles.link} href="/dream"><FaBed className="me-2" />Сон</Link></Nav.Link>
-        <Nav.Link className={styles.navLink}><Link className={styles.link} href="/job"><MdWork className="me-2" />Работа</Link></Nav.Link>
-        <Nav.Link className={styles.navLink}><Link className={styles.link} href="/nutrion"><FaBurger className="me-2" />Питание</Link></Nav.Link>
-        <Nav.Link className={styles.navLink}><Link className={styles.link} href="/sport"><FaDumbbell className="me-2" />Спорт</Link></Nav.Link>
+
+        <LinkElement
+          caption="Бюджет"
+          content={<LiaWalletSolid size={26} className={`me-2 ${styles.icon}`} />}
+          href="/budget"
+        />
+        <LinkElement
+          caption="Сон"
+          content={<LiaBedSolid size={26} className={`me-2 ${styles.icon}`} />}
+          href="/dream"
+        />
+        <LinkElement
+          caption="Работа"
+          content={<LiaBriefcaseSolid size={26} className={`me-2 ${styles.icon}`} />}
+          href="/job"
+        />
+        <LinkElement
+          caption="Питание"
+          content={<LiaHamburgerSolid size={26} className={`me-2 ${styles.icon}`} />}
+          href="/nutrion"
+        />
+        <LinkElement
+          caption="Спорт"
+          content={<LiaDumbbellSolid size={26} className={`me-2 ${styles.icon}`} />}
+          href="/sport"
+        />
       </Nav>
     </Offcanvas.Body>
   </Offcanvas>
