@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, Image } from 'react-bootstrap';
+import { Image } from 'react-bootstrap';
 import { LuUser2 } from "react-icons/lu";
 import { RoundButton } from './RoundButton';
 
@@ -20,7 +20,7 @@ export const AvatarButton = ({ userAvatar, onClick }: AvatarButtonProps) => {
         : <RoundButton 
           size={64}
           onClick={onClick}
-          content={<LuUser2 size={35} />}
+          content={<Image src={userAvatar} roundedCircle fluid/>}
         /> 
       }
     </>

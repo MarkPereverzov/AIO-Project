@@ -1,22 +1,52 @@
-import { PlanRow } from "..";
-import { ExerciseBlock } from "./ExerciseBlock";
-import { ResponsePlanExerciseDto } from "@/shared/models";
+import { RoundButton } from "@/shared";
+import { WeightElement } from './WeightElement';
+import { IoRepeat } from "react-icons/io5";
+import { RiWeightLine } from "react-icons/ri";
+import { RiPencilLine } from "react-icons/ri";
+import { FaRegTrashAlt } from "react-icons/fa";
+
+
+import styles from '../planexercise.module.css';
 
 interface PlanExerciseElementProps {
-  planExercises: ResponsePlanExerciseDto[] | null,
+  title: string,
+  muscle: string
 };
 
-export const PlanExerciseElement = ({planExercises}: PlanExerciseElementProps) => {
+export const PlanExerciseElement = ({title, muscle}: PlanExerciseElementProps) => {
   return (
-    <ExerciseBlock
-      exercises={planExercises?.map((planExercise, index) => (
-        <PlanRow
-          key={index}
-          exercise={planExercise.exercise}
-          sets={planExercise.sets}
-          reps={planExercise.reps}
-        />
-      ))}
-    />
+    <div className={styles.mainContainer}>
+      <div className={styles.pushinfo}>
+        <h1 className={styles.exerciseTitle}>{title}</h1>
+        <h1 className={styles.muscleGroup}>{muscle}</h1>
+      </div>
+      <div className={styles.rightSide}>
+          <div className={styles.repsPlusIcon}>
+            <div className={styles.icons}>
+              <RiWeightLine size={30}/>
+              <IoRepeat size={30}/>
+            </div>
+            <div className={styles.reps}>
+              <WeightElement/>
+              <WeightElement/>
+              <WeightElement/>
+              <WeightElement/>
+              <WeightElement/>
+            </div>
+          </div>
+          <div className={styles.edit}>
+              <RoundButton 
+                size={48}
+                onClick={()=>{}}
+                content={<RiPencilLine size={42}/>}
+              />
+              <RoundButton 
+                size={48}
+                onClick={()=>{}}
+                content={<FaRegTrashAlt size={42}/>}
+              />
+          </div>
+      </div>
+    </div>
   );
 };

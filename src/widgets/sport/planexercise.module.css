@@ -1,0 +1,77 @@
+.mainContainer {
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    border: 1px var(--gray) solid;
+    border-radius: var(--corner-raidus);
+}
+
+.exerciseTitle {
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.muscleGroup {
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.pushinfo {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    width: 200px;
+}
+
+.rightSide {
+    display: flex;
+    gap: 16px;
+}
+
+.repsPlusIcon {
+    display: flex;
+    gap: 16px;
+}
+
+.reps {
+    display: flex;
+    gap: 16px;
+}
+
+.icons {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.weightReps {
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: column;
+    background-color: var(--dark-gray);
+    border-radius: 6px;
+    height: 60px;
+    padding-top: 5px;
+}
+
+.weightNumber {
+    border-bottom: 1px var(--stroke-secondary) solid;
+}
+.repsNumber {
+    color: var(--tag-color);
+}
+
+.wrNumber {
+    font-size: 16px;
+    font-weight: 500;
+    width: 30px;
+    height: 25px;
+    text-align: center;
+}
+
+.edit {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+}

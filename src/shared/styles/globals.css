@@ -59,6 +59,7 @@ code {
   --black: #0B090A;
 
   --main-text: var(--light-dark);
+  --stroke-secondary: #0000007f;
 
   --corner-raidus: 12px;
 
@@ -72,6 +73,7 @@ h1 {
   font-weight: medium;
   font-style: normal;
   font-size: 30px;
+  margin: 0px;
 }
 
 /* Стлии для AvatarButton */
@@ -191,7 +193,7 @@ h1 {
   flex-wrap: wrap;
   align-items: center;
   justify-content: center; /* Центрирование блоков по горизонтали */
-  gap: 20px; /* Отступы между блоками */
+  gap: 80px; /* Отступы между блоками */
   padding: 0 3%; /* Отступы вокруг всей сетки */
 }
 

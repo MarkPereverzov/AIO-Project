@@ -86,8 +86,9 @@
   padding: 0 30px;
 }
 
-.menuHeader{
+.menuHeader {
   height: 90px;
+  border-bottom: 1px var(--dark-gray) solid;
 }
 
 .menuHeader > div {
@@ -99,12 +100,15 @@
   font-size: 24px;
 }
 
+.menuBody {
+  padding-top: 30px;
+}
+
 .menuBody > div{
   overflow: scroll;
   scrollbar-width: none;
   gap: 12px;
 }
-
 
 .menuBody::-webkit-scrollbar{
   display: none;

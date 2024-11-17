@@ -1,0 +1,31 @@
+.mainBlock {
+    margin-top: 20px;
+    border-radius: var(--corner-raidus);
+    background-color: var(--light-gray);
+    padding: 20px;
+    width: 54vw;
+    height: 80vh;
+    display: flex;
+    gap: 22px;
+    flex-direction: column;
+}
+
+.exerciseContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.title {
+    font-size: 25px;
+    font-weight: 600;
+}
+
+.titleBlock {
+    display: flex;
+    justify-content: space-around;
+}
+.optionsBlock {
+    display: flex;
+    justify-content: space-around;
+}

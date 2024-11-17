@@ -4,7 +4,7 @@ import Link from 'next/link';
 interface BlockProps {
   title: string,
   subtitle: string,
-  Icon: React.ComponentType,
+  Icon: React.ComponentType<{ size?: number }>,
   href: string
 }
 
@@ -13,11 +13,10 @@ export const Block = ({ title, subtitle, Icon, href }: BlockProps) => (
     <div className={styles.block}>
       <div className={styles.blockContent}>
         <div className={styles.blockIcon}>
-          <Icon />
+          <Icon size={64} />
         </div>
         <div className={styles.blockHeader}>{title}</div>
       </div>
-      <div className={styles.blockDivider}></div>
       <div className={styles.blockFooter}>{subtitle}</div>
     </div>
   </Link>
