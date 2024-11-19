@@ -25,7 +25,27 @@
     display: flex;
     justify-content: space-around;
 }
+
+.select {
+    border-radius: var(--corner-raidus);
+    width: 242px;
+    background-color: var(--gray);
+    padding: 10px 23px;
+    padding-left: 30px;
+    font-size: 22px;
+    font-weight: 500;
+    grid-column: 2;
+    justify-self: center;
+}
+
 .optionsBlock {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+}
+
+.rightSide {
     display: flex;
-    justify-content: space-around;
+    grid-column: 3;
+    justify-self: end;
+    padding-right: 20px;
 }

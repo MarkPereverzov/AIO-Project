@@ -5,7 +5,7 @@ interface RoundButtonProps {
     className?: string,
     size: number,
     content: string | JSX.Element | JSX.Element[],
-    onClick: () => void
+    onClick?: () => void
 }
 
 export const RoundButton = ({size, content, onClick, className}: RoundButtonProps) => (
