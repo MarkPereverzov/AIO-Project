@@ -1,0 +1,16 @@
+.pageContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: stretch;
+    width: 100%;
+    height: calc(100vh - 90px) !important;
+    margin-top: 90px;
+    padding-bottom: 15px;
+}
+
+.combinedContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+}
