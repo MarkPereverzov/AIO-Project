@@ -1,30 +1,47 @@
-import { PlanExerciseElement } from './PlanExerciseElement';
+import { ExerciseElement } from './ExerciseElement';
 import { RoundButton } from '@/shared';
-
 import { FaPlus } from "react-icons/fa6";
 import { RiPencilLine } from "react-icons/ri";
 import { FaRegTrashAlt } from "react-icons/fa";
+import { ResponseAnalysisDayDto } from '@/shared/models';
 
 import styles from '../sport.module.css';
 import Form from 'react-bootstrap/Form';
+import { useState } from 'react';
 
 interface PlanProps {
-  exercise: string,
-  reps: number | string,
-  sets: number | string,
+  planDays: ResponseAnalysisDayDto[],
 };
 
-export const Plan = () => {
+const ee = [
+  {exercise: "Жим груди", weight: 40, reps: 12},
+  {exercise: "Жим груди", weight: 50, reps: 12},
+  {exercise: "Жим груди", weight: 55, reps: 12},
+  {exercise: "Жим груди", weight: 55, reps: 12},
+  {exercise: "Жим груди", weight: 60, reps: 12},
+]
+
+export const Plan = ({planDays}: PlanProps) => {
+  const [activeDay, setActiveDay] = useState(0); 
+  const currentDay = planDays?.at(activeDay);
+
+  const options = planDays?.map((day, index) => <option key={index} value={index}>{day.weekDay}</option>)
+
+  const exercises = currentDay?.planExercises?.map((exercise, index) => (
+    <ExerciseElement key={index} exercise={exercise} />
+  ));
   return (
     <div className={styles.mainBlock}>
       <div className={styles.titleBlock}>
         <h1 className={styles.title}>Программа</h1>
       </div>
       <div className={styles.optionsBlock}>
-        <Form.Select className={styles.select}>
-          <option value="1">Грудь - Трицепс</option>
-          <option value="2">Ноги - Плечи</option>
-          <option value="3">Спина - Бицепс</option>
+        <Form.Select 
+          value={activeDay} 
+          className={styles.select}
+          onChange={(event) => setActiveDay(Number(event.target.value))}
+        >
+          {options}
         </Form.Select>
         <div className={styles.rightSide}>
             <RoundButton 
@@ -42,30 +59,7 @@ export const Plan = () => {
         </div>
       </div>
       <div className={styles.exerciseContainer}>
-        <PlanExerciseElement
-          title='Жим груди'
-          muscle='грудь'
-        />
-        <PlanExerciseElement
-          title='Жим груди'
-          muscle='грудь'
-        />
-        <PlanExerciseElement
-          title='Жим груди'
-          muscle='грудь'
-        />
-        <PlanExerciseElement
-          title='Жим груди'
-          muscle='грудь'
-        />
-        <PlanExerciseElement
-          title='Жим груди'
-          muscle='грудь'
-        />
-        <PlanExerciseElement
-          title='Жим груди'
-          muscle='грудь'
-        />
+        {exercises}
       </div>
     </div>
   );
