@@ -3,32 +3,41 @@ import { RoundButton } from '@/shared';
 import { FaPlus } from "react-icons/fa6";
 import { RiPencilLine } from "react-icons/ri";
 import { FaRegTrashAlt } from "react-icons/fa";
-import { ResponseAnalysisDayDto } from '@/shared/models';
-
+import { ResponsePlanExerciseDayDto } from '@/shared/models';
+import { deletePlanExercise } from "@/entities/sport";
+import { useQuery } from '@tanstack/react-query';
 import styles from '../sport.module.css';
 import Form from 'react-bootstrap/Form';
 import { useState } from 'react';
 
 interface PlanProps {
-  planDays: ResponseAnalysisDayDto[],
+  planDays: ResponsePlanExerciseDayDto[],
 };
 
-const ee = [
-  {exercise: "Жим груди", weight: 40, reps: 12},
-  {exercise: "Жим груди", weight: 50, reps: 12},
-  {exercise: "Жим груди", weight: 55, reps: 12},
-  {exercise: "Жим груди", weight: 55, reps: 12},
-  {exercise: "Жим груди", weight: 60, reps: 12},
-]
-
-export const Plan = ({planDays}: PlanProps) => {
+export const Plan = ({planDays: initialPlanDays }: PlanProps) => {
+  const [planDays, setPlanDays] = useState(initialPlanDays);
   const [activeDay, setActiveDay] = useState(0); 
+
   const currentDay = planDays?.at(activeDay);
+
+  const handleDeleteExercise = async (id: number) => {
+    try {
+      await deletePlanExercise(id);
+      // Удаляем упражнение локально
+      const updatedDays = planDays.map((day) => ({
+        ...day,
+        planExercises: day.planExercises.filter((exercise) => exercise.id !== id),
+      }));
+      setPlanDays(updatedDays);
+    } catch (error) {
+      console.error('Ошибка при удалении упражнения:', error);
+    }
+  };
 
   const options = planDays?.map((day, index) => <option key={index} value={index}>{day.weekDay}</option>)
 
   const exercises = currentDay?.planExercises?.map((exercise, index) => (
-    <ExerciseElement key={index} exercise={exercise} />
+    <ExerciseElement key={index} exercise={exercise as any} onDelete={handleDeleteExercise}/>
   ));
   return (
     <div className={styles.mainBlock}>

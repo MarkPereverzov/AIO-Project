@@ -25,6 +25,8 @@ export type { ProductGetParams } from './product';
 export type ResponseExerciseRecordDto = components["schemas"]["ResponseExerciseRecordDto"];
 export type ResponsePlanExerciseDto = components["schemas"]["ResponsePlanExerciseDto"];
 
+export type { CreatePlanExerciseSetDto } from './create-plan-exercise-set.dto';
+
 export type CreateExerciseDto = components["schemas"]["CreateExerciseDto"];
 export type UpdateExerciseDto = components["schemas"]["UpdateExerciseDto"];
 export type ExerciseDayDto = components["schemas"]["ResponseExerciseDay"];
@@ -39,3 +41,8 @@ export type UpdatePlanExerciseDayDto = components["schemas"]["UpdatePlanExercise
 export type { ResponseAnalysisExerciseDto } from './response-analysis-exercise.dto';
 export type { ResponseAnalysisDayDto } from './response-analysis-day.dto';
 export type { RequestExerciseRecordDto } from './request-exercise-record.dto';
+
+export type ResponsePlanExerciseDayDto = {
+    weekDay: number | string,
+    planExercises: ResponsePlanExerciseDto[]
+}

@@ -251,23 +251,6 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
-    "/sport/analyse": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        /** Analyse exercise weight for day */
-        get: operations["SportController_analyseExerciseDay"];
-        put?: never;
-        post?: never;
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
     "/sport/exercises": {
         parameters: {
             query?: never;
@@ -614,12 +597,6 @@ export interface components {
             /** @description Is there any existing streak for given healthId ? */
             isExist: boolean;
         };
-        ResponseAnalysisDayDto: {
-            /** @description Planned exercise of Day */
-            planExercises: unknown[][];
-            /** @description Week day of analysed day */
-            weekDay: number;
-        };
         CreateExerciseDto: {
             /** @description Name of the exercise */
             name: string;
@@ -670,31 +647,40 @@ export interface components {
         };
         UpdateExerciseRecordDto: Record<string, never>;
         ResponsePlanExerciseDto: {
+            /** @description ID of the associated exercise */
+            sets: {
+                id: number,
+                weight: number,
+                reps: number
+            }[];
             /** @description ID of Plan Exercise */
             id: number;
             /** @description Exercise name */
-            exercise: string;
-            /** @description Number of sets */
-            sets: number;
-            /** @description Number of reps */
-            reps: number;
+            exercise: {
+                id: number,
+                name: string
+            };
             /** @description ID of the associated plan exercise day */
             planExerciseDayId: number;
         };
         CreatePlanExerciseDto: {
+            /** @description Set of planexercise */
+            sets: string[];
             /** @description ID of the associated exercise */
             exerciseId: number;
-            /** @description Number of sets to perform */
-            sets: number;
-            /** @description Number of repetitions per set */
-            reps: number;
             /** @description ID of the associated plan day */
             planExerciseDayId: number;
         };
         UpdatePlanExerciseDto: Record<string, never>;
+        ResponsePlanExerciseDayDto: {
+            /** @description Name of weekday */
+            weekDay: string;
+            /** @description ID of the associated exercise */
+            planExercises: string[];
+        };
         CreatePlanExerciseDayDto: {
-            /** @description Day of the week (0-6) */
-            weekDay: number;
+            /** @description Name of day */
+            weekDay: string;
         };
         UpdatePlanExerciseDayDto: Record<string, never>;
     };
@@ -1219,29 +1205,6 @@ export interface operations {
             };
         };
     };
-    SportController_analyseExerciseDay: {
-        parameters: {
-            query: {
-                /** @description Week day of plan exercise day */
-                weekDay: number;
-            };
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        requestBody?: never;
-        responses: {
-            /** @description Return analysed day */
-            200: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["ResponseAnalysisDayDto"];
-                };
-            };
-        };
-    };
     SportController_getAllExercises: {
         parameters: {
             query?: never;
@@ -1613,7 +1576,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/json": components["schemas"]["CreatePlanExerciseDayDto"][];
+                    "application/json": components["schemas"]["ResponsePlanExerciseDayDto"][];
                 };
             };
         };

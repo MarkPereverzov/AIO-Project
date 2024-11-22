@@ -1,9 +1,9 @@
 import { GET, POST, PUT, DELETE } from "@/shared/api";
-import { CreatePlanExerciseDayDto, UpdatePlanExerciseDayDto } from "@/shared/models"; 
+import { CreatePlanExerciseDayDto, ResponsePlanExerciseDayDto, UpdatePlanExerciseDayDto } from "@/shared/models"; 
 import { throwAnyErrors } from "@/shared/lib";
 
 // Get all plan exercise days
-export const getAllPlanExerciseDays = async (): Promise<CreatePlanExerciseDayDto[]> => {
+export const getAllPlanExerciseDays = async (): Promise<ResponsePlanExerciseDayDto[]> => {
   return await throwAnyErrors(GET('/sport/plan-exercise-days'));
 };
 

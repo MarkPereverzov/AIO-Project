@@ -1,24 +1,19 @@
 import { getAllPlanExerciseDays, getAnalyseExerciseDay } from '@/entities/sport';
 import { getAllExerciseDays } from '@/entities/sport/api/exerciseDay';
+import { GetServerSideProps } from 'next';
+import { ResponsePlanExerciseDayDto } from '@/shared/models';
 import { SportPage } from '@/cpages/sport/ui/SportPage';
 
 export default async function Page() {
-  let analysedExercises = null;
-  let planExercises = null;
-  let exerciseRecords = null;
+  let planDays = null;
   try {
-    analysedExercises = await getAnalyseExerciseDay({weekDay: 2});
-    //planExercises = await getAllPlanExerciseDays();
-    exerciseRecords = await getAllExerciseDays();
-    console.log(analysedExercises, planExercises, exerciseRecords);
+    planDays = await getAllPlanExerciseDays();
   } catch (error) {
     console.log(error);
   }  
   return(
     <SportPage 
-      analysedExercises={analysedExercises}
-      planExercises={null}
-      exerciseRecordDays={exerciseRecords}
+      planDays={planDays}
     />
   );
 }

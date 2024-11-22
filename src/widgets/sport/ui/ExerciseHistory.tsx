@@ -1,25 +1,23 @@
 import { ExerciseElement } from './ExerciseElement';
-import { ResponseAnalysisExerciseDto } from '@/shared/models';
+import { ResponseExerciseRecordDto } from '@/shared/models';
 import { Form } from 'react-bootstrap';
 import { RoundButton } from '@/shared';
+import { ExerciseDayDto } from '@/shared/models';
 import { useState } from 'react';
 import { toLocaleDateString } from '@/shared/lib';
 
 import styles from '../history.module.css';
 
 interface ExerciseHistoryProps { 
-    historyDays: [{
-        date: Date,
-        planExercises: ResponseAnalysisExerciseDto[],
-    }]
+    historyDays: ExerciseDayDto[],
 }
 
 export const ExerciseHistory = ({historyDays}:ExerciseHistoryProps) => {
     const [activeDay, setActiveDay] = useState(0); 
-    const options = historyDays?.map((day, index) => <option key={index} value={index}>{toLocaleDateString(day.date)}</option>)
+    const options = historyDays?.map((day, index) => <option key={index} value={index}>{day.date}</option>)
     const currentDay = historyDays?.at(activeDay);
-    const exercises = currentDay?.planExercises?.map((exercise, index) => (
-        <ExerciseElement key={index} exercise={[exercise]} />
+    const exercises = currentDay?.exerciseRecords?.map((exercise, index) => (
+        <ExerciseElement key={index} exercise={exercise} />
     ));
     return (
         <div className={styles.mainBlock}>

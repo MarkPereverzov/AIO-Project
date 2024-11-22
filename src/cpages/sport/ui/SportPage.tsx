@@ -6,73 +6,63 @@ import { Exercise } from '@/features/exerciseButton';
 import { ExerciseHistory } from '@/widgets/sport/ui/ExerciseHistory';
 import { ExerciseInput } from '@/widgets/sport/ui/ExerciseInput';
 import styles from '../page.module.css';
-import { ResponseAnalysisDayDto } from '@/shared/models';
-import { ResponseAnalysisExerciseDto } from '@/shared/models';
-
-
-interface ExerciseHistoryProps { 
-  date: Date,
-  planExercises: ResponseAnalysisExerciseDto[],
-}
-
+import { ExerciseDayDto } from '@/shared/models';
+import { ResponsePlanExerciseDayDto } from '@/shared/models';
+import { ResponseExerciseRecordDto } from '@/shared/models';
+import { toLocaleDateString } from '@/shared/lib';
 
 const example = [
   {
     weekDay: 'Грудь - Трицепс',
     planExercises: [
-      [
-        {exercise: "Жим груди", weight: 40, reps: 12},
-        {exercise: "Жим груди", weight: 50, reps: 12},
-        {exercise: "Жим груди", weight: 55, reps: 12},
-        {exercise: "Жим груди", weight: 55, reps: 12},
-        {exercise: "Жим груди", weight: 60, reps: 12},
-      ],
-      [
-        {exercise: "Бабочка", weight: 40, reps: 12},
-        {exercise: "Бабочка", weight: 50, reps: 12},
-        {exercise: "Бабочка", weight: 55, reps: 12},
-        {exercise: "Бабочка", weight: 55, reps: 12},
-        {exercise: "Бабочка", weight: 60, reps: 12},
-      ],
+      {exercise: {name: "Жим груди"}, sets: [{weight: 40, reps: 12}]},
+      {exercise: {name: "Бабочка"}, sets: [{weight: 60, reps: 12}]},
     ]
-  } as ResponseAnalysisDayDto,
+  } as any,
   {
     weekDay: 'Спина - бицепс',
-  } as ResponseAnalysisDayDto,
+  } as ResponsePlanExerciseDayDto,
   {
     weekDay: 'Ноги - Плечи',
-  } as ResponseAnalysisDayDto,
+  } as ResponsePlanExerciseDayDto,
 ]
 
 const example2 = [
   {
-    date : new Date(),
-    planExercises: 
+    id: 1,
+    userId: '',
+    date : toLocaleDateString(new Date()),
+    exerciseRecords: 
     [
-      {exercise: "Жим груди", weight: 40, reps: 12},
-      {exercise: "Жим груди", weight: 60, reps: 12},
+      {id: 1, exercise: "Жим груди", weight: 40, reps: 12, exerciseDayId: 1},
+      {id: 2, exercise: "Жим груди", weight: 60, reps: 12, exerciseDayId: 1},
     ],
-  } as ExerciseHistoryProps,
+  } as ExerciseDayDto,
   {
-    date : new Date(new Date("11-20-2024")),
-    planExercises: 
+    date : toLocaleDateString(new Date(new Date("11-20-2024"))),
+    exerciseRecords: 
     [
-      {exercise: "Жим груди", weight: 70, reps: 12},
-      {exercise: "Жим груди", weight: 80, reps: 12},
+      {id: 3, exercise: "Жим груди", weight: 70, reps: 12},
+      {id: 4, exercise: "Жим груди", weight: 80, reps: 12},
     ],
-  } as ExerciseHistoryProps
+  } as ExerciseDayDto
 ]
 
-export const SportPage = () => {
+interface SportPageProps {
+  planDays?: ResponsePlanExerciseDayDto[] | null,
+  historyDays?: ExerciseDayDto[] | null
+}
+
+export const SportPage = ({planDays, historyDays}: SportPageProps) => {
   return (
     <>
       <Header pageName="Спорт" />
       <div className={styles.pageContainer}>
         <div className={styles.combinedContainer}>
-          <Plan planDays={example}/>
+          <Plan planDays={planDays ?? example}/>
           <ExerciseInput/>
         </div>
-        <ExerciseHistory historyDays={example2 as any}/>
+        <ExerciseHistory historyDays={historyDays ?? example2 as any}/>
       </div>
       {/* <Footer>
         <Exercise/>

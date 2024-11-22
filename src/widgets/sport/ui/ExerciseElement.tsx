@@ -1,24 +1,39 @@
 import { RoundButton } from "@/shared";
 import { WeightElement } from './WeightElement';
-import { ResponseAnalysisExerciseDto } from "@/shared/models";
+import { ResponsePlanExerciseDto } from "@/shared/models";
 import { IoRepeat } from "react-icons/io5";
 import { RiWeightLine } from "react-icons/ri";
 import { RiPencilLine } from "react-icons/ri";
-import { FaRegTrashAlt } from "react-icons/fa";
-
+import { DeleteButton } from "@/features/deleteItem/ui/DeleteButton";
+import { deletePlanExercise } from "@/entities/sport";
+import { EditButton } from "@/features/editItem/ui/EditButton";
+import { updateExerciseRecord } from "@/entities/sport";
+import { UpdateExerciseRecordDto } from "@/shared/models";
 
 import styles from '../planexercise.module.css';
 
 interface ExerciseElementProps {
-  exercise: ResponseAnalysisExerciseDto[],
+  exercise: ResponsePlanExerciseDto,
+  onDelete: (id: number) => Promise<void>;
 };
 
-export const ExerciseElement = ({exercise}: ExerciseElementProps) => {
-  const title = exercise ? exercise.at(0)?.exercise : 'Undefined';
+export const ExerciseElement = ({exercise, onDelete }: ExerciseElementProps) => {
+  const title = exercise?.exercise.name ?? 'Undefined';
   const muscle = "грудь";
+  const id = exercise?.id ?? -1;
 
-  const reps = exercise?.map(exercise => (
-    <WeightElement weight={exercise.weight} reps={exercise.reps}/>
+  const initial = {
+    exercise: title,
+    reps: 0,
+    weight: 0
+  }
+
+  const handleSave = async (values: any) => {
+    await updateExerciseRecord(id, values);
+  }
+
+  const reps = exercise?.sets?.map((set:any, index:any) => (
+    <WeightElement key={index} weight={set.weight} reps={set.reps}/>
   ));
 
   return (
@@ -38,15 +53,28 @@ export const ExerciseElement = ({exercise}: ExerciseElementProps) => {
             </div>
           </div>
           <div className={styles.edit}>
-              <RoundButton 
+            <EditButton
+              size={36}
+              modalSettings={{
+                title: 'Редактирование записи',
+                fields: [
+                  { name: 'exercise', label: 'Название упражнения', type: 'text' },
+                  { name: 'reps', label: 'Количество повторений', type: 'number' },
+                  { name: 'weight', label: 'Вес', type: 'number' },
+                ],
+                initialValues: initial,
+                onSave: handleSave,
+                onCancel: ()=>{},
+              }}
+            />
+              {/* <RoundButton 
                 size={36}
                 onClick={()=>{}}
                 content={<RiPencilLine size={30}/>}
-              />
-              <RoundButton 
+              /> */}
+              <DeleteButton 
                 size={36}
-                onClick={()=>{}}
-                content={<FaRegTrashAlt size={30}/>}
+                onDelete={async ()=>{await onDelete(id)}}
               />
           </div>
       </div>

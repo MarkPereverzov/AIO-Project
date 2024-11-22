@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { User, getUserInfo, UserProvider } from "@/entities/user";
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import localFont from "next/font/local";
 import "@/shared/styles/globals.css";
 
@@ -25,6 +26,7 @@ export default async function RootLayout({
   children: React.ReactNode;
 }>) {
   const user: User | null = await getUserInfo();
+  const queryClient = new QueryClient();
 
   return (
     <html lang="en">
