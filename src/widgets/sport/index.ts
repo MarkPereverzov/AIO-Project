@@ -1,5 +1,5 @@
 export * from './ui/DayExerciseElement';
-export * from './ui/ExerciseElement';
+export * from './ui/PlanElement';
 export * from './ui/AnalysedExercise';
 export * from './ui/DayExerciseBlock';
 

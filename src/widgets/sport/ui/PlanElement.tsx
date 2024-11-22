@@ -1,6 +1,6 @@
 import { RoundButton } from "@/shared";
 import { WeightElement } from './WeightElement';
-import { ResponseExerciseRecordDto, ResponsePlanExerciseDto } from "@/shared/models";
+import { ResponsePlanExerciseDto } from "@/shared/models";
 import { IoRepeat } from "react-icons/io5";
 import { RiWeightLine } from "react-icons/ri";
 import { RiPencilLine } from "react-icons/ri";
@@ -12,13 +12,13 @@ import { UpdateExerciseRecordDto } from "@/shared/models";
 
 import styles from '../planexercise.module.css';
 
-interface ExerciseElementProps {
-  exercise: ResponseExerciseRecordDto,
+interface PlanElementProps {
+  exercise: ResponsePlanExerciseDto,
   onDelete: (id: number) => Promise<void>;
 };
 
-export const ExerciseElement = ({exercise, onDelete }: ExerciseElementProps) => {
-  const title = exercise?.exercise ?? 'Undefined';
+export const PlanElement = ({exercise, onDelete }: PlanElementProps) => {
+  const title = exercise?.exercise.name ?? 'Undefined';
   const muscle = "грудь";
   const id = exercise?.id ?? -1;
 
@@ -32,9 +32,9 @@ export const ExerciseElement = ({exercise, onDelete }: ExerciseElementProps) => 
     await updateExerciseRecord(id, values);
   }
 
-  const reps = (
-    <WeightElement weight={exercise.weight} reps={exercise.reps}/>
-  );
+  const reps = exercise?.sets?.map((set:any, index:any) => (
+    <WeightElement key={index} weight={set.weight} reps={set.reps}/>
+  ));
 
   return (
     <div className={styles.mainContainer}>

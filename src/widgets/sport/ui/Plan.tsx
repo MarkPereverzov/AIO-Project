@@ -1,4 +1,4 @@
-import { ExerciseElement } from './ExerciseElement';
+import { PlanElement } from './PlanElement';
 import { RoundButton } from '@/shared';
 import { FaPlus } from "react-icons/fa6";
 import { RiPencilLine } from "react-icons/ri";
@@ -20,7 +20,7 @@ export const Plan = ({planDays: initialPlanDays }: PlanProps) => {
 
   const currentDay = planDays?.at(activeDay);
 
-  const handleDeleteExercise = async (id: number) => {
+  const handleDeletePlanRecord = async (id: number) => {
     try {
       await deletePlanExercise(id);
       // Удаляем упражнение локально
@@ -30,14 +30,14 @@ export const Plan = ({planDays: initialPlanDays }: PlanProps) => {
       }));
       setPlanDays(updatedDays);
     } catch (error) {
-      console.error('Ошибка при удалении упражнения:', error);
+      console.error('Ошибка при удалении плана:', error);
     }
   };
 
   const options = planDays?.map((day, index) => <option key={index} value={index}>{day.weekDay}</option>)
 
   const exercises = currentDay?.planExercises?.map((exercise, index) => (
-    <ExerciseElement key={index} exercise={exercise as any} onDelete={handleDeleteExercise}/>
+    <PlanElement key={index} exercise={exercise as any} onDelete={handleDeletePlanRecord}/>
   ));
   return (
     <div className={styles.mainBlock}>
