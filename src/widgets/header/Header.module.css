@@ -1,21 +1,53 @@
 .header {
+  width: 100%;
+  padding: 0 100px;
+  position: fixed;
+  top: 0%;
+  z-index: 1;
+}
+
+.headerContainer {
   display: flex;
   align-items: center;
   justify-content: space-between;
   background-color: var(--light-gray);
   border-bottom: 1px solid var(--dark-gray);
   width: 100%;
-  position: fixed;
-  top: 0%;
   height: 90px;
-  z-index: 1;
   padding: 0 3%;
+  border-bottom-left-radius: 16px;
+  border-bottom-right-radius: 16px;
 }
   
 .pageTitle {
   flex: 1;
   text-align: center;
   margin: 0;
-  font-size: 1.5rem;
-  color: #343a40;
+  color: var(--dark);
+}
+
+@media (max-width: 480px) {
+  /* Стили для смартфонов */
+}
+
+/* Планшеты: от var(--breakpoint-sm) до var(--breakpoint-md) */
+@media (min-width: 480px) and (max-width: 768px) {
+  /* Стили для планшетов */
+}
+
+/* Ноутбуки: от var(--breakpoint-md) до var(--breakpoint-lg) */
+@media (min-width: 768px) and (max-width: 1440px) {
+  /* Стили для ноутбуков */
+  .headerContainer {
+    height: 64px;
+  }
+  .header {
+    padding: 0 45px;
+  }
+}
+
+/* Десктопы: больше var(--breakpoint-lg) */
+@media (min-width: 1440px) {
+  /* Стили для десктопов */
+
 }

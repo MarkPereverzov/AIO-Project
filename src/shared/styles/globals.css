@@ -9,12 +9,57 @@ p{
 .pageContainer{
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+  justify-content: center;
   align-items: center;
   width: 100%;
   height: calc(100vh - 90px) !important;
-  margin-top: 90px;
+  margin-top: calc(90px);
 }
+
+.gridContainer {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center; /* Центрирование блоков по горизонтали */
+  gap: 20px; /* Отступы между блоками */
+  padding: 0 3%; /* Отступы вокруг всей сетки */
+}
+
+.gridContainer > .block {
+  margin: 0; /* Убедитесь, что margin внутри блоков не конфликтует */
+}
+
+
+@media (min-width: 480px) and (max-width: 768px) {
+  .pageContainer {
+    height: calc(100vh - 64px) !important;
+    margin-top: calc(64px + 30px);
+  }
+  .gridContainer {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1800px) {
+  .gridContainer {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1440px) {
+  .pageContainer {
+    height: calc(100vh - 64px) !important;
+    margin-top: calc(64px + 30px);
+    justify-content: start;
+  }
+  .gridContainer {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+
+
 
 .header-title-font {
   font-family: "Inter", sans-serif;
@@ -49,8 +94,8 @@ code {
 *{
   text-decoration: none !important;
   --light-gray: #F5F3F4;
-  --gray: #D3D3D3;
-  --dark-gray: #B1A7A6;
+  --gray: #E7E7E7;
+  --dark-gray: #D1D1D1;
   --light-red: #E5383B;
   --red: #BA181B;
   --semi-dark-red: #A4161A;
@@ -58,22 +103,173 @@ code {
   --light-dark: #161A1D;
   --black: #0B090A;
 
+  --bs-btn-color: #000;
+
   --main-text: var(--light-dark);
   --stroke-secondary: #0000007f;
 
-  --corner-raidus: 12px;
+  --corner-raidus: 16px;
+  --corner-button: 24px;
 
   --tag-color: #343A40;
   --tag-background-color: #fff;
+
+  --button-xl: 64px;
+  --button-lg: 32px;
+
+  --icon-xl: 38px;
+  --icon-lg: 24px;
+  
+}
+
+:root {
+  --breakpoint-lg: 1368px;
+  --breakpoint-md: 768px;
+  --breakpoint-sm: 480px;
 }
 
 h1 {
-  font-family: "Inter", sans-serif;
+  font-family: "Roboto Condensed", sans-serif;
   font-optical-sizing: auto;
-  font-weight: medium;
+  font-weight: bold;
   font-style: normal;
+  font-size: 42px;
+  line-height: 56px;
+  margin: 0px; 
+  color: #161A1D;
+}
+
+h2 {
+  font-family: "Roboto Condensed", sans-serif;
+  font-optical-sizing: auto;
+  font-size: 36px;
+  line-height: 48px;
+  font-weight: 600;
+  font-style: normal;
+}
+
+h3 {
+  font-family: "Roboto Condensed", sans-serif;
+  font-optical-sizing: auto;
   font-size: 30px;
-  margin: 0px;
+  line-height: 40px;
+  font-weight: 600;
+  font-style: normal;
+}
+
+h4 {
+  font-family: "Roboto Condensed", sans-serif;
+  font-optical-sizing: auto;
+  font-size: 24px;
+  line-height: 32px;
+  font-weight: 500;
+  font-style: normal;
+}
+
+.ctext-primary {
+  font-family: "Roboto Condensed", sans-serif;
+  font-optical-sizing: auto;
+  font-size: 20px;
+  line-height: 28px;
+  font-weight: 400;
+  font-style: normal;
+  color: #000;
+}
+
+.ctext-secondary {
+  font-family: "Roboto Condensed", sans-serif;
+  font-optical-sizing: auto;
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.ctext-button {
+  font-family: "Roboto Condensed", sans-serif;
+  font-optical-sizing: auto;
+  font-size: 16px;
+  line-height: 16px;
+  font-weight: 600;
+  font-style: normal;
+  color: #000;
+}
+
+@media (max-width: 480px) {
+  /* Стили для смартфонов */
+}
+
+/* Планшеты: от var(--breakpoint-sm) до var(--breakpoint-md) */
+@media (min-width: 480px) and (max-width: 768px) {
+  /* Стили для планшетов */
+}
+
+/* Ноутбуки: от var(--breakpoint-md) до var(--breakpoint-lg) */
+@media (min-width: 768px) and (max-width: 1440px) {
+  /* Стили для ноутбуков */
+  h1 {
+    font-family: "Roboto Condensed", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: bold;
+    font-style: normal;
+    font-size: 32px;
+    line-height: 40px;
+    margin: 0px; 
+  }
+  
+  h2 {
+    font-family: "Roboto Condensed", sans-serif;
+    font-optical-sizing: auto;
+    font-size: 28px;
+    line-height: 36px;
+    font-weight: 600;
+    font-style: normal;
+  }
+  
+  h3 {
+    font-family: "Roboto Condensed", sans-serif;
+    font-optical-sizing: auto;
+    font-size: 24px;
+    line-height: 32px;
+    font-weight: 600;
+    font-style: normal;
+  }
+  
+  h4 {
+    font-family: "Roboto Condensed", sans-serif;
+    font-optical-sizing: auto;
+    font-size: 20px;
+    line-height: 28px;
+    font-weight: 500;
+    font-style: normal;
+  }
+  
+  .ctext-primary {
+    font-family: "Roboto Condensed", sans-serif;
+    font-optical-sizing: auto;
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: 400;
+    font-style: normal;
+  }
+  
+  .ctext-secondary {
+    font-family: "Roboto Condensed", sans-serif;
+    font-optical-sizing: auto;
+    font-size: 14px;
+    line-height: 20px;
+    font-weight: 400;
+    font-style: normal;
+  }
+  
+  .ctext-button {
+    font-family: "Roboto Condensed", sans-serif;
+    font-optical-sizing: auto;
+    font-size: 16px;
+    line-height: 16px;
+    font-weight: 600;
+    font-style: normal;
+  }
 }
 
 /* Стлии для AvatarButton */
@@ -187,20 +383,6 @@ h1 {
 }
 
 /* Стили для Carousel */
-
-.gridContainer {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: center; /* Центрирование блоков по горизонтали */
-  gap: 80px; /* Отступы между блоками */
-  padding: 0 3%; /* Отступы вокруг всей сетки */
-}
-
-.gridContainer > .block {
-  margin: 0; /* Убедитесь, что margin внутри блоков не конфликтует */
-}
-
 
 
 .footerButton {

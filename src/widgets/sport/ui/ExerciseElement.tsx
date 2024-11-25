@@ -15,21 +15,18 @@ import styles from '../planexercise.module.css';
 interface ExerciseElementProps {
   exercise: ResponseExerciseRecordDto,
   onDelete: (id: number) => Promise<void>;
+  onEdit: (id: number, values: any) => Promise<void>;
 };
 
-export const ExerciseElement = ({exercise, onDelete }: ExerciseElementProps) => {
+export const ExerciseElement = ({exercise, onDelete, onEdit }: ExerciseElementProps) => {
   const title = exercise?.exercise ?? 'Undefined';
   const muscle = "грудь";
   const id = exercise?.id ?? -1;
 
   const initial = {
     exercise: title,
-    reps: 0,
-    weight: 0
-  }
-
-  const handleSave = async (values: any) => {
-    await updateExerciseRecord(id, values);
+    reps: exercise?.reps,
+    weight: exercise?.weight
   }
 
   const reps = (
@@ -63,7 +60,7 @@ export const ExerciseElement = ({exercise, onDelete }: ExerciseElementProps) => 
                   { name: 'weight', label: 'Вес', type: 'number' },
                 ],
                 initialValues: initial,
-                onSave: handleSave,
+                onSave: (values: any) => onEdit(id, values),
                 onCancel: ()=>{},
               }}
             />

@@ -8,7 +8,7 @@ import { toLocaleDateString } from '@/shared/lib';
 
 import styles from '../history.module.css';
 import { ExerciseElement } from './ExerciseElement';
-import { deleteExerciseRecord } from '@/entities/sport';
+import { deleteExerciseRecord, updateExerciseRecord } from '@/entities/sport';
 
 interface ExerciseHistoryProps { 
     historyDays: ExerciseDayDto[],
@@ -17,7 +17,8 @@ interface ExerciseHistoryProps {
 export const ExerciseHistory = ({historyDays: initialHistoryDays}:ExerciseHistoryProps) => {
     const [historyDays, setHistoryDays] = useState(initialHistoryDays);
     const [activeDay, setActiveDay] = useState(0); 
-    const options = historyDays?.map((day, index) => <option key={index} value={index}>{toLocaleDateString(day.date)}</option>)
+    
+    const options = historyDays?.map((day, index) => {console.log(day.date); return <option key={index} value={index}>{toLocaleDateString(day.date)}</option>})
     const currentDay = historyDays?.at(activeDay);
 
     const handleDeleteExercise = async (id: number) => {
@@ -26,16 +27,36 @@ export const ExerciseHistory = ({historyDays: initialHistoryDays}:ExerciseHistor
           // Удаляем упражнение локально
           const updatedDays = historyDays.map((day) => ({
             ...day,
-            planExercises: day.exerciseRecords.filter((exercise) => exercise.id !== id),
+            exerciseRecords: day.exerciseRecords.filter((exercise) => exercise.id !== id),
           }));
           setHistoryDays(updatedDays);
         } catch (error) {
           console.error('Ошибка при удалении плана:', error);
         }
-      };
+    };
+
+    const handleEditExercise = async (id: number, values: any) => {
+        try {
+            await updateExerciseRecord(id, values);
+    
+            // Изменяем упражнение локально
+            const updatedDays = historyDays.map((day) => ({
+                ...day,
+                exerciseRecords: day.exerciseRecords.map((exercise) =>
+                    exercise.id === id
+                        ? { ...exercise, ...values } // Обновляем только нужное упражнение
+                        : exercise // Оставляем остальные упражнения без изменений
+                ),
+            }));
+
+            setHistoryDays(updatedDays);
+        } catch (error) {
+            console.error('Ошибка при редактировании упражнения:', error);
+        }
+    };
 
     const exercises = currentDay?.exerciseRecords?.map((exercise, index) => (
-        <ExerciseElement key={index} exercise={exercise} onDelete={handleDeleteExercise}/>
+        <ExerciseElement key={index} exercise={exercise} onDelete={handleDeleteExercise} onEdit={handleEditExercise} />
     ));
     return (
         <div className={styles.mainBlock}>

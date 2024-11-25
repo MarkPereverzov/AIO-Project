@@ -15,11 +15,13 @@ export const Header = ({ pageName }: { pageName: string }) => {
 
   return (
     <header className={styles.header}>
-      <Menu /> {/* кнопка меню */}
-      <h1 className={styles.pageTitle}>{pageName}</h1> {/* название страницы */}
-      <Notifications /> {/* кнопка уведомлений */}
-      <AvatarButton userAvatar={ user?.userLogo } onClick={ handleShowRegisterModal }/>
-      <ModalRegister show={showRegisterModal} handleClose={handleCloseRegisterModal} /> {/* окно регистрации */}
+      <div className={styles.headerContainer}>
+        <Menu /> {/* кнопка меню */}
+        <h1 className={styles.pageTitle}>{pageName}</h1> {/* название страницы */}
+        <Notifications /> {/* кнопка уведомлений */}
+        <AvatarButton userAvatar={ user?.userLogo } onClick={ handleShowRegisterModal }/>
+        <ModalRegister show={showRegisterModal} handleClose={handleCloseRegisterModal} /> {/* окно регистрации */}
+      </div>
     </header>
   );
 }

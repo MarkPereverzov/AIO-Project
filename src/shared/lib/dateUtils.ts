@@ -13,7 +13,7 @@ export const isDayInInterval = (begin: Date, end: Date, day: Date) => {
   return begin.getTime() <= dayTime && end.getTime() >= dayTime;
 } 
 
-export const toLocaleDateString = (date: string | Date, separator?: string | null): string => {
+export const toLocaleDateString = (date: string | Date, separator?: string | null, monthSecond?: boolean): string => {
   const newDate = new Date(date);
   const sep = separator ? separator : '-';
   

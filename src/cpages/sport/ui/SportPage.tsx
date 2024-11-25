@@ -31,7 +31,7 @@ const example2 = [
   {
     id: 1,
     userId: '',
-    date : toLocaleDateString(new Date()),
+    date : new Date().toJSON(),
     exerciseRecords: 
     [
       {id: 1, exercise: "Жим груди", weight: 40, reps: 12, exerciseDayId: 1},
@@ -39,7 +39,7 @@ const example2 = [
     ],
   } as ExerciseDayDto,
   {
-    date : toLocaleDateString(new Date(new Date("11-20-2024"))),
+    date : new Date("11-20-2024").toJSON(),
     exerciseRecords: 
     [
       {id: 3, exercise: "Жим груди", weight: 70, reps: 12},

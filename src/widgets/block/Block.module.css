@@ -1,54 +1,47 @@
 .block {
-    width: 480px;
-    height: 302px;
-    background-color: var(--light-gray) !important;  /* Белый фон блока */
-    border: 1px solid #ddd;
-    border-radius: 12px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    padding: 30px;
-    box-sizing: border-box;
-    position: relative;
-    gap: 30px;
+  width: 535px;
+  height: 200px;
+  background-color: var(--light-gray) !important;  /* Белый фон блока */
+  /* border: 1px solid #ddd; */
+  border-radius: var(--corner-raidus);
+  display: flex;
+  flex-direction: column;
+  padding: 20px 30px;
+  box-sizing: border-box;
+  position: relative;
+  justify-content: center;
+  gap: 10px;
+}
+.blockContent {
+  display: flex;
+  flex-direction: column;
+  width: 495px;
+}
+.title {
+  text-align-last: left;
+}
+.button {
+  background-color: var(--gray);
+  border: 0px;
+  border-radius: var(--corner-raidus);
+  width: 100px;
+  height: 30px;
+}
+.button:hover {
+  background-color: var(--dark-gray);
+  color: #000;
+}
+.link {
+  align-self: end;
+}
+
+@media (min-width: 768px) and (max-width: 1440px) {
+  .block{
+    width: 380px;
+    height: 180px;
+    padding: 15px 30px;
   }
-  
   .blockContent {
-    display: flex;
-    flex-direction: column;
-    align-items: center;  /* Центрирование содержимого по горизонтали */
-    margin-bottom: 10px;
-    width: 420px;
+    width: 340px;
   }
-  
-  .blockIcon {
-    font-size: 40px;  /* Сделать иконку крупнее */
-    margin-bottom: 10px;
-  }
-  
-  .blockHeader {
-    font-size: 1.25rem;
-    font-weight: 500;
-    text-align: center;
-    height: 46px;
-    width: 420px;
-    border-bottom: 1px solid var(--stroke-secondary);
-    font-size: 25px;
-    font-weight: 600;
-  }
-  
-  .blockDivider {
-    
-    margin: 10px 0;
-  }
-  
-  .blockFooter {
-    font-size: 0.875rem;
-    color: #6c757d;
-    width: 420px;
-    height: 72px;
-    text-align: justify;
-    font-size: 20px;
-    font-weight: 400;
-  }
-  
+}
