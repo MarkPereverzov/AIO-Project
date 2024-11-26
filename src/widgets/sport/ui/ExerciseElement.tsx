@@ -3,8 +3,8 @@ import { WeightElement } from './WeightElement';
 import { ResponseExerciseRecordDto, ResponsePlanExerciseDto } from "@/shared/models";
 import { IoRepeat } from "react-icons/io5";
 import { RiWeightLine } from "react-icons/ri";
-import { DeleteButton } from "@/features/deleteItem/ui/DeleteButton";
-import { EditButton } from "@/features/editItem/ui/EditButton";
+import { DeleteButton } from "@/shared/ui/DeleteButton";
+import { EditButton } from "@/shared/ui/EditButton";
 
 import styles from '../planexercise.module.css';
 
@@ -56,7 +56,7 @@ export const ExerciseElement = ({exercise, onDelete, onEdit }: ExerciseElementPr
                   { name: 'weight', label: 'Вес', type: 'number' },
                 ],
                 initialValues: initial,
-                onSave: (values: any) => onEdit(id, values),
+                onSave: async (values: any) => onEdit(id, values),
                 onCancel: ()=>{},
               }}
             />

@@ -6,7 +6,7 @@ import { EditModal } from '@/shared';
 interface FieldConfig {
     name: string; // Название поля (ключ объекта)
     label: string; // Текст метки для поля
-    type: 'text' | 'number' | 'textarea' | 'color'; // Тип поля
+    type: 'text' | 'number' | 'textarea' | 'color' | 'array'; // Тип поля
   }
 
 interface EditButtonProps<T> {

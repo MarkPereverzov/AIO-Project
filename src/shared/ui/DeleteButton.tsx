@@ -18,7 +18,7 @@ export const DeleteButton = ({onDelete, size, className}: DeleteButtonProps) => 
         size={size}
         className={className}
         onClick={handleDelete}
-        content={<FaRegTrashAlt size={size ?? 30}/>}
+        content={<FaRegTrashAlt/>}
       />
   );
 };

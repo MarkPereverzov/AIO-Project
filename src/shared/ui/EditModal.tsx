@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
 import { Modal, Button, Form } from 'react-bootstrap';
+import { RepWGroup } from './RepWGroup';
 
 interface FieldConfig {
   name: string; // Название поля (ключ объекта)
   label: string; // Текст метки для поля
-  type: 'text' | 'number' | 'textarea' | 'color'; // Тип поля
+  type: 'text' | 'number' | 'textarea' | 'color' | 'array'; // Тип поля
 }
 
 interface EditModalProps<T> {
@@ -30,6 +31,46 @@ export const EditModal = <T extends Record<string, any>>({
     setValues((prev) => ({ ...prev, [field]: value }));
   };
 
+  const handleEdit = (id: number, field: string, value: string | number) => {
+    setValues((prev) => {
+      const updatedSets = prev.sets.map((set: any) =>
+        set?.id === id ? { ...set, [field]: value } : set
+      );
+    
+      const newState = {
+        ...prev,
+        sets: updatedSets,
+      };
+      return newState;
+    });
+  };
+
+  const handleDelete = async (id: number) => {
+    setValues((prev) => {
+      const updatedSets = prev.sets.filter((set: any) => set?.id !== id);
+    
+      const newState = {
+        ...prev,
+        sets: updatedSets, // Обновляем только `sets`
+      };
+    
+      return newState;
+    });
+  }
+
+  const handleAdd = () => {
+    setValues((prev) => {
+      const updatedSets = [...prev.sets];
+      prev.sets.push({id: updatedSets.reduce((max, x) => (x.id > max.id ? x : max)).id+1, weight: 0, reps: 0});
+
+      const newState = {
+        ...prev,
+        sets: updatedSets,
+      };
+      return newState;
+    });
+  }
+
   const handleSave = async () => {
     await onSave(values);
   };
@@ -44,30 +85,30 @@ export const EditModal = <T extends Record<string, any>>({
           {fields.map((field) => (
             <Form.Group key={field.name} className="mb-3">
               <Form.Label>{field.label}</Form.Label>
-              {field.type === 'textarea' ? (
-                <Form.Control
-                  as="textarea"
-                  rows={3}
-                  value={values[field.name] || ''}
-                  onChange={(e) => handleChange(field.name, e.target.value)}
-                />
-              ) : field.type === 'color' ? (
-                <Form.Control
+                {field.type === 'textarea' ? (
+                  <Form.Control
+                    as="textarea"
+                    rows={3}
+                    value={values[field.name] || ''}
+                    onChange={(e) => handleChange(field.name, e.target.value)}
+                  />
+                ) : field.type === 'color' ? (
+                  <Form.Control
                     type="color"
                     value={values[field.name] || ''}
+                    onChange={(e) => handleChange(field.name, e.target.value)}
+                  />
+                ) : field.type === 'array' ? (
+                    <RepWGroup sets={values['sets']} onChange={handleEdit} onDelete={handleDelete} onAdd={handleAdd}/>
+                ) : (
+                  <Form.Control
+                    type={field.type}
+                    value={values[field.name] || ''}
                     onChange={(e) =>
-                        handleChange(field.name, e.target.value)
-                     }
-                />
-              ) : (
-                <Form.Control
-                  type={field.type}
-                  value={values[field.name] || ''}
-                  onChange={(e) =>
-                    handleChange(field.name, field.type === 'number' ? +e.target.value : e.target.value)
-                  }
-                />
-              )}
+                      handleChange(field.name, field.type === 'number' ? +e.target.value : e.target.value)
+                    }
+                  />
+                )}
             </Form.Group>
           ))}
         </Form>

@@ -4,9 +4,9 @@ import { ResponsePlanExerciseDto } from "@/shared/models";
 import { IoRepeat } from "react-icons/io5";
 import { RiWeightLine } from "react-icons/ri";
 import { RiPencilLine } from "react-icons/ri";
-import { DeleteButton } from "@/features/deleteItem/ui/DeleteButton";
-import { deletePlanExercise } from "@/entities/sport";
-import { EditButton } from "@/features/editItem/ui/EditButton";
+import { DeleteButton } from "@/shared";
+import { deletePlanExercise, updatePlanExercise } from "@/entities/sport";
+import { EditButton } from "@/shared/ui/EditButton";
 import { updateExerciseRecord } from "@/entities/sport";
 import { UpdateExerciseRecordDto } from "@/shared/models";
 
@@ -15,21 +15,22 @@ import styles from '../planexercise.module.css';
 interface PlanElementProps {
   exercise: ResponsePlanExerciseDto,
   onDelete: (id: number) => Promise<void>;
+  onEdit: (id: number, values: any) => Promise<void>;
 };
 
-export const PlanElement = ({exercise, onDelete }: PlanElementProps) => {
-  const title = exercise?.exercise.name ?? 'Undefined';
+export const PlanElement = ({exercise, onDelete, onEdit}: PlanElementProps) => {
+  const title = exercise?.exercise?.name ?? 'Undefined';
   const muscle = "грудь";
   const id = exercise?.id ?? -1;
 
   const initial = {
     exercise: title,
-    reps: 0,
-    weight: 0
+    sets: exercise?.sets
   }
 
   const handleSave = async (values: any) => {
-    await updateExerciseRecord(id, values);
+    console.log(values);
+    await updatePlanExercise(id, values);
   }
 
   const reps = exercise?.sets?.map((set:any, index:any) => (
@@ -59,19 +60,13 @@ export const PlanElement = ({exercise, onDelete }: PlanElementProps) => {
                 title: 'Редактирование записи',
                 fields: [
                   { name: 'exercise', label: 'Название упражнения', type: 'text' },
-                  { name: 'reps', label: 'Количество повторений', type: 'number' },
-                  { name: 'weight', label: 'Вес', type: 'number' },
+                  { name: 'sets', label: '', type: 'array'}
                 ],
                 initialValues: initial,
-                onSave: handleSave,
+                onSave: async (values: any) => {await onEdit(id, values)},
                 onCancel: ()=>{},
               }}
             />
-              {/* <RoundButton 
-                size={36}
-                onClick={()=>{}}
-                content={<RiPencilLine size={30}/>}
-              /> */}
               <DeleteButton
                 size='md'
                 className={styles.deleteBtn} 
