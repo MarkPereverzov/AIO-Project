@@ -57,11 +57,8 @@ export const SportPage = ({planDays, historyDays}: SportPageProps) => {
   return (
     <>
       <Header pageName="Спорт" />
-      <div className={styles.pageContainer}>
-        <div className={styles.combinedContainer}>
-          <Plan planDays={planDays ?? example}/>
-          <ExerciseInput/>
-        </div>
+      <div className={styles.pageContainer} style={{justifyContent: 'center', gap: '50px'}}>
+        <Plan planDays={planDays ?? example}/>
         <ExerciseHistory historyDays={historyDays ?? example2 as any}/>
       </div>
       {/* <Footer>

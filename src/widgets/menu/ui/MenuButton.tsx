@@ -8,7 +8,7 @@ export const MenuButton = ({ onClick }: { onClick: () => void }) => (
   <RoundButton
     onClick={onClick}
     content={<HiMiniBars3 size={30}/>}
-    size={64}
+    size='lg'
 
   />
 );

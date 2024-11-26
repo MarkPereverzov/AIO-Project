@@ -8,8 +8,12 @@ interface WeightElementProps {
 export const WeightElement = ({weight, reps}: WeightElementProps) => {
     return (
         <div className={styles.weightReps}>
-            <h1 className={`${styles.weightNumber} ${styles.wrNumber}`}>{weight}</h1>
-            <h1 className={`${styles.repsNumber} ${styles.wrNumber}`}>{reps}</h1>
+            <div className={styles.weightRepsBlock}>
+                <h1 className={`${styles.weightNumber} ${styles.wrNumber} ctext-primary`}>{weight}</h1>
+            </div>
+            <div>
+                <h1 className={`${styles.repsNumber} ${styles.wrNumber} ctext-primary`}>{reps}</h1>
+            </div>
         </div>
     );
 }

@@ -8,9 +8,9 @@ export const NotificationsButton = ({onClick}: {onClick: () => void}) => {
     <>
       <RoundButton 
         className={styles.notificationsButton}
-        size={64}
+        size='lg'
         onClick={onClick}
-        content={<FaRegBell size={30} />} 
+        content={<FaRegBell/>} 
       /> 
     </>
   );

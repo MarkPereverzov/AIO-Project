@@ -3,12 +3,8 @@ import { WeightElement } from './WeightElement';
 import { ResponseExerciseRecordDto, ResponsePlanExerciseDto } from "@/shared/models";
 import { IoRepeat } from "react-icons/io5";
 import { RiWeightLine } from "react-icons/ri";
-import { RiPencilLine } from "react-icons/ri";
 import { DeleteButton } from "@/features/deleteItem/ui/DeleteButton";
-import { deletePlanExercise } from "@/entities/sport";
 import { EditButton } from "@/features/editItem/ui/EditButton";
-import { updateExerciseRecord } from "@/entities/sport";
-import { UpdateExerciseRecordDto } from "@/shared/models";
 
 import styles from '../planexercise.module.css';
 
@@ -36,8 +32,8 @@ export const ExerciseElement = ({exercise, onDelete, onEdit }: ExerciseElementPr
   return (
     <div className={styles.mainContainer}>
       <div className={styles.pushinfo}>
-        <h1 className={styles.exerciseTitle}>{title}</h1>
-        <h1 className={styles.muscleGroup}>{muscle}</h1>
+        <h4 className={styles.exerciseTitle}>{title}</h4>
+        <h1 className={`${styles.muscleGroup} ctext-secondary`}>{muscle}</h1>
       </div>
       <div className={styles.rightSide}>
           <div className={styles.repsPlusIcon}>
@@ -51,7 +47,7 @@ export const ExerciseElement = ({exercise, onDelete, onEdit }: ExerciseElementPr
           </div>
           <div className={styles.edit}>
             <EditButton
-              size={36}
+              size='md'
               modalSettings={{
                 title: 'Редактирование записи',
                 fields: [
@@ -69,8 +65,8 @@ export const ExerciseElement = ({exercise, onDelete, onEdit }: ExerciseElementPr
                 onClick={()=>{}}
                 content={<RiPencilLine size={30}/>}
               /> */}
-              <DeleteButton 
-                size={36}
+              <DeleteButton
+                size='md'
                 onDelete={async ()=>{await onDelete(id)}}
               />
           </div>

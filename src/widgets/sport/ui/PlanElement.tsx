@@ -39,8 +39,8 @@ export const PlanElement = ({exercise, onDelete }: PlanElementProps) => {
   return (
     <div className={styles.mainContainer}>
       <div className={styles.pushinfo}>
-        <h1 className={styles.exerciseTitle}>{title}</h1>
-        <h1 className={styles.muscleGroup}>{muscle}</h1>
+        <h4 className={styles.exerciseTitle}>{title}</h4>
+        <h1 className={`${styles.muscleGroup} ctext-secondary`}>{muscle}</h1>
       </div>
       <div className={styles.rightSide}>
           <div className={styles.repsPlusIcon}>
@@ -54,7 +54,7 @@ export const PlanElement = ({exercise, onDelete }: PlanElementProps) => {
           </div>
           <div className={styles.edit}>
             <EditButton
-              size={36}
+              size='md'
               modalSettings={{
                 title: 'Редактирование записи',
                 fields: [
@@ -72,8 +72,9 @@ export const PlanElement = ({exercise, onDelete }: PlanElementProps) => {
                 onClick={()=>{}}
                 content={<RiPencilLine size={30}/>}
               /> */}
-              <DeleteButton 
-                size={36}
+              <DeleteButton
+                size='md'
+                className={styles.deleteBtn} 
                 onDelete={async ()=>{await onDelete(id)}}
               />
           </div>

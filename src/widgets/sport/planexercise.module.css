@@ -2,18 +2,9 @@
     padding: 20px;
     display: flex;
     justify-content: space-between;
-    border: 1px var(--gray) solid;
+    border: 2px var(--dark-gray) solid;
     border-radius: var(--corner-raidus);
-}
-
-.exerciseTitle {
-    font-size: 20px;
-    font-weight: 600;
-}
-
-.muscleGroup {
-    font-size: 16px;
-    font-weight: 500;
+    background-color: var(--gray);
 }
 
 .pushinfo {
@@ -30,6 +21,7 @@
 
 .repsPlusIcon {
     display: flex;
+    align-items: center;
     gap: 16px;
 }
 
@@ -48,22 +40,22 @@
     display: flex;
     justify-content: space-evenly;
     flex-direction: column;
-    background-color: var(--dark-gray);
+    background-color: #fff;
     border-radius: 6px;
     height: 60px;
-    padding-top: 5px;
+    justify-content: center;
 }
 
-.weightNumber {
+.weightRepsBlock {
     border-bottom: 1px var(--stroke-secondary) solid;
+    padding-bottom: 2px;
 }
+
 .repsNumber {
     color: var(--tag-color);
 }
 
 .wrNumber {
-    font-size: 16px;
-    font-weight: 500;
     width: 30px;
     height: 25px;
     text-align: center;
@@ -74,4 +66,12 @@
     justify-content: center;
     align-items: center;
     gap: 8px;
+}
+
+/* Ноутбуки: от var(--breakpoint-md) до var(--breakpoint-lg) */
+@media (min-width: 768px) and (max-width: 1440px) {
+    /* Стили для ноутбуков */
+    .deleteBtn {
+        display: none !important;
+    }
 }

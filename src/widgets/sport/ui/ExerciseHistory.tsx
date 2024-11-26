@@ -65,6 +65,7 @@ export const ExerciseHistory = ({historyDays: initialHistoryDays}:ExerciseHistor
             </div>
             <div className={styles.optionsBlock}>
                 <Form.Select 
+                    bsPrefix='ch4'
                     className={styles.select}
                     value={activeDay} 
                     onChange={(event) => setActiveDay(Number(event.target.value))}

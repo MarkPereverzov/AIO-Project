@@ -3,8 +3,7 @@
     border-radius: var(--corner-raidus);
     background-color: var(--light-gray);
     padding: 20px;
-    width: 54vw;
-    height: 80vh;
+    width: 600px;
     display: flex;
     gap: 22px;
     flex-direction: column;
@@ -27,8 +26,11 @@
 }
 
 .select {
+    appearance: none; 
+    -webkit-appearance: none; 
+    -moz-appearance: none; 
     border-radius: var(--corner-raidus);
-    width: 242px;
+    width: 220px;
     background-color: var(--gray);
     padding: 10px 23px;
     padding-left: 30px;
@@ -36,16 +38,30 @@
     font-weight: 500;
     grid-column: 2;
     justify-self: center;
+    position: relative;
+    background-image: url('data:image/svg+xml;utf8,<svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 512 512" height="200px" width="200px" xmlns="http://www.w3.org/2000/svg"><path d="M233.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L256 338.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z"></path></svg>');
+    background-repeat: no-repeat;
+    background-position: right 16px center;
+    background-size: 18px;
 }
 
 .optionsBlock {
     display: grid;
     grid-template-columns: 1fr auto 1fr;
+    gap: 22px;
 }
 
 .rightSide {
+    align-items: center;
     display: flex;
     grid-column: 3;
     justify-self: end;
-    padding-right: 20px;
+    gap: 14px;
+}
+/* Ноутбуки: от var(--breakpoint-md) до var(--breakpoint-lg) */
+@media (min-width: 768px) and (max-width: 1440px) {
+    /* Стили для ноутбуков */
+    .mainBlock {
+        width: 460px;
+    }
 }

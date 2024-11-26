@@ -46,24 +46,21 @@ export const Plan = ({planDays: initialPlanDays }: PlanProps) => {
       </div>
       <div className={styles.optionsBlock}>
         <Form.Select 
+          bsPrefix={'ch4'}
           value={activeDay} 
-          className={styles.select}
+          className={`${styles.select}`}
           onChange={(event) => setActiveDay(Number(event.target.value))}
         >
           {options}
         </Form.Select>
         <div className={styles.rightSide}>
             <RoundButton 
-              size={52}
-              content={<FaPlus size={40}/>}
+              size='lg'
+              content={<FaPlus/>}
             />
             <RoundButton 
-              size={52}
-              content={<RiPencilLine size={40}/>}
-            />
-            <RoundButton 
-              size={52}
-              content={<FaRegTrashAlt size={40}/>}
+              size='lg'
+              content={<RiPencilLine/>}
             />
         </div>
       </div>

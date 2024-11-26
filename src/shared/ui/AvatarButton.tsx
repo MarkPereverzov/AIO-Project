@@ -13,14 +13,14 @@ export const AvatarButton = ({ userAvatar, onClick }: AvatarButtonProps) => {
     <>
       { !userAvatar
         ? <RoundButton 
-          size={64}
+          size='lg'
           onClick={onClick}
           content={<LuUser2 size={35} />}
         /> 
         : <RoundButton 
-          size={64}
+          size='lg'
           onClick={onClick}
-          content={<Image src={userAvatar} roundedCircle fluid/>}
+          content={<Image style={{width:'35px', height: '35px'}} src={userAvatar} roundedCircle fluid/>}
         /> 
       }
     </>

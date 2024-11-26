@@ -7,27 +7,26 @@
     justify-content: center;
     color: var(--main-text);
     padding: 0;
-    width: var(--button-xl);
-    height: var(--button-xl);
+    /* width: var(--button-xl);
+    height: var(--button-xl); */
 }
 
-.roundButton svg {
+/* .roundButton svg {
     width: var(--icon-xl);
     height: var(--icon-xl);
-}
-
+} */
 
 /* Ноутбуки: от var(--breakpoint-md) до var(--breakpoint-lg) */
 @media (min-width: 768px) and (max-width: 1440px) {
 /* Стили для ноутбуков */
-    .roundButton {
+    /* .roundButton {
         width: var(--button-lg);
         height: var(--button-lg);
     }
     .roundButton svg {
         width: var(--icon-lg);
         height: var(--icon-lg);
-    }
+    } */
 }
 
 .roundButton:hover {

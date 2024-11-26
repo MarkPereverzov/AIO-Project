@@ -10,7 +10,7 @@ interface FieldConfig {
   }
 
 interface EditButtonProps<T> {
-  size?: number,
+  size?:  'sm' | 'md' | 'lg' | 'xl';
   modalSettings: {
     title: string,
     fields: FieldConfig[],
@@ -39,7 +39,7 @@ export const EditButton = <T extends Record<string, any>>({
     return (
       <>
         <RoundButton
-          size={size ?? 36}
+          size={size}
           onClick={() => setShowModal(true)} // Открываем модальное окно
           content={<RiPencilLine size={30} />}
         />
