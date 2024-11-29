@@ -22,7 +22,7 @@ export const CreateProduct = ({tags, categories}: CreateProductProps) => {
   const handleSubmit = async (e:  React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (productName.trim()) {
-      let price_i = parseInt(price);
+      let price_i = parseFloat(price);
       //TODO
       console.log(productName);
       console.log(tagsId);

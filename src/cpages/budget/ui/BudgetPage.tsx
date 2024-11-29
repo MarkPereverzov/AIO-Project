@@ -26,16 +26,29 @@ export const BudgetPage = ({tags, categories, products}: BudgetPageProps) => {
     { name: 'Такси', id: 8 },
   ];
 
+  const tag_uf = {
+    name: 'tag',
+    color: '#ffff00',
+    id: 1,
+    userId: "",
+    categories: categories_uf[0]
+  }
+
+  const products_uf = [
+    { id: 1, name: 'Name', tags: [tag_uf, tag_uf, tag_uf], date: '01-01-2020', price: 100},
+    { id: 2, name: 'Name', tags: [tag_uf], date: '01-01-2020', price: 100},
+    { id: 3, name: 'Name', tags: [tag_uf], date: '02-01-2020', price: 100},
+    { id: 4, name: 'Name', tags: [tag_uf], date: '02-01-2020', price: 100},
+  ];
+
   console.log(tags, categories, products);
 
   return (
     <>
       <Header pageName="Бюджет" />
       <div className='pageContainer'>
-          <div className="gridContainer">
-            <Filters tags={tags} categories={categories} />
-            <Transaction products={products} />
-          </div>
+          <Filters tags={tags} categories={categories} />
+          <Transaction products={products ? products : products_uf as any} />
           <Footer>
             <CreateTag 
               categories={categories ? categories : categories_uf}

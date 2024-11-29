@@ -1,50 +1,47 @@
 import { ProductDtoResponse } from '@/shared/models';
 import styles from '../Transaction.module.css';
 import { TransactionElement } from './TransactionElement';
-import { toLocaleDateString } from '@/shared/lib';
+import { TransactionDate } from './TransactionDate';
+import { toLocaleDateString, toClearDate } from '@/shared/lib';
 
 interface TransactionProps {
   products: ProductDtoResponse[] | null,
 }
 
-export const Transaction = ({products}: TransactionProps) => {
+function sortAndGroupByDate(products: ProductDtoResponse[]) {
+  // Сортируем массив по дате
+  const sortedProducts = products.sort(
+    (a, b) => toClearDate(a.date).getTime() - toClearDate(b.date).getTime()
+  );
 
-  const statistic = [
-    { name: 'Name', tag: 'tag', date: '00.00.0000', price: '+100$'},
-    { name: 'Name', tag: 'tag', date: '00.00.0000', price: '+100$'},
-    { name: 'Name', tag: 'tag', date: '00.00.0000', price: '+100$'},
-    { name: 'Name', tag: 'tag', date: '00.00.0000', price: '+100$'},
-    { name: 'Name', tag: 'tag', date: '00.00.0000', price: '+100$'},
-    { name: 'Name', tag: 'tag', date: '00.00.0000', price: '+100$'},
-    { name: 'Name', tag: 'tag', date: '00.00.0000', price: '+100$'},
-    { name: 'Name', tag: 'tag', date: '00.00.0000', price: '+100$'},
-    { name: 'Name', tag: 'tag', date: '00.00.0000', price: '+100$'},
-    { name: 'Name', tag: 'tag', date: '00.00.0000', price: '+100$'},
-  ];
+  // Группируем по дате (игнорируем время)
+  const groupedByDate = sortedProducts.reduce<Record<string, ProductDtoResponse[]>>((acc, product) => {
+    const dateKey = toLocaleDateString(product.date); // Получаем только дату без времени
+    if (!acc[dateKey]) {
+      acc[dateKey] = [];
+    }
+    acc[dateKey].push(product);
+    return acc;
+  }, {});
+
+  // Преобразуем объект в массив массивов
+  return groupedByDate;
+}
+
+export const Transaction = ({products}: TransactionProps) => {
+  const groupedProducts = sortAndGroupByDate(products!);
+  
+  const transactionList = [];
+  let i = 0;
+  for (const [date, items] of Object.entries(groupedProducts)) {
+    transactionList.push(<TransactionDate key={i} date={date} products={items} />);
+    i++;
+  }
 
   return (
     <div className={styles.transactionContainer}>
       <div className={styles.transactionList}>
-        {products?.map((product, index) => (
-          <TransactionElement 
-            key={index} 
-            name={product.name}
-            date={toLocaleDateString(product.date)} 
-            price={product.price.toString()}
-          />
-        ))}
-        {/*TEST*/}
-        { !products &&
-          statistic.map((product, index) => (
-            <TransactionElement 
-              key={index} 
-              tag={product.tag}
-              name={product.name} 
-              date={product.date} 
-              price={product.price}
-            />
-          ))
-        }
+        {transactionList}
       </div>
     </div>
   );

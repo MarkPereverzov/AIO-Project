@@ -78,6 +78,7 @@ body {
   user-select: none;         /* Non-prefixed version, currently supported by Chrome, Opera, and Edge */
 
   background-color: var(--gray);
+  overflow: hidden;
 }
 
 a {
