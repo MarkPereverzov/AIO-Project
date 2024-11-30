@@ -7,7 +7,7 @@ import { Transaction } from '@/widgets/transactions';
 import { CategoryDtoResponse, ProductDtoResponse, TagDtoResponse } from '@/shared/models';
 import { CreateTag } from '@/features/createTag';
 import { CreateProduct } from '@/features/createProduct';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { createProduct, deleteProduct, deleteTag, updateProduct, updateTag, createTag } from '@/entities/budget';
 
 interface BudgetPageProps {
@@ -20,7 +20,10 @@ export const BudgetPage = ({tags: initialTags, categories: initialCategories, pr
   const [categories, setCategories] = useState(initialCategories);
   const [tags, setTags] = useState(initialTags);
   const [products, setProducts] = useState(initialProducts);
-  const [filteredProducts, setFilteredProducts] = useState(products);
+
+  useEffect(() => {
+    setProducts(initialProducts);
+  }, [initialProducts]);
 
   const handleDeleteTag = async (id: number) => {
     try {
@@ -142,13 +145,10 @@ export const BudgetPage = ({tags: initialTags, categories: initialCategories, pr
       <Header pageName="Бюджет" />
       <div className='pageContainer'>
           <Filters 
-            filteredProducts={filteredProducts}
-            products={products} 
-            setProducts={setFilteredProducts} 
             tags={tags} 
             categories={categories} 
           />
-          <Transaction products={filteredProducts ? filteredProducts : products_uf as any} 
+          <Transaction products={products ? products : products_uf as any} 
             onEdit={handleEditProduct}
             onDelete={handleDeleteProduct}
           />

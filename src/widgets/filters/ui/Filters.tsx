@@ -1,6 +1,6 @@
 'use client';
 import React from 'react';
-import { FilterConstructor } from '@/shared/hooks';
+import { useUrlParams } from '@/shared/hooks';
 import { Form, Button, InputGroup } from 'react-bootstrap';
 import { CategoryDtoResponse, ProductDtoResponse, TagDtoResponse } from '@/shared/models';
 import { Tag } from './Tag';
@@ -9,17 +9,12 @@ import styles from '../Filters.module.css'; // Подключаем стили
 interface FiltersProps {
   tags: TagDtoResponse[] | null;
   categories: CategoryDtoResponse[] | null;
-  products: ProductDtoResponse[] | null;
-  filteredProducts: ProductDtoResponse[] | null;
-  setProducts: (products: ProductDtoResponse[]) => void;
 }
 
-export const Filters = ({ tags, categories, filteredProducts, products, setProducts }: FiltersProps) => {
-  const filter = new FilterConstructor(products!, filteredProducts!, setProducts);
-
-  const { activeCategory, setActiveCategory } = filter.useCategory();
-  const { inputValue, setName } = filter.useName();
-  const { activeTags, addTag, clearAll } = filter.useTags();
+export const Filters = ({ tags, categories }: FiltersProps) => {
+  const { paramValue: activeCategory, updateParamValue: setActiveCategory } = useUrlParams('category');
+  const { paramValue: inputValue, updateParamValue: setName } = useUrlParams('name');
+  const { paramValue: activeTags, toggleParamValue: addTag, removeParam: clearAll } = useUrlParams('tags');
 
   const list_tags =
     tags?.map((tag, index) => (
@@ -28,7 +23,7 @@ export const Filters = ({ tags, categories, filteredProducts, products, setProdu
         id={tag.id}
         name={tag.name}
         color={tag.color ?? '#fff'}
-        isActive={activeTags().includes(tag.id.toString())}
+        isActive={activeTags.includes(tag.id.toString())}
         addTag={addTag}
       />
     ));
@@ -48,7 +43,7 @@ export const Filters = ({ tags, categories, filteredProducts, products, setProdu
         <Form.Control
           type="text"
           placeholder="Поиск"
-          value={inputValue()}
+          value={inputValue}
           onChange={(event) => setName(event.target.value)}
           className={styles.searchInput}
         />
@@ -56,7 +51,7 @@ export const Filters = ({ tags, categories, filteredProducts, products, setProdu
 
       <Form.Group className={styles.filterItem}>
         <Form.Select
-          value={activeCategory()?.at(0)}
+          value={activeCategory?.at(0)}
           onChange={(event) => setActiveCategory(event.target.value)}
           className={styles.selectInput}
         >
