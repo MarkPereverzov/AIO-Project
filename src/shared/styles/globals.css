@@ -200,7 +200,7 @@ h4 {
   line-height: 16px;
   font-weight: 600;
   font-style: normal;
-  color: #000;
+  color: white;
 }
 
 .icon-sm {
@@ -491,8 +491,4 @@ h4 {
 
 .footerButton:hover {
   background-color: #cacaca !important;
-}
-
-.roundButtonIcon {
-  
 }

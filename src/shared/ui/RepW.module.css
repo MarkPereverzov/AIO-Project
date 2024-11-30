@@ -1,6 +1,7 @@
 .group {
     display: flex;
     flex-direction: column;
+    gap: 10px;
 }
 .labelContainer {
     display: grid;
@@ -16,4 +17,8 @@
 .controller {
     text-align: center;
     width: 40%;
+}
+
+.ctext-button{
+    color: white !important;
 }
