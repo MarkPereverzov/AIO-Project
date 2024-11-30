@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { RoundButton } from '@/shared';
 import { RiPencilLine } from "react-icons/ri";
 import { EditModal } from '@/shared';
+import styles from './EditButton.module.css';
 
 interface FieldConfig {
     name: string; // Название поля (ключ объекта)

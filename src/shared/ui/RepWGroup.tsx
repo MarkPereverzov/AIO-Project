@@ -1,6 +1,4 @@
 import { Form } from 'react-bootstrap';
-import { useState } from 'react';
-import { DeleteButton } from './DeleteButton';
 import { Button } from 'react-bootstrap';
 import styles from './RepW.module.css';
 import { RepWEdit } from './RepWEdit';

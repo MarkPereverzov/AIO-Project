@@ -4,13 +4,14 @@
   flex-direction: column;
   align-items: flex-start;
   justify-content: flex-start;
-  padding: 10px;
+  padding: 20px;
   background-color: rgb(255, 255, 255);
   border-right: 1px solid #ced4da;
+  border-radius: 0 16px 16px 0;
   position: fixed;
   gap: 10px;
-  top: 10%; left: 0%;
-  width: 270px; height: 100%;
+  top: calc(50%); left: 0%;
+  width: 300px;
   z-index: 1;
 }
 
