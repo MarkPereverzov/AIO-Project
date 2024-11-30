@@ -10,10 +10,11 @@ import { useState } from "react";
 
 interface CreateProductProps {
     tags: TagDtoResponse[] | null,
-    categories: CategoryDtoResponse[] | null
+    categories: CategoryDtoResponse[] | null;
+    onAdd: (values: any) => Promise<void>;
 }
 
-export const CreateProduct = ({tags, categories}: CreateProductProps) => {
+export const CreateProduct = ({tags, categories, onAdd}: CreateProductProps) => {
   const { show, handleClose, handleOpen } = useModalButton();
   const [productName, setProductName] = useState('');
   const [price, setPrice] = useState('');
@@ -23,19 +24,22 @@ export const CreateProduct = ({tags, categories}: CreateProductProps) => {
     e.preventDefault();
     if (productName.trim()) {
       let price_i = parseFloat(price);
-      //TODO
-      console.log(productName);
-      console.log(tagsId);
-      console.log(price_i);
 
-      await createProduct({
+      const product = {
         name: productName,
         price: price_i,
         date: new Date().toDateString(),
         tags: tagsId,
         userId: ''
-      });
-
+      }
+      try {
+        const res = await createProduct(product);
+        console.log(res, "RESPONSE");
+        onAdd(res);
+      } catch (e) {
+        console.log(e);
+      }
+      
       setProductName(''); // Очищаем поле ввода
       handleClose(); // Закрываем модальное окно
     }
@@ -55,10 +59,10 @@ export const CreateProduct = ({tags, categories}: CreateProductProps) => {
   const list_tags= (tags: {name: string, id: number}[] | null) => (
     tags?.map((tag, index) => (
         <Form.Check
-            type={'checkbox'}
-            label={tag.name}
-            id={tag.id.toString()}
-            onClick={() => selectTag(tag.id)}
+          type={'checkbox'}
+          label={tag.name}
+          id={tag.id.toString()}
+          onClick={() => selectTag(tag.id)}
         />
     ))
   )
@@ -98,7 +102,7 @@ export const CreateProduct = ({tags, categories}: CreateProductProps) => {
               </div>
             </Form.Group>
             <Button variant="primary" type="submit" className={`w-100 mt-3 ${styles.submitButton}`}>
-              Добавить тег
+              Добавить транзакцию
             </Button>
           </Form>
         </Modal.Body>

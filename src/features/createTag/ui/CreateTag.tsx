@@ -7,7 +7,12 @@ import { CategoryDtoResponse } from '@/shared/models';
 import { createTag } from '@/entities/budget';
 import { useState } from "react";
 
-export const CreateTag = ({categories}: {categories: CategoryDtoResponse[] | null}) => {
+interface CreateTagDto {
+  categories: CategoryDtoResponse[] | null;
+  onAdd: (values: any) => Promise<void>;
+}
+
+export const CreateTag = ({categories, onAdd}: CreateTagDto) => {
   const { show, handleClose, handleOpen } = useModalButton();
   const [tagName, setTagName] = useState('');
   const [tagColor, setTagColor] = useState('');
@@ -17,17 +22,17 @@ export const CreateTag = ({categories}: {categories: CategoryDtoResponse[] | nul
     e.preventDefault();
     if (tagName.trim()) {
       let categoryId = parseInt(tagCategory);
-      //TODO
-      console.log(tagName);
-      console.log(tagColor);
-      console.log(tagCategory);
 
-      await createTag({
+      const res = await createTag({
         name: tagName,
         color: tagColor,
         categoryId,
         userId: ''
       });
+
+      console.log(res);
+
+      await onAdd(res);
 
       setTagName(''); // Очищаем поле ввода
       handleClose(); // Закрываем модальное окно

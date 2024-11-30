@@ -52,7 +52,7 @@ export const Plan = ({planDays: initialPlanDays }: PlanProps) => {
     } catch (error) {
         console.error('Ошибка при редактировании упражнения:', error);
     }
-};
+  };
 
   const options = planDays?.map((day, index) => <option key={index} value={index}>{day.weekDay}</option>)
 

@@ -1,66 +1,44 @@
 'use client';
 import React from 'react';
-import { useUrlParams } from '@/shared/hooks';
+import { FilterConstructor } from '@/shared/hooks';
 import { Form, Button, InputGroup } from 'react-bootstrap';
-import { CategoryDtoResponse, TagDtoResponse } from '@/shared/models';
+import { CategoryDtoResponse, ProductDtoResponse, TagDtoResponse } from '@/shared/models';
 import { Tag } from './Tag';
 import styles from '../Filters.module.css'; // Подключаем стили
 
 interface FiltersProps {
   tags: TagDtoResponse[] | null;
   categories: CategoryDtoResponse[] | null;
+  products: ProductDtoResponse[] | null;
+  filteredProducts: ProductDtoResponse[] | null;
+  setProducts: (products: ProductDtoResponse[]) => void;
 }
 
-const list_categories = (categories: {name: string, id: number}[]) => (
-  categories.map((category, index) => (
-    <option key={index} value={category.id}>
-      {category.name}
-    </option>
-  ))
-)
+export const Filters = ({ tags, categories, filteredProducts, products, setProducts }: FiltersProps) => {
+  const filter = new FilterConstructor(products!, filteredProducts!, setProducts);
 
-const list_tags = (tags: {name: string, id: number, color?: string}[], activeTags: any, addTag: any) => (
-  tags.map((tag) => (
-    /*<Button
-      key={tag.id}
-      variant={'outline-secondary'}
-      className={`${styles.tag} ${activeTags.includes(tag.id.toString()) ? styles.activeTag : ''}`}
-      onClick={() => addTag(tag.id.toString())}
-    >
-      {tag.name}
-    </Button>*/
-    <Tag 
-      id={tag.id}
-      name={tag.name}
-      color={tag.color ?? '#fff'}
-      isActive={activeTags.includes(tag.id.toString())}
-      addTag={addTag}
-    />
-  ))
-)
+  const { activeCategory, setActiveCategory } = filter.useCategory();
+  const { inputValue, setName } = filter.useName();
+  const { activeTags, addTag, clearAll } = filter.useTags();
 
-export const Filters = ({ tags, categories }: FiltersProps) => {
-  const { paramValue: activeCategory, updateParamValue: setActiveCategory } = useUrlParams('category');
-  const { paramValue: inputValue, updateParamValue: setName } = useUrlParams('name');
-  const { paramValue: activeTags, toggleParamValue: addTag, removeParam: clearAll } = useUrlParams('tags');
+  const list_tags =
+    tags?.map((tag, index) => (
+      <Tag 
+        key={index}
+        id={tag.id}
+        name={tag.name}
+        color={tag.color ?? '#fff'}
+        isActive={activeTags().includes(tag.id.toString())}
+        addTag={addTag}
+      />
+    ));
 
-  const categories_uf = [
-    { name: 'Продукты', id: 1 },
-    { name: 'Здоровье', id: 2 },
-    { name: 'Спорт', id: 3 },
-    { name: 'Одежда', id: 4 },
-    { name: 'Кафе и рестораны', id: 5 },
-    { name: 'Путешествия', id: 6 },
-    { name: 'Книги', id: 7 },
-    { name: 'Такси', id: 8 },
-  ];
-
-  const tags_uf = [
-    { name: 'Фильтр', id: 1 },
-    { name: 'Фильтр', id: 2 },
-    { name: 'Фильтр', id: 3 },
-    { name: 'Фильтр', id: 4 },
-  ];
+  const list_categories = 
+    categories?.map((category, index) => (
+      <option key={index} value={category.id}>
+        {category.name}
+      </option>
+    ));
 
   return (
     <div className={styles.filterContainer}>
@@ -70,7 +48,7 @@ export const Filters = ({ tags, categories }: FiltersProps) => {
         <Form.Control
           type="text"
           placeholder="Поиск"
-          value={inputValue}
+          value={inputValue()}
           onChange={(event) => setName(event.target.value)}
           className={styles.searchInput}
         />
@@ -78,15 +56,12 @@ export const Filters = ({ tags, categories }: FiltersProps) => {
 
       <Form.Group className={styles.filterItem}>
         <Form.Select
-          value={activeCategory?.at(0)}
+          value={activeCategory()?.at(0)}
           onChange={(event) => setActiveCategory(event.target.value)}
           className={styles.selectInput}
         >
           <option value="">Категория</option>
-          {categories
-            ? list_categories(categories)
-            : list_categories(categories_uf)
-          }
+          {list_categories}
         </Form.Select>
       </Form.Group>
 
@@ -95,10 +70,7 @@ export const Filters = ({ tags, categories }: FiltersProps) => {
       {/* Контейнер для тегов */}
       <div className={styles.filterItem}>
         <div className={styles.tagContainer}>
-          {tags
-            ? list_tags(tags, activeTags, addTag)
-            : list_tags(tags_uf, activeTags, addTag)
-          }
+          { list_tags }
           <Button variant="danger" className={styles.clear} onClick={clearAll}>
             Сбросить фильтры
           </Button>

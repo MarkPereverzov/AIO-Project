@@ -9,7 +9,8 @@ export const getProducts = async (params: ProductGetParams): Promise<ProductDtoR
 
 // Create a new product
 export const createProduct = async (body: ProductDtoCreateRequest): Promise<ProductDtoResponse> => {
-  return await throwAnyErrors(POST('/budget/product', { body }));
+  const {data} =  await POST('/budget/product', { body });
+  return data!;
 };
 
 // Update an existing product

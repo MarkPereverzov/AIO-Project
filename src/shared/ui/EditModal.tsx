@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
 import { Modal, Button, Form } from 'react-bootstrap';
 import { RepWGroup } from './RepWGroup';
+import { toClearDate } from '../lib';
 
 interface FieldConfig {
   name: string; // Название поля (ключ объекта)
   label: string; // Текст метки для поля
-  type: 'text' | 'number' | 'textarea' | 'color' | 'array'; // Тип поля
+  type: 'text' | 'number' | 'textarea' | 'color' | 'array' | 'date'; // Тип поля
 }
 
 interface EditModalProps<T> {
@@ -100,6 +101,12 @@ export const EditModal = <T extends Record<string, any>>({
                   />
                 ) : field.type === 'array' ? (
                     <RepWGroup sets={values['sets']} onChange={handleEdit} onDelete={handleDelete} onAdd={handleAdd}/>
+                ) : field.type === 'date' ? (
+                    <Form.Control 
+                      type='date'
+                      value={values[field.name] || ''}
+                      onChange={(e) => handleChange(field.name, e.target.value)}
+                    />
                 ) : (
                   <Form.Control
                     type={field.type}

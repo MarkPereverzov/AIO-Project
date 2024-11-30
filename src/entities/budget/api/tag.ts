@@ -9,7 +9,8 @@ export const getTags = async (): Promise<TagDtoResponse[]> => {
 
 // Create a new tag
 export const createTag = async (body: TagDtoRequest): Promise<TagDtoResponse> => {
-  return await throwAnyErrors(POST('/budget/tag', { body }));
+  const {data} = await POST('/budget/tag', { body });
+  return data!;
 };
 
 // Update an existing tag

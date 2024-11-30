@@ -4,18 +4,19 @@ import { toLocaleDateString } from "@/shared/lib";
 import styles from '../Transaction.module.css';
 
 interface TransactionDateProps {
-    products: ProductDtoResponse[] | null,
-    date: string
+    products: ProductDtoResponse[] | null;
+    date: string;
+    onEdit: (id: number, values: any) => Promise<void>;
+    onDelete: (id: number) => Promise<void>;
 }
 
-export const TransactionDate = ({products, date}: TransactionDateProps) => { 
+export const TransactionDate = ({products, date, onEdit, onDelete}: TransactionDateProps) => { 
     const transactionlist = products?.map((product, index) => (
         <TransactionElement 
           key={index} 
-          name={product?.name}
-          date={date} 
-          price={product?.price?.toString()}
-          tags={product?.tags}
+          product={product}
+          onEdit={onEdit}
+          onDelete={onDelete}
         />
     ));
     return (

@@ -11,7 +11,7 @@ export const Header = ({ pageName }: { pageName: string }) => {
   const { showRegisterModal, handleShowRegisterModal, handleCloseRegisterModal } = useHeader();
   const { user } = useUser();
   
-  console.log(user);
+  //console.log(user);
 
   return (
     <header className={styles.header}>
