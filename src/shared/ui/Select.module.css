@@ -1,0 +1,23 @@
+.selectInput {
+    width: 250px; height: 40px;
+    padding: 8px 12px;
+    color: black;
+    font-size: 1rem;
+    border: 1px solid #ced4da;
+    border-radius: 5px;
+    background-color: white;
+    transition: all 0.3s ease;
+}
+
+.selectInput:focus {
+    border-color: #495057;
+    box-shadow: 0px 0px 5px rgba(0, 123, 255, 0.25);
+    outline: none;
+  }
+
+/* Адаптивность для мобильных устройств */
+@media (max-width: 768px) {
+    .selectInput {
+      width: 100%;
+    }
+  }
