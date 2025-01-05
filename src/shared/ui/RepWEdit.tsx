@@ -2,7 +2,6 @@ import { Form } from 'react-bootstrap';
 import { DeleteButton } from './DeleteButton';
 import styles from './RepW.module.css';
 
-
 interface RepWEditProps {
     set: {
         id: number;
@@ -29,7 +28,7 @@ export const RepWEdit = ({set, onDelete, onChange}: RepWEditProps) => {
                 onChange={(e) => onChange(set.id, 'reps', +e.target.value)}
             />
             <DeleteButton 
-                size='sm'
+                size='md'
                 onDelete={async () => await onDelete(set.id)}
             />
         </div>

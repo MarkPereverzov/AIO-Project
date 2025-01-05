@@ -41,8 +41,11 @@ export type UpdatePlanExerciseDayDto = components["schemas"]["UpdatePlanExercise
 export type { ResponseAnalysisExerciseDto } from './response-analysis-exercise.dto';
 export type { ResponseAnalysisDayDto } from './response-analysis-day.dto';
 export type { RequestExerciseRecordDto } from './request-exercise-record.dto';
-
 export type ResponsePlanExerciseDayDto = {
     weekDay: number | string,
     planExercises: ResponsePlanExerciseDto[]
 }
+
+export type ResponseExercisePopularity = components["schemas"]["ResponseExercisePopularity"];
+export type ResponseRepsByGroup = components["schemas"]["ResponseRepsByGroup"];
+export type ResponseDayTonnage = components["schemas"]["ResponseDayTonnage"];

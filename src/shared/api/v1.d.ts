@@ -431,6 +431,93 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
+    "/sport/muscle-group": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Get all muscle groups */
+        get: operations["SportController_getAllMuscleGroups"];
+        put?: never;
+        /** Create a new muscle group */
+        post: operations["SportController_createMuscleGroup"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/sport/muscle-group/{id}": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        /** Update an existing muscle group */
+        put: operations["SportController_updateMuscleGroup"];
+        post?: never;
+        /** Delete a muscle group */
+        delete: operations["SportController_deleteMuscleGroup"];
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/sport-graphics/exercise-popularity": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Calculate data to build exercise popularity graphic */
+        get: operations["SportGraphicsController_exercisePopularityGraphic"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/sport-graphics/reps-by-group": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Calculate data to build reps to muscle group graphic */
+        get: operations["SportGraphicsController_repsByGroup"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/sport-graphics/day-tonnage": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Calculate data to build day to tonnage graphic of one exercise */
+        get: operations["SportGraphicsController_dayTonnage"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
 }
 export type webhooks = Record<string, never>;
 export interface components {
@@ -600,6 +687,8 @@ export interface components {
         CreateExerciseDto: {
             /** @description Name of the exercise */
             name: string;
+            /** @description Muscle group */
+            muscleGroups: string[];
         };
         UpdateExerciseDto: Record<string, never>;
         ResponseExerciseRecordDto: {
@@ -636,7 +725,7 @@ export interface components {
         };
         UpdateExerciseDayDto: Record<string, never>;
         CreateExerciseRecordDto: {
-            /** @description ID of the associated exercise */
+            /** @description Name of the associated exercise */
             exercise: string;
             /** @description Weight used in the exercise */
             weight: number;
@@ -648,30 +737,30 @@ export interface components {
         UpdateExerciseRecordDto: Record<string, never>;
         ResponsePlanExerciseDto: {
             /** @description ID of the associated exercise */
-            sets: {
-                id: number,
-                weight: number,
-                reps: number
-            }[];
+            sets: string[];
             /** @description ID of Plan Exercise */
             id: number;
             /** @description Exercise name */
-            exercise: {
-                id: number,
-                name: string
-            };
+            exercise: string;
             /** @description ID of the associated plan exercise day */
             planExerciseDayId: number;
         };
         CreatePlanExerciseDto: {
             /** @description Set of planexercise */
             sets: string[];
-            /** @description ID of the associated exercise */
-            exerciseId: number;
+            /** @description Name of the associated exercise */
+            exercise: string;
             /** @description ID of the associated plan day */
             planExerciseDayId: number;
         };
-        UpdatePlanExerciseDto: Record<string, never>;
+        UpdatePlanExerciseDto: {
+            /** @description Set of planexercise */
+            sets: string[];
+            /** @description Name of the associated exercise */
+            exercise: string;
+            /** @description ID of the associated plan day */
+            planExerciseDayId: number;
+        };
         ResponsePlanExerciseDayDto: {
             /** @description Name of weekday */
             weekDay: string;
@@ -683,6 +772,20 @@ export interface components {
             weekDay: string;
         };
         UpdatePlanExerciseDayDto: Record<string, never>;
+        CreateMuscleGroupDto: Record<string, never>;
+        UpdateMuscleGroupDto: Record<string, never>;
+        ResponseExercisePopularity: {
+            /** @description Array of pairs - exercise:count of reps */
+            pairs: string[];
+        };
+        ResponseRepsByGroup: {
+            /** @description Array of pairs - Group of muscle:count of reps */
+            pairs: string[];
+        };
+        ResponseDayTonnage: {
+            /** @description Array of pairs - Group of date:tonnage */
+            pairs: string[];
+        };
     };
     responses: never;
     parameters: never;
@@ -1648,6 +1751,167 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content?: never;
+            };
+        };
+    };
+    SportController_getAllMuscleGroups: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Return all muscle groups. */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["CreateMuscleGroupDto"][];
+                };
+            };
+        };
+    };
+    SportController_createMuscleGroup: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["CreateMuscleGroupDto"];
+            };
+        };
+        responses: {
+            /** @description The muscle group has been successfully created. */
+            201: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["CreateMuscleGroupDto"];
+                };
+            };
+        };
+    };
+    SportController_updateMuscleGroup: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                id: number;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["UpdateMuscleGroupDto"];
+            };
+        };
+        responses: {
+            /** @description The muscle group has been successfully updated. */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["UpdateMuscleGroupDto"];
+                };
+            };
+        };
+    };
+    SportController_deleteMuscleGroup: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                id: number;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description The muscle group has been successfully deleted. */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+        };
+    };
+    SportGraphicsController_exercisePopularityGraphic: {
+        parameters: {
+            query: {
+                /** @description Period of time to build graphic */
+                period: string;
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Return data to build exercise popularity graphic */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ResponseExercisePopularity"];
+                };
+            };
+        };
+    };
+    SportGraphicsController_repsByGroup: {
+        parameters: {
+            query: {
+                /** @description Period of time to build graphic */
+                period: string;
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Return data to build reps to muscle group graphic */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ResponseRepsByGroup"];
+                };
+            };
+        };
+    };
+    SportGraphicsController_dayTonnage: {
+        parameters: {
+            query: {
+                /** @description Period of time to build graphic */
+                period: string;
+                /** @description Name of exercise to build graphic */
+                exercise: string;
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Return data to build day to tonnage graphic of one exercise */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ResponseDayTonnage"];
+                };
             };
         };
     };
