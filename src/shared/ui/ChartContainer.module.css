@@ -1,0 +1,38 @@
+.Card {
+    max-width: 100%; /* Чтобы карточка растягивалась на весь доступный контейнер */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Легкая тень для карточки */
+    border-radius: 16px; /* Скругленные углы */
+    max-height: 530px;
+}
+
+.CardBody {
+    width: 1090px;
+    height: 510px;
+}
+
+.CardTitle {
+    font-size: 18px; /* Размер шрифта для заголовка */
+    font-weight: bold; /* Толщина шрифта */
+    text-align: center; /* Выравнивание текста по центру */
+}
+
+.Chart {
+    width: 100%; /* Растягиваем график на всю ширину */
+    height: 510px;
+    margin: 0 auto; /* Центрируем график по горизонтали */
+  }
+
+/* Ноутбуки: от var(--breakpoint-md) до var(--breakpoint-lg) */
+@media (min-width: 768px) and (max-width: 1440px) {
+    /* Стили для ноутбуков */
+    .Chart {
+        height: 288px;
+    }
+    .CardBody {
+        width: 670px;
+        height: 288px;
+    }
+    .Card {
+        max-height: 338px;
+    }
+}

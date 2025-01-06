@@ -46,6 +46,6 @@ export type ResponsePlanExerciseDayDto = {
     planExercises: ResponsePlanExerciseDto[]
 }
 
-export type ResponseExercisePopularity = components["schemas"]["ResponseExercisePopularity"];
-export type ResponseRepsByGroup = components["schemas"]["ResponseRepsByGroup"];
-export type ResponseDayTonnage = components["schemas"]["ResponseDayTonnage"];
+//export type ResponseExercisePopularity = components["schemas"]["ResponseExercisePopularity"];
+//export type ResponseRepsByGroup = components["schemas"]["ResponseRepsByGroup"];
+//export type ResponseDayTonnage = components["schemas"]["ResponseDayTonnage"];

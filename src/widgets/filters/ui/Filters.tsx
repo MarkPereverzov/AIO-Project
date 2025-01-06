@@ -4,6 +4,7 @@ import { useUrlParams } from '@/shared/hooks';
 import { Form, Button, InputGroup } from 'react-bootstrap';
 import { CategoryDtoResponse, ProductDtoResponse, TagDtoResponse } from '@/shared/models';
 import { Tag } from './Tag';
+import { Select } from '@/shared/ui/Select'; // Переиспользуемый селектор
 import styles from '../Filters.module.css'; // Подключаем стили
 
 interface FiltersProps {
@@ -30,9 +31,7 @@ export const Filters = ({ tags, categories }: FiltersProps) => {
 
   const list_categories = 
     categories?.map((category, index) => (
-      <option key={index} value={category.id}>
-        {category.name}
-      </option>
+      { value: category.id, label: category.name }
     ));
 
   return (
@@ -49,16 +48,12 @@ export const Filters = ({ tags, categories }: FiltersProps) => {
         />
       </InputGroup>
 
-      <Form.Group className={styles.filterItem}>
-        <Form.Select
-          value={activeCategory?.at(0)}
-          onChange={(event) => setActiveCategory(event.target.value)}
-          className={styles.selectInput}
-        >
-          <option value="">Категория</option>
-          {list_categories}
-        </Form.Select>
-      </Form.Group>
+      <Select
+        value={activeCategory?.at(0)}
+        onChange={(event) => setActiveCategory(event.target.value)}
+        options={list_categories}
+      >
+      </Select>
 
       <div className="separator-line"></div>
 

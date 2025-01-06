@@ -3,6 +3,7 @@ import { Select } from '@/shared/ui/Select'; // Переиспользуемый
 import { DatePicker } from '@/shared/ui/DatePicker'; // Переиспользуемый датапикер
 import { toClearDate } from '@/shared/lib';
 import { CreateExerciseDto } from '@/shared/models';
+import styles from '../ChartFilters.module.css';
 
 interface ChartFiltersProps {
     onChange: (filters: { chartType?: string; exercise?: string; date?: Date | null }) => void;
@@ -11,7 +12,7 @@ interface ChartFiltersProps {
   }
   
 export const ChartFilters: React.FC<ChartFiltersProps> = ({ onChange, filters, exercises }) => (
-    <div>
+    <div className={styles.ChartFiltersContainer}>
         {/* Селектор типа графика */}
         <Select
             value={filters.chartType}

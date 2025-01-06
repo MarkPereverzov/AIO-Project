@@ -106,6 +106,7 @@ code {
   --main-text: var(--light-dark);
   --stroke-secondary: #0000007f;
 
+  --corner-input: 10px;
   --corner-raidus: 16px;
   --corner-button: 24px;
 

@@ -8,3 +8,6 @@ export * from './RepWGroup';
 export * from './RoundButton';
 export * from './Select';
 export * from './Tag';
+export * from './BarChart';
+export * from './LineChart';
+export * from './ChartContainer';
