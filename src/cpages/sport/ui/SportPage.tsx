@@ -8,8 +8,10 @@ import { ExerciseInput } from '@/widgets/sport/ui/ExerciseInput';
 import styles from '../page.module.css';
 import { ExerciseDayDto } from '@/shared/models';
 import { ResponsePlanExerciseDayDto } from '@/shared/models';
-import { ResponseExerciseRecordDto } from '@/shared/models';
+import { CreateExerciseDto } from '@/shared/models';
 import { toLocaleDateString } from '@/shared/lib';
+import { SaveExercise } from '@/features/saveExercise';
+import { ExerciseStateProvider } from '@/widgets/sport';
 
 const example = [
   {
@@ -50,16 +52,31 @@ const example2 = [
 
 interface SportPageProps {
   planDays?: ResponsePlanExerciseDayDto[] | null,
-  historyDays?: ExerciseDayDto[] | null
+  historyDays?: ExerciseDayDto[] | null,
+  exercises?: CreateExerciseDto[] | undefined,
 }
 
-export const SportPage = ({planDays, historyDays}: SportPageProps) => {
+export const SportPage = ({planDays, historyDays, exercises}: SportPageProps) => {
   return (
     <>
       <Header pageName="Спорт" />
       <div className={styles.pageContainer} style={{justifyContent: 'center', gap: '50px'}}>
-        <Plan planDays={planDays ?? example}/>
-        <ExerciseHistory historyDays={historyDays ?? example2 as any}/>
+        <ExerciseStateProvider init={historyDays!}>
+          {({ historyDays, addExercise, updateExercise, deleteExercise }) => (
+            <>
+            <SaveExercise
+                exercises={exercises} // Список упражнений
+                onSave={(newExercise) => addExercise(0, newExercise)} // Добавляем в первый день
+              />
+              <ExerciseHistory
+                historyDays={historyDays}
+                onUpdateExercise={updateExercise}
+                onDeleteExercise={deleteExercise}
+              />
+            </>
+          )}
+        </ExerciseStateProvider>
+        {/* <Plan planDays={planDays ?? example}/> */}
       </div>
       {/* <Footer>
         <Exercise/>

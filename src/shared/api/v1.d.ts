@@ -701,7 +701,7 @@ export interface components {
             /** @description Number of repetitions */
             reps: number;
             /** @description ID of the associated exercise day */
-            exerciseDayId: number;
+            exerciseDayId: number | undefined;
         };
         ResponseExerciseDay: {
             /** @description ID of exercise day */
