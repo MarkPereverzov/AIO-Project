@@ -1,5 +1,5 @@
 import { RoundButton } from "@/shared";
-import { WeightElement } from './WeightElement';
+import { WeightElement } from '../../../shared/ui/WeightElement';
 import { ResponsePlanExerciseDto } from "@/shared/models";
 import { IoRepeat } from "react-icons/io5";
 import { RiWeightLine } from "react-icons/ri";

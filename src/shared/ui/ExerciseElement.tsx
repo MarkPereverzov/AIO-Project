@@ -6,7 +6,7 @@ import { RiWeightLine } from "react-icons/ri";
 import { DeleteButton } from "@/shared/ui/DeleteButton";
 import { EditButton } from "@/shared/ui/EditButton";
 
-import styles from '../planexercise.module.css';
+import styles from './ExerciseElement.module.css';
 
 interface ExerciseElementProps {
   exercise: ResponseExerciseRecordDto,

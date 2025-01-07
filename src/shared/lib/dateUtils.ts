@@ -2,6 +2,13 @@ export function daysBetween(first: Date, second: Date) {
   return Math.ceil(Math.abs(first.getTime() - second.getTime()) / (1000 * 3600 * 24));
 }
 
+export const compareDate = (first: string | Date, second: string | Date) => {
+  const dayDiff = toClearDate(first).getTime() - toClearDate(second).getTime();
+  if(dayDiff < 0) return -1; 
+  else if (dayDiff > 0) return 1;
+  else return 0;
+}
+
 export const toClearDate = (date: string | Date) => {
   const newDate = new Date(date);
   newDate.setHours(0, 0, 0, 0);

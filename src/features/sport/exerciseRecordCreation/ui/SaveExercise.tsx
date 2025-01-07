@@ -2,6 +2,7 @@ import { Select, Input } from "@/shared";
 import { CreateExerciseDto, CreateExerciseRecordDto } from "@/shared/models";
 import { useState } from 'react';
 import { Button } from "react-bootstrap"; 
+import { useCreateExerciseRecord } from "@/features/sport/exerciseRecordCreation";
 import styles from '../SaveExercise.module.css';
 
 interface States {
@@ -16,7 +17,10 @@ interface SaveExercise {
 }
 
 export const SaveExercise = ({exercises, onSave}: SaveExercise) => {
-    const [states, setStates] = useState<States>({ exercise: exercises?.at(0)?.name ?? '', weight: undefined, reps: undefined });
+    const { states, setStates, handleSubmit: onSavePassed } = useCreateExerciseRecord({
+        initStates: {exercise: exercises?.at(0)?.name ?? ''},
+        onSave: onSave,
+    });
 
     return (
         <div className={styles.Container}>
@@ -46,11 +50,7 @@ export const SaveExercise = ({exercises, onSave}: SaveExercise) => {
             />
             <Button
                 className={styles.Button}    
-                onClick={async () => {await onSave({
-                    exercise: states.exercise, 
-                    weight: states.weight!,
-                    reps: states.reps!
-                })}}
+                onClick={async () => {await onSavePassed()}}
             >
                 Сохранить
             </Button>

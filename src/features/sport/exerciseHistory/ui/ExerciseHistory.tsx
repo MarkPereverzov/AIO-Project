@@ -1,7 +1,7 @@
 import { ExerciseDayDto } from '@/shared/models';
-import { useState } from 'react';
-import styles from '../history.module.css';
-import { ExerciseElement } from './ExerciseElement';
+import { useState, useEffect } from 'react';
+import styles from '../ExerciseHistory.module.css';
+import { ExerciseElement } from '@/shared/ui/ExerciseElement';
 import { Select } from '@/shared'; 
 import { toLocaleDateString } from '@/shared/lib';
 
@@ -25,6 +25,11 @@ export const ExerciseHistory = ({historyDays, onUpdateExercise, onDeleteExercise
             onEdit={async (values) => await onUpdateExercise(exercise.id, values)} 
         />
     ));
+
+    useEffect(() => {
+        setActiveDay(lastDayId);
+    }, [lastDayId]);
+
     return (
         <div className={styles.mainBlock}>
             <div className={styles.titleBlock}>

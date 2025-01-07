@@ -1,0 +1,24 @@
+.weightReps {
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: column;
+    background-color: #fff;
+    border-radius: 6px;
+    height: 60px;
+    justify-content: center;
+}
+
+.weightRepsBlock {
+    border-bottom: 1px var(--stroke-secondary) solid;
+    padding-bottom: 2px;
+}
+
+.repsNumber {
+    color: var(--tag-color);
+}
+
+.wrNumber {
+    width: 30px;
+    height: 25px;
+    text-align: center;
+}

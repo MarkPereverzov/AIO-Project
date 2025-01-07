@@ -1,4 +1,4 @@
-import styles from '../planexercise.module.css';
+import styles from './WeightElement.module.css';
 
 interface WeightElementProps {
     weight: number,
