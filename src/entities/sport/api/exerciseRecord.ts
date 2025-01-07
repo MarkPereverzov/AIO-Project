@@ -14,8 +14,8 @@ export const createExerciseRecord = async (body: CreateExerciseRecordDto) => {
 };
 
 // Update an existing exercise record
-export const updateExerciseRecord = async (id: number, body: UpdateExerciseRecordDto): Promise<ResponseExerciseRecordDto> => {
-  return await throwAnyErrors(PUT(`/sport/exercise-records/{id}`, {params:{path: {id: id}}, body}));
+export const updateExerciseRecord = async (id: number, body: CreateExerciseRecordDto) => {
+  return await throwAnyErrors(PUT(`/sport/exercise-records/{id}`, {params:{path: {id: id}}, body: (body as any) }));
 };
 
 // Delete an exercise record

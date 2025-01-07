@@ -7,7 +7,7 @@ import { createExerciseDayModel, sortExerciseDays } from '@/entities/sport';
 interface ExerciseState {
   historyDays: ExerciseDayDto[];
   addExercise: (dayIndex: number, exercise: CreateExerciseRecordDto) => Promise<any>;
-  updateExercise: (id: number, values: Partial<UpdateExerciseRecordDto> ) => Promise<void>;
+  updateExercise: (id: number, exercise: CreateExerciseRecordDto ) => Promise<void>;
   deleteExercise: (id: number) => Promise<void>;
 }
 
@@ -41,23 +41,36 @@ export const ExerciseStateProvider: React.FC<{ children: (state: ExerciseState) 
     }
   };
 
-  const updateExercise = async (id: number, values: Partial<UpdateExerciseRecordDto> ) => {
+  const updateExercise = async (id: number, exercise: CreateExerciseRecordDto ) => {
+    if(exercise.exercise === '' || exercise.reps === undefined || exercise.weight === undefined) return {error: true};
+    
+    let updatedExerciseRecord: any = null;
     try {
-        await updateExerciseRecord(id, values as any);
-
-        // Изменяем упражнение локально
-        const updatedDays = historyDays.map((day) => ({
+      updatedExerciseRecord = await updateExerciseRecord(id, exercise);
+    } 
+    catch (error) {
+      console.error('Ошибка при обновлении результата упражнения:', error);
+    }
+    finally {
+      const updatedDays = historyDays!.map(day => {
+        // Проверить, есть ли упражнение с нужным id в этом дне
+        if (day.exerciseRecords.some(exercise => exercise.id === id)) {
+          // Вернуть обновлённый день с обновлённым упражнением
+          return {
             ...day,
-            exerciseRecords: day.exerciseRecords.map((exercise) =>
-                exercise.id === id
-                    ? { ...exercise, ...values } // Обновляем только нужное упражнение
-                    : exercise // Оставляем остальные упражнения без изменений
+            exerciseRecords: day.exerciseRecords.map(exercise =>
+              exercise.id === id ? updatedExerciseRecord : exercise
             ),
-        }));
+          };
+        }
+        // Вернуть остальные дни без изменений
+        return day;
+      });
+      
+      // Обновить состояние
+      setHistoryDays(updatedDays);
 
-        setHistoryDays(updatedDays);
-    } catch (error) {
-        console.error('Ошибка при редактировании упражнения:', error);
+      return updatedExerciseRecord;
     }
   };
 

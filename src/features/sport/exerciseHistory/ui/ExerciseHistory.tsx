@@ -22,7 +22,7 @@ export const ExerciseHistory = ({historyDays, onUpdateExercise, onDeleteExercise
             key={index} 
             exercise={exercise} 
             onDelete={async () => await onDeleteExercise(exercise.id)} 
-            onEdit={async (values) => await onUpdateExercise(exercise.id, values)} 
+            onEdit={async (id: number, values: any) => await onUpdateExercise(exercise.id, values)} 
         />
     ));
 
