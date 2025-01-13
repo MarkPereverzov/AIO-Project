@@ -23,6 +23,11 @@
     gap: 15px;
 }
 
+.exerciseContainer::-webkit-scrollbar {
+    display: none;
+}
+
+
 .title {
     font-size: 25px;
     font-weight: 600;

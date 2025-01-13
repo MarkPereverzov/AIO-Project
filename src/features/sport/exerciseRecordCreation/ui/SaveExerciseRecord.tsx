@@ -11,12 +11,12 @@ interface States {
     reps?: number;
 }
 
-interface SaveExercise {
+interface SaveExerciseRecordProps {
     exercises?: CreateExerciseDto[] | undefined;
     onSave: (values: CreateExerciseRecordDto) => Promise<void>,
 }
 
-export const SaveExercise = ({exercises, onSave}: SaveExercise) => {
+export const SaveExerciseRecord = ({exercises, onSave}: SaveExerciseRecordProps) => {
     const { states, setStates, handleSubmit: onSavePassed } = useCreateExerciseRecord({
         initStates: {exercise: exercises?.at(0)?.name ?? ''},
         onSave: onSave,

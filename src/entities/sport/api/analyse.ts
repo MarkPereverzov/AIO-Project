@@ -9,7 +9,7 @@ interface AnalyseExerciseDayOptions {
 export const getAnalyseExerciseDay = async (
   options: AnalyseExerciseDayOptions
 ): Promise<ResponseAnalysisDayDto> => {
-  const res =  await throwAnyErrors(GET('/sport/analyse', {
+  const res =  await throwAnyErrors(GET("/sport/analyse" as any, {
     params: {
       query: {
         ...options

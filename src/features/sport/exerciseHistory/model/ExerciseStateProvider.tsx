@@ -3,6 +3,7 @@ import { CreateExerciseRecordDto, ExerciseDayDto, ResponseExerciseRecordDto, Upd
 import { updateExerciseRecord, deleteExerciseRecord, createExerciseRecord } from '@/entities/sport'; 
 import { toClearDate, compareDate } from '@/shared/lib';
 import { createExerciseDayModel, sortExerciseDays } from '@/entities/sport';
+import { formatExerciseRecord } from '@/entities/sport';
 
 interface ExerciseState {
   historyDays: ExerciseDayDto[];
@@ -12,7 +13,13 @@ interface ExerciseState {
 }
 
 export const ExerciseStateProvider: React.FC<{ children: (state: ExerciseState) => React.ReactNode, init: ExerciseDayDto[] }> = ({ children, init }) => {
-  const sortedInit = sortExerciseDays(init);
+  const formatedInit = init.map(day => (
+    {
+      ...day,
+      exerciseRecords: day.exerciseRecords.map(x => formatExerciseRecord(x))
+    }
+  ))
+  const sortedInit = sortExerciseDays(formatedInit);
   const [historyDays, setHistoryDays] = useState<ExerciseDayDto[]>(sortedInit);
 
   const addExercise = async (dayIndex: number, exercise: CreateExerciseRecordDto) => {

@@ -1,8 +1,9 @@
 import { ExerciseDayDto } from '@/shared/models';
 import { useState, useEffect } from 'react';
 import styles from '../ExerciseHistory.module.css';
-import { ExerciseElement } from '@/shared/ui/ExerciseElement';
+import { ExerciseRecordElement } from '@/shared/ui/ExerciseRecordElement';
 import { Select } from '@/shared'; 
+import { Container } from 'react-bootstrap';
 import { toLocaleDateString } from '@/shared/lib';
 
 interface ExerciseHistoryProps { 
@@ -12,15 +13,15 @@ interface ExerciseHistoryProps {
 }
 
 export const ExerciseHistory = ({historyDays, onUpdateExercise, onDeleteExercise} :ExerciseHistoryProps) => {
-    const lastDayId = historyDays.reduce((max, x) => (x.id > max.id ? x : max)).id!;
+    const lastDayId = historyDays.length != 0 ? historyDays?.reduce((max, x) => (x.id > max.id ? x : max)).id! : 0;
     const [activeDay, setActiveDay] = useState(lastDayId); 
     
     const currentDay = historyDays?.find(x => x?.id === activeDay);
 
     const exercises = currentDay?.exerciseRecords?.map((exercise, index) => (
-        <ExerciseElement 
+        <ExerciseRecordElement 
             key={index} 
-            exercise={exercise} 
+            exerciseRecord={exercise} 
             onDelete={async () => await onDeleteExercise(exercise.id)} 
             onEdit={async (id: number, values: any) => await onUpdateExercise(exercise.id, values)} 
         />
@@ -46,9 +47,12 @@ export const ExerciseHistory = ({historyDays, onUpdateExercise, onDeleteExercise
                     }
                 />
             </div>
-            <div className={styles.exerciseContainer}>
+            <Container className={styles.exerciseContainer} style={{ overflowY: 'auto' }}>
                 {exercises}
-            </div>
+            </Container>
+            {/* <div className={styles.exerciseContainer}>
+                {exercises}
+            </div> */}
         </div>
     );
 }

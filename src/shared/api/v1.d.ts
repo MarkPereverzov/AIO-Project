@@ -518,6 +518,23 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
+    "/sport-graphics/day-maxweight": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Calculate data to build day to max weight graphic of one exercise */
+        get: operations["SportGraphicsController_dayMaxWeightOnReps"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
 }
 export type webhooks = Record<string, never>;
 export interface components {
@@ -691,17 +708,18 @@ export interface components {
             muscleGroups: string[];
         };
         UpdateExerciseDto: Record<string, never>;
+        ExerciseEntity: Record<string, never>;
         ResponseExerciseRecordDto: {
             /** @description ID of ExerciseRecord */
             id: number;
-            /** @description Exercise name */
-            exercise: string;
+            /** @description Exercise object */
+            exercise: components["schemas"]["ExerciseEntity"];
             /** @description Weight used in the exercise */
             weight: number;
             /** @description Number of repetitions */
             reps: number;
             /** @description ID of the associated exercise day */
-            exerciseDayId: number | undefined;
+            exerciseDayId: number;
         };
         ResponseExerciseDay: {
             /** @description ID of exercise day */
@@ -784,6 +802,10 @@ export interface components {
         };
         ResponseDayTonnage: {
             /** @description Array of pairs - Group of date:tonnage */
+            pairs: string[];
+        };
+        ResponseDayMaxWeight: {
+            /** @description Array of pairs - Group of date:max weight */
             pairs: string[];
         };
     };
@@ -1425,7 +1447,11 @@ export interface operations {
             path?: never;
             cookie?: never;
         };
-        requestBody?: never;
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["CreateExerciseDayDto"];
+            };
+        };
         responses: {
             /** @description The exercise day has been successfully created. */
             201: {
@@ -1847,8 +1873,10 @@ export interface operations {
     SportGraphicsController_exercisePopularityGraphic: {
         parameters: {
             query: {
-                /** @description Period of time to build graphic */
-                period: string;
+                /** @description Start date of time to build graphic */
+                start: string;
+                /** @description End date of time to build graphic */
+                end: string;
             };
             header?: never;
             path?: never;
@@ -1870,8 +1898,10 @@ export interface operations {
     SportGraphicsController_repsByGroup: {
         parameters: {
             query: {
-                /** @description Period of time to build graphic */
-                period: string;
+                /** @description Start date of time to build graphic */
+                start: string;
+                /** @description End date of time to build graphic */
+                end: string;
             };
             header?: never;
             path?: never;
@@ -1893,8 +1923,10 @@ export interface operations {
     SportGraphicsController_dayTonnage: {
         parameters: {
             query: {
-                /** @description Period of time to build graphic */
-                period: string;
+                /** @description Start date of time to build graphic */
+                start: string;
+                /** @description End date of time to build graphic */
+                end: string;
                 /** @description Name of exercise to build graphic */
                 exercise: string;
             };
@@ -1911,6 +1943,35 @@ export interface operations {
                 };
                 content: {
                     "application/json": components["schemas"]["ResponseDayTonnage"];
+                };
+            };
+        };
+    };
+    SportGraphicsController_dayMaxWeightOnReps: {
+        parameters: {
+            query: {
+                /** @description Start date of time to build graphic */
+                start: string;
+                /** @description End date of time to build graphic */
+                end: string;
+                /** @description Name of exercise to build graphic */
+                exercise: string;
+                /** @description Number of reps which is enough to build graphic */
+                reps: number;
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Return data to build day to max weight graphic of one exercise */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ResponseDayMaxWeight"];
                 };
             };
         };

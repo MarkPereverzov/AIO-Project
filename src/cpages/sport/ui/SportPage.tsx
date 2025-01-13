@@ -1,14 +1,14 @@
 'use client';
-import { Plan } from '@/widgets/sport/ui/Plan';
-import { Footer } from '@/widgets/footer';
 import { Header } from '@/widgets/header';
 import { ExerciseHistory } from '@/features/sport/exerciseHistory/ui/ExerciseHistory';
 import styles from '../page.module.css';
 import { ExerciseDayDto } from '@/shared/models';
 import { ResponsePlanExerciseDayDto } from '@/shared/models';
 import { CreateExerciseDto } from '@/shared/models';
-import { SaveExercise, CreateExerciseRecord } from '@/features/sport/exerciseRecordCreation';
+import { SaveExerciseRecord } from '@/features/sport/exerciseRecordCreation';
 import { ExerciseStateProvider } from '@/features/sport/exerciseHistory';
+import { ExerciseList } from '@/features/sport/exercises/ui/ExerciseList';
+import { SaveExercise } from '@/features/sport/exerciseCreation';
 
 interface SportPageProps {
   planDays?: ResponsePlanExerciseDayDto[] | null,
@@ -24,14 +24,16 @@ export const SportPage = ({planDays, historyDays, exercises}: SportPageProps) =>
         <ExerciseStateProvider init={historyDays!}>
           {({ historyDays, addExercise, updateExercise, deleteExercise }) => (
             <>
-            <CreateExerciseRecord 
-              exercises={exercises}
-              onSave={(newExercise) => addExercise(0, newExercise)}
+            <ExerciseList
+              exercises={exercises!}
             />
-            <SaveExercise
+            <SaveExercise 
+              exercises={exercises}
+            />
+            {/* <SaveExerciseRecord
                 exercises={exercises} // Список упражнений
                 onSave={(newExercise) => addExercise(0, newExercise)} // Добавляем в первый день
-              />
+              /> */}
               <ExerciseHistory
                 historyDays={historyDays}
                 onUpdateExercise={updateExercise}

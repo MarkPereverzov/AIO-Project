@@ -43,6 +43,12 @@
     gap: 8px;
 }
 
+.muscleBlock {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+}
+
 /* Ноутбуки: от var(--breakpoint-md) до var(--breakpoint-lg) */
 @media (min-width: 768px) and (max-width: 1440px) {
     /* Стили для ноутбуков */

@@ -1,6 +1,6 @@
 import { GET, POST, PUT, DELETE } from "@/shared/api";
 import { CreateExerciseDayDto, UpdateExerciseDayDto, ExerciseDayDto } from "@/shared/models"; 
-import { throwAnyErrors } from "@/shared/lib";
+import { throwAnyErrors, toClearDate } from "@/shared/lib";
 
 // Get all exercise days
 export const getAllExerciseDays = async (): Promise<ExerciseDayDto[]> => {
@@ -10,7 +10,9 @@ export const getAllExerciseDays = async (): Promise<ExerciseDayDto[]> => {
 
 // Create a new exercise day
 export const createExerciseDay = async (): Promise<CreateExerciseDayDto> => {
-  return await throwAnyErrors(POST('/sport/exercise-days'));
+  return await throwAnyErrors(POST('/sport/exercise-days', { body:{
+    date: toClearDate(new Date()).toDateString()
+  }}));
 };
 
 // Update an existing exercise day

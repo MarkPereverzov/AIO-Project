@@ -4,10 +4,11 @@ import { DatePicker } from '@/shared/ui/DatePicker'; // Переиспользу
 import { toClearDate } from '@/shared/lib';
 import { CreateExerciseDto } from '@/shared/models';
 import styles from '../ChartFilters.module.css';
+import { Input } from '@/shared';
 
 interface ChartFiltersProps {
-    onChange: (filters: { chartType?: string; exercise?: string; date?: Date | null }) => void;
-    filters: { chartType?: string; exercise?: string; date?: Date | null };
+    onChange: (filters: { chartType?: string; minReps?: number, exercise?: string; startDate?: Date | null; endDate?: Date | null; }) => void;
+    filters: { chartType?: string; exercise?: string; minReps?: number; startDate?: Date | null; endDate?: Date | null; };
     exercises?: CreateExerciseDto[] | undefined;
   }
   
@@ -21,11 +22,12 @@ export const ChartFilters: React.FC<ChartFiltersProps> = ({ onChange, filters, e
                 { value: 'popularity', label: 'Популярность упражнения' },
                 { value: 'reps', label: 'Мышцы по подходам' },
                 { value: 'tonnage', label: 'Тоннаж по дню' },
+                { value: 'maxWeight', label: 'Максимальный вес по дню' },
             ]}
         />
 
         {/* Селектор упражнения отображается только для типа "reps" */}
-        {filters.chartType === 'tonnage' && (
+        {(filters.chartType === 'tonnage' || filters.chartType === 'maxWeight') && (
             <Select
                 value={filters.exercise}
                 onChange={(e) => onChange({ ...filters, exercise: e.target.value })}
@@ -36,12 +38,24 @@ export const ChartFilters: React.FC<ChartFiltersProps> = ({ onChange, filters, e
                 }
             />
         )}
+        {filters.chartType === 'maxWeight' && (
+            <Input
+                value={filters.minReps}
+                type='number'
+                onChange={(e) => onChange({ ...filters, minReps: parseInt(e.target.value) })}
+            />
+        )}
 
         {/* Выбор даты */}
         <DatePicker
-            value={filters.date}
-            onChange={(date) => onChange({ ...filters, date })}
-            placeholder="Выберите дату"
+            value={filters.startDate}
+            onChange={(date) => onChange({ ...filters, startDate: date })}
+            placeholder="Выберите начальную дату"
+        />
+        <DatePicker
+            value={filters.endDate}
+            onChange={(date) => onChange({ ...filters, endDate: date })}
+            placeholder="Выберите конечную дату"
         />
     </div>
 );

@@ -35,15 +35,43 @@ export const LineChart: React.FC<LineChartProps> = ({ title, xData, yData }) => 
             borderColor: defaultColor,
             borderWidth: 1,
             fill: true,
+            cubicInterpolationMode: 'monotone'
           },
         ],
       };
-
+      const maxValue = Math.max(...yData);
       const options = {
         responsive: true,
+        scales: {
+          y: {
+            beginAtZero: true,
+            suggestedMax: maxValue + (maxValue * 0.1), // Задаём максимальное значение с запасом 10%
+          }
+        },
         plugins: {
           legend: {
             display: false,
+          },
+          datalabels: {
+            display: true, // Показывать текст
+            align: 'top', // Расположение текста сверху
+            anchor: 'end',
+            formatter: function(value: number, context: any) {
+              const dataIndex = context.dataIndex;
+              const dataset = context.dataset.data;
+              if(dataIndex === dataset.length-1) return value.toString();
+              if (dataIndex > 0 && value <= dataset[dataIndex - 1]) {
+                return ''; // Пропуск подписи
+              }
+              return value.toString(); // Показываем значение
+            },
+            color: '#000', // Цвет текста
+            font: {
+              weight: 'bold', // Толщина шрифта
+            },
+            padding: {
+              top: 0, // Отступ от вершины колонки
+            },
           },
           title: {
             display: false,
@@ -54,7 +82,7 @@ export const LineChart: React.FC<LineChartProps> = ({ title, xData, yData }) => 
 
     return (
       <ChartContainer title={title} >
-        <Line className={styles.Chart} data={data} options={options as any}/>
+        <Line className={styles.Chart} data={data as any} options={options as any}/>
       </ChartContainer>
     );
 };

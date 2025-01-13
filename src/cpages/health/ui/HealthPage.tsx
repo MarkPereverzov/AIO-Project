@@ -24,7 +24,7 @@ export const HealthPage = () => {
       <div className='pageContainer'>
         <div className="gridContainer">
           {blocks.map((block, index) => (
-            <Block key={index} title={block.title} subtitle={block.subtitle} Icon={block.Icon} href={block.href} />
+            <Block key={index} title={block.title} subtitle={block.subtitle} href={block.href} />
           ))}
         </div>
       </div>

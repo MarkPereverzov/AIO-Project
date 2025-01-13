@@ -1,5 +1,5 @@
 import { RoundButton } from "@/shared";
-import { WeightElement } from '../../../shared/ui/WeightElement';
+import { WeightElement } from '@/shared/ui/WeightElement';
 import { ResponsePlanExerciseDto } from "@/shared/models";
 import { IoRepeat } from "react-icons/io5";
 import { RiWeightLine } from "react-icons/ri";
@@ -10,7 +10,7 @@ import { EditButton } from "@/shared/ui/EditButton";
 import { updateExerciseRecord } from "@/entities/sport";
 import { UpdateExerciseRecordDto } from "@/shared/models";
 
-import styles from '../planexercise.module.css';
+import styles from './ExerciseElement.module.css';
 
 interface PlanElementProps {
   exercise: ResponsePlanExerciseDto,
@@ -19,7 +19,7 @@ interface PlanElementProps {
 };
 
 export const PlanElement = ({exercise, onDelete, onEdit}: PlanElementProps) => {
-  const title = exercise?.exercise?.name ?? 'Undefined';
+  const title = exercise?.exercise ?? 'Undefined';
   const muscle = "грудь";
   const id = exercise?.id ?? -1;
 

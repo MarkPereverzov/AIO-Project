@@ -6,5 +6,5 @@ import { ExerciseDayDto } from "@/shared/models";
  * @returns Отсортированный массив записей.
  */
 export const sortExerciseDays = (days: ExerciseDayDto[]): ExerciseDayDto[] => {
-  return [...days].sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime());
+  return days?.sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime());
 };

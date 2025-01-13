@@ -13,4 +13,7 @@ export * from './LineChart';
 export * from './ChartContainer';
 export * from './Input';
 export * from './WeightElement';
+export * from './ExerciseRecordElement';
+export * from './PlanElement';
 export * from './ExerciseElement';
+export * from './MuslceElement';

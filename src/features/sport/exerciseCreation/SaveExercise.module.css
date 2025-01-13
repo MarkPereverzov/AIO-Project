@@ -1,0 +1,44 @@
+.Container {
+    margin-top: 20px;
+    border-radius: var(--corner-raidus);
+    background-color: var(--light-gray);
+    padding: 20px;
+    width: 600px;
+    display: flex;
+    gap: 30px;
+    flex-direction: column;
+}
+
+.Button, .Button:hover, .Button:active {
+    border-radius: var(--corner-input);
+    background-color: var(--light-red);
+    border-color:var(--light-red) ;
+}
+
+.title {
+    font-size: 25px;
+    font-weight: 600;
+}
+
+.titleBlock {
+    display: flex;
+    justify-content: space-around;
+}
+
+.InputListElement {
+    display: flex;
+    gap: 10px;
+}
+.muscleContainer {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 колонки равной ширины */
+    gap: 10px;
+}
+
+/* Ноутбуки: от var(--breakpoint-md) до var(--breakpoint-lg) */
+@media (min-width: 768px) and (max-width: 1440px) {
+    /* Стили для ноутбуков */
+    .Container {
+        width: 460px;
+    }
+}
