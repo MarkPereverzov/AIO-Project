@@ -1,0 +1,39 @@
+.InputListElement {
+    display: flex;
+    flex-direction: column;
+}
+.dropDownMenu {
+    position: absolute;
+    width: 100%;
+    background-color: #ffffff; /* Фон подсказок */
+    border: 1px solid #ddd; /* Граница списка */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Легкая тень */
+    border-radius: 8px; /* Скругленные углы */
+    margin-top: 4px; /* Отступ сверху */
+    z-index: 1050; /* Выше других элементов */
+    max-height: 200px; /* Максимальная высота для скролла */
+    overflow: visible;
+    overflow-y: auto; /* Добавить прокрутку, если подсказки выходят за границы */
+}
+.dropDownItem {
+    padding: 10px 15px; /* Внутренние отступы */
+    font-size: 14px; /* Размер текста */
+    color: #333; /* Цвет текста */
+    cursor: pointer; /* Указатель при наведении */
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+.dropDownItem:hover {
+    background-color: #f1f1f1; /* Цвет фона при наведении */
+    color: #007bff; /* Цвет текста при наведении */
+}
+.dropDownItem:active {
+    background-color: #007bff; /* Синий фон */
+    color: #ffffff; /* Белый текст */
+}
+.dropDownMenu::-webkit-scrollbar {
+    width: 6px;
+}
+.dropDownMenu::-webkit-scrollbar-thumb {
+    background-color: #ccc; /* Цвет ползунка */
+    border-radius: 8px; /* Скругление ползунка */
+  }

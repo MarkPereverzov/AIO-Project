@@ -17,3 +17,4 @@ export * from './ExerciseRecordElement';
 export * from './PlanElement';
 export * from './ExerciseElement';
 export * from './MuslceElement';
+export * from './DropDownInput';

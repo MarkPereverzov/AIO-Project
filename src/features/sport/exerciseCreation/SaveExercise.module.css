@@ -25,10 +25,7 @@
     justify-content: space-around;
 }
 
-.InputListElement {
-    display: flex;
-    gap: 10px;
-}
+
 .muscleContainer {
     display: grid;
     grid-template-columns: repeat(3, 1fr); /* 3 колонки равной ширины */
