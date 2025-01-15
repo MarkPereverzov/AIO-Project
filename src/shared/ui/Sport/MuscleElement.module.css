@@ -1,0 +1,6 @@
+.tagContainer {
+    background-color: #fff;
+    border-radius: var(--corner-raidus);
+    text-align: center;
+    padding: 2px 15px;
+}

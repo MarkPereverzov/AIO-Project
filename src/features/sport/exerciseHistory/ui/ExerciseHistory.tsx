@@ -1,7 +1,7 @@
 import { ExerciseDayDto } from '@/shared/models';
 import { useState, useEffect } from 'react';
 import styles from '../ExerciseHistory.module.css';
-import { ExerciseRecordElement } from '@/shared/ui/ExerciseRecordElement';
+import { ExerciseRecordElement } from '@/shared/';
 import { Select } from '@/shared'; 
 import { Container } from 'react-bootstrap';
 import { toLocaleDateString } from '@/shared/lib';

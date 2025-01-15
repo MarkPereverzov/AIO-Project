@@ -5,14 +5,14 @@ import { toClearDate, compareDate } from '@/shared/lib';
 import { createExerciseDayModel, sortExerciseDays } from '@/entities/sport';
 import { formatExerciseRecord } from '@/entities/sport';
 
-interface ExerciseState {
+interface ExerciseRecordsStateProviderProps {
   historyDays: ExerciseDayDto[];
-  addExercise: (dayIndex: number, exercise: CreateExerciseRecordDto) => Promise<any>;
+  addExerciseRecord: (dayIndex: number, exercise: CreateExerciseRecordDto) => Promise<any>;
   updateExercise: (id: number, exercise: CreateExerciseRecordDto ) => Promise<void>;
   deleteExercise: (id: number) => Promise<void>;
 }
 
-export const ExerciseStateProvider: React.FC<{ children: (state: ExerciseState) => React.ReactNode, init: ExerciseDayDto[] }> = ({ children, init }) => {
+export const ExerciseRecordsStateProvider: React.FC<{ children: (state: ExerciseRecordsStateProviderProps) => React.ReactNode, init: ExerciseDayDto[] }> = ({ children, init }) => {
   const formatedInit = init.map(day => (
     {
       ...day,
@@ -22,7 +22,7 @@ export const ExerciseStateProvider: React.FC<{ children: (state: ExerciseState) 
   const sortedInit = sortExerciseDays(formatedInit);
   const [historyDays, setHistoryDays] = useState<ExerciseDayDto[]>(sortedInit);
 
-  const addExercise = async (dayIndex: number, exercise: CreateExerciseRecordDto) => {
+  const addExerciseRecord = async (dayIndex: number, exercise: CreateExerciseRecordDto) => {
     if(exercise.exercise === '' || exercise.reps === undefined || exercise.weight === undefined) return {error: true};
 
     let createdExerciseRecord = null;
@@ -99,7 +99,7 @@ export const ExerciseStateProvider: React.FC<{ children: (state: ExerciseState) 
     <>
       {children({
         historyDays,
-        addExercise,
+        addExerciseRecord,
         updateExercise,
         deleteExercise,
       })}

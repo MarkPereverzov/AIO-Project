@@ -2,13 +2,7 @@ import React, { useState } from 'react';
 import { RoundButton } from '@/shared';
 import { RiPencilLine } from "react-icons/ri";
 import { EditModal } from '@/shared';
-import styles from './EditButton.module.css';
-
-interface FieldConfig {
-    name: string; // Название поля (ключ объекта)
-    label: string; // Текст метки для поля
-    type: 'text' | 'number' | 'textarea' | 'color' | 'array' | 'date'; // Тип поля
-  }
+import type { FieldConfig } from '@/shared';
 
 interface EditButtonProps<T> {
   size?:  'sm' | 'md' | 'lg' | 'xl';

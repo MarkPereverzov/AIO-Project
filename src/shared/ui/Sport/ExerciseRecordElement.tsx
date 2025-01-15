@@ -3,8 +3,8 @@ import { WeightElement } from './WeightElement';
 import { ResponseExerciseRecordDto, ResponsePlanExerciseDto } from "@/shared/models";
 import { IoRepeat } from "react-icons/io5";
 import { RiWeightLine } from "react-icons/ri";
-import { DeleteButton } from "@/shared/ui/DeleteButton";
-import { EditButton } from "@/shared/ui/EditButton";
+import { DeleteButton } from "@/shared/ui/Buttons/DeleteButton";
+import { EditButton } from "@/shared/ui/Buttons/EditButton";
 import { MuscleElement } from "@/shared"; 
 import styles from './ExerciseElement.module.css';
 

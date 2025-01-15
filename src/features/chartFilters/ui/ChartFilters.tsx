@@ -1,6 +1,6 @@
 import React from 'react';
-import { Select } from '@/shared/ui/Select'; // Переиспользуемый селектор
-import { DatePicker } from '@/shared/ui/DatePicker'; // Переиспользуемый датапикер
+import { Select } from '@/shared/ui/DefaultInput/Select'; // Переиспользуемый селектор
+import { DatePicker } from '@/shared/ui/DefaultInput'; // Переиспользуемый датапикер
 import { toClearDate } from '@/shared/lib';
 import { CreateExerciseDto } from '@/shared/models';
 import styles from '../ChartFilters.module.css';

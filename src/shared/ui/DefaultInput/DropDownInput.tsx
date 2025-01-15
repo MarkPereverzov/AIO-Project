@@ -4,12 +4,13 @@ import { Form, Button,Dropdown } from 'react-bootstrap';
 import styles from "./DropDownInput.module.css";
 
 interface DropDownInputProps {
+    value?: string;
     suggestions: string[];
     onEnter: (value: string) => void;
 }
 
-export const DropDownInput: React.FC<DropDownInputProps> = ({ suggestions, onEnter }) => {
-    const [currentInput, setCurrentInput] = useState<string>('');
+export const DropDownInput: React.FC<DropDownInputProps> = ({ value, suggestions, onEnter }) => {
+    const [currentInput, setCurrentInput] = useState<string>(value ?? '');
     const [filteredSuggestions, setFilteredSuggestions] = useState([]);
 
     const handleInputChange = (e: any) => {

@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import styles from './Input.module.css';
-import { toClearDate } from '../lib';
+import { toClearDate } from '@/shared/lib';
 
 interface DatePickerProps {
   value: Date | string | null | undefined; // Текущее значение (может быть null)

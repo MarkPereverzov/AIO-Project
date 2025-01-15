@@ -25,6 +25,8 @@ export const useCreateExercise = ({initStates, onSave}: Props) => {
       name: states.name,
       muscleGroups: states.muscleGroup
     });
+
+    setStates(initStates!);
         
     return result;
   };

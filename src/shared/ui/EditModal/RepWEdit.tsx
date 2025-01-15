@@ -1,5 +1,5 @@
 import { Form } from 'react-bootstrap';
-import { DeleteButton } from './DeleteButton';
+import { DeleteButton } from '../Buttons/DeleteButton';
 import styles from './RepW.module.css';
 
 interface RepWEditProps {

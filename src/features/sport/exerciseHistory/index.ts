@@ -1,2 +1,2 @@
-export * from './model/ExerciseStateProvider';
+export * from './model/ExerciseRecordsStateProvider';
 export * from './ui/ExerciseHistory';

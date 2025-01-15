@@ -4,7 +4,7 @@ import { useUrlParams } from '@/shared/hooks';
 import { Form, Button, InputGroup } from 'react-bootstrap';
 import { CategoryDtoResponse, ProductDtoResponse, TagDtoResponse } from '@/shared/models';
 import { Tag } from './Tag';
-import { Select } from '@/shared/ui/Select'; // Переиспользуемый селектор
+import { Select } from '@/shared/ui/DefaultInput/Select'; // Переиспользуемый селектор
 import styles from '../Filters.module.css'; // Подключаем стили
 
 interface FiltersProps {

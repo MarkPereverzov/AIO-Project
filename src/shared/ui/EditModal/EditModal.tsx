@@ -1,12 +1,14 @@
 import React, { useState } from 'react';
 import { Modal, Button, Form } from 'react-bootstrap';
 import { RepWGroup } from './RepWGroup';
-import { toClearDate } from '../lib';
+import { toClearDate } from '@/shared/lib';
+import { MuscleEditContainer } from './MuscleEditContainer';
+import { formatExercise } from '@/entities/sport';
 
-interface FieldConfig {
+export interface FieldConfig {
   name: string; // Название поля (ключ объекта)
   label: string; // Текст метки для поля
-  type: 'text' | 'number' | 'textarea' | 'color' | 'array' | 'date'; // Тип поля
+  type: 'text' | 'number' | 'textarea' | 'color' | 'repsToWeight' | 'date' | 'muscleGroupArray'; // Тип поля
 }
 
 interface EditModalProps<T> {
@@ -73,7 +75,8 @@ export const EditModal = <T extends Record<string, any>>({
   }
 
   const handleSave = async () => {
-    await onSave(values);
+    const formatted = formatExercise(values);
+    await onSave(formatted as any);
   };
 
   return (
@@ -99,8 +102,10 @@ export const EditModal = <T extends Record<string, any>>({
                     value={values[field.name] || ''}
                     onChange={(e) => handleChange(field.name, e.target.value)}
                   />
-                ) : field.type === 'array' ? (
-                    <RepWGroup sets={values['sets']} onChange={handleEdit} onDelete={handleDelete} onAdd={handleAdd}/>
+                ) : field.type === 'repsToWeight' ? (
+                  <RepWGroup sets={values['sets']} onChange={handleEdit} onDelete={handleDelete} onAdd={handleAdd}/>
+                ) : field.type === 'muscleGroupArray' ? (
+                  <MuscleEditContainer allMuscleGroups={values['allMuscleGroups']} muscleGroups={values['muscleGroups']} setValues={setValues}/>
                 ) : field.type === 'date' ? (
                     <Form.Control 
                       type='date'

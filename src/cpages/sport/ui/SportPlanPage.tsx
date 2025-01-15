@@ -8,7 +8,7 @@ import { ExerciseDayDto } from '@/shared/models';
 import { ResponsePlanExerciseDayDto } from '@/shared/models';
 import { CreateExerciseDto } from '@/shared/models';
 import { SaveExerciseRecord, CreateExerciseRecord } from '@/features/sport/exerciseRecordCreation';
-import { ExerciseStateProvider } from '@/features/sport/exerciseHistory';
+import { ExerciseRecordsStateProvider } from '@/features/sport/exerciseHistory';
 
 interface SportPageProps {
   planDays?: ResponsePlanExerciseDayDto[] | null,

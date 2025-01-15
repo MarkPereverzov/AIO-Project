@@ -1,4 +1,4 @@
-import { SportanalysisPage } from '@/cpages/sportAnalysis/ui/SportAnalysisPage';
+import { SportExercisePage } from '@/cpages/sport/ui/SportExercisePage';
 import { getAllExercises } from '@/entities/sport';
 
 export default async function Page() {
@@ -11,7 +11,7 @@ export default async function Page() {
   } 
 
   return(
-    <SportanalysisPage 
+    <SportExercisePage 
       exercises={exercises!}
     />
   );

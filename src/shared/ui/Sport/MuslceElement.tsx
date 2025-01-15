@@ -1,4 +1,4 @@
-import styles from "./Tag.module.css";
+import styles from "./MuscleElement.module.css";
 
 interface MuscleElementProps {
   muscleGroup: any;

@@ -15,7 +15,7 @@ interface RepWGroupProps {
 }
 
 export const RepWGroup = ({sets, onChange, onDelete, onAdd}: RepWGroupProps) => {
-    const repWEdit = sets.map((set, index) => <RepWEdit key={index} set={set} onDelete={onDelete} onChange={onChange}/>)
+    const repWEdit = sets?.map((set, index) => <RepWEdit key={index} set={set} onDelete={onDelete} onChange={onChange}/>)
 
     return (
         <Form.Group key={'redit'} className={`${styles.group} mb-3`}>

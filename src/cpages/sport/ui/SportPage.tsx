@@ -1,52 +1,24 @@
 'use client';
 import { Header } from '@/widgets/header';
-import { ExerciseHistory } from '@/features/sport/exerciseHistory/ui/ExerciseHistory';
+import { Block } from '@/widgets/block';
 import styles from '../page.module.css';
-import { ExerciseDayDto } from '@/shared/models';
-import { ResponsePlanExerciseDayDto } from '@/shared/models';
-import { CreateExerciseDto } from '@/shared/models';
-import { SaveExerciseRecord } from '@/features/sport/exerciseRecordCreation';
-import { ExerciseStateProvider } from '@/features/sport/exerciseHistory';
-import { ExerciseList } from '@/features/sport/exercises/ui/ExerciseList';
-import { SaveExercise } from '@/features/sport/exerciseCreation';
 
-interface SportPageProps {
-  planDays?: ResponsePlanExerciseDayDto[] | null,
-  historyDays?: ExerciseDayDto[] | null,
-  exercises?: CreateExerciseDto[] | undefined,
-}
-
-export const SportPage = ({planDays, historyDays, exercises}: SportPageProps) => {
+export const SportPage = () => {
+    const blocks = [
+        { title: 'Список упражнений', subtitle: 'Список упражнений', href: '/sport/exercises' },
+        { title: 'Список записанных упражнений', subtitle: 'Список записанных упражнений', href: '/sport/records' },
+        { title: 'Аналитика', subtitle: 'Аналитика', href: '/sport/analysis' },
+    ];
   return (
     <>
-      <Header pageName="Спорт" />
-      <div className={styles.pageContainer} style={{justifyContent: 'center', gap: '50px'}}>
-        <ExerciseStateProvider init={historyDays!}>
-          {({ historyDays, addExercise, updateExercise, deleteExercise }) => (
-            <>
-            <ExerciseList
-              exercises={exercises!}
-            />
-            <SaveExercise 
-              exercises={exercises}
-            />
-            {/* <SaveExerciseRecord
-                exercises={exercises} // Список упражнений
-                onSave={(newExercise) => addExercise(0, newExercise)} // Добавляем в первый день
-              /> */}
-              <ExerciseHistory
-                historyDays={historyDays}
-                onUpdateExercise={updateExercise}
-                onDeleteExercise={deleteExercise}
-              />
-            </>
-          )}
-        </ExerciseStateProvider>
-        {/* <Plan planDays={planDays ?? example}/> */}
-      </div>
-      {/* <Footer>
-        <Exercise/>
-      </Footer> */}
+        <Header pageName="Спорт" />
+        <div className='pageContainer'>
+            <div className="gridContainer">
+                {blocks.map((block, index) => (
+                    <Block key={index} title={block.title} subtitle={block.subtitle} href={block.href} />
+                ))}      
+            </div>
+        </div>
     </>
   );
 };

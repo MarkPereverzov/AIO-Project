@@ -1,10 +1,7 @@
 import { MuscleElement, RoundButton } from "@/shared";
-import { WeightElement } from './WeightElement';
 import { CreateExerciseDto, ResponseExerciseRecordDto, ResponsePlanExerciseDto } from "@/shared/models";
-import { IoRepeat } from "react-icons/io5";
-import { RiWeightLine } from "react-icons/ri";
-import { DeleteButton } from "@/shared/ui/DeleteButton";
-import { EditButton } from "@/shared/ui/EditButton";
+import { DeleteButton } from "@/shared/ui/Buttons/DeleteButton";
+import { EditButton } from "@/shared/ui/Buttons/EditButton";
 
 import styles from './ExerciseElement.module.css';
 
@@ -21,9 +18,8 @@ export const ExerciseElement = ({exercise, onDelete, onEdit}: ExerciseElementPro
   const id = exercise.id;
 
   const initial = {
-    exercise: title,
-    reps: 0,
-    weight: 0
+    name: title,
+    muscleGroups: muscles,
   }
 
   return (
@@ -37,20 +33,19 @@ export const ExerciseElement = ({exercise, onDelete, onEdit}: ExerciseElementPro
       </div>
       <div className={styles.rightSide}>
         <div className={styles.edit}>
-            <EditButton
+            {/* <EditButton
                 size='md'
                 modalSettings={{
                 title: 'Редактирование упражнения',
                 fields: [
-                    { name: 'exercise', label: 'Название упражнения', type: 'text' },
-                    { name: 'reps', label: 'Количество повторений', type: 'number' },
-                    { name: 'weight', label: 'Вес', type: 'number' },
+                    { name: 'name', label: 'Название упражнения', type: 'text' },
+                    { name: 'muscleGroups', label: 'Количество повторений', type: 'muscleGroupArray' },
                 ],
                 initialValues: initial,
                 onSave: async (values: any) => onEdit(id, values),
                 onCancel: ()=>{},
                 }}
-            />
+            /> */}
             <DeleteButton
                 size='md'
                 onDelete={async ()=>{await onDelete(id)}}

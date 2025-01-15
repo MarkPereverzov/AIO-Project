@@ -9,7 +9,13 @@ interface ExerciseListProps {
     onDeleteExercise: (id: number) => void;
 }
 
-export const ExerciseList = ({exercises, onUpdateExercise, onDeleteExercise}: ExerciseListProps) => {
+export const ExerciseList = ({exercises, onUpdateExercise, onDeleteExercise}: ExerciseListProps) => {  
+    // const allMuscleGroups = Array.from(
+    //     exercises.reduce((acc, x) => {
+    //         x.muscleGroups.forEach(m => acc.set(JSON.stringify(m), m));
+    //         return acc;
+    //     }, new Map()).values()
+    // );
 
     return (
         <div className={styles.mainBlock}>

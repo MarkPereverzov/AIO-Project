@@ -1,12 +1,12 @@
 import { RoundButton } from "@/shared";
-import { WeightElement } from '@/shared/ui/WeightElement';
+import { WeightElement } from '@/shared/ui/Sport/WeightElement';
 import { ResponsePlanExerciseDto } from "@/shared/models";
 import { IoRepeat } from "react-icons/io5";
 import { RiWeightLine } from "react-icons/ri";
 import { RiPencilLine } from "react-icons/ri";
 import { DeleteButton } from "@/shared";
 import { deletePlanExercise, updatePlanExercise } from "@/entities/sport";
-import { EditButton } from "@/shared/ui/EditButton";
+import { EditButton } from "@/shared/ui/Buttons/EditButton";
 import { updateExerciseRecord } from "@/entities/sport";
 import { UpdateExerciseRecordDto } from "@/shared/models";
 
