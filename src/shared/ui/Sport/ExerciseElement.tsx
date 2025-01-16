@@ -12,8 +12,9 @@ interface ExerciseElementProps {
 };
 
 export const ExerciseElement = ({exercise, onDelete, onEdit}: ExerciseElementProps) => {
+  if( !exercise ) return <></>
   const title = exercise?.name ?? 'Undefined';
-  const muscles = exercise.muscleGroups;
+  const muscles = exercise?.muscleGroups ?? [];
   const muscleBlock = muscles?.map((muscle, index) => <MuscleElement key={index} muscleGroup={muscle} onClick={()=>{}}/>);
   const id = exercise.id;
 

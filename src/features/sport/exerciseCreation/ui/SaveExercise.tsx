@@ -17,8 +17,10 @@ export const SaveExercise = ({exercises, onSave}: SaveExercise) => {
         onSave: onSave,
     });
 
+    console.log(exercises);
+
     const musclesInit = exercises?.reduce((acc, e) => {
-        e.muscleGroups.forEach((mg: any) => acc.add(mg.name)); 
+        e?.muscleGroups?.forEach((mg: any) => acc.add(mg?.name)); 
         return acc;
     }, new Set());
 
